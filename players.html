@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RSKeurslagers-tv - Spelers</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="scripts/player_script.js"></script>
+  <script defer src="scripts/jaargroep_complete.js"></script>
+  <link rel="stylesheet" href="default_style.css">
+</head>
+
+<body>
+    <div class="top-header">
+      <h1>RSKeurslagers.tv</h1>
+      <p><i>Tafelvoetbalstatistiek</i></p>
+      <div class="button-bar">
+          <a class="top-button" href="/match2">Wedstrijden 2v2</a>
+          <a class="top-button" href="/match1">Wedstrijden 1v1</a>
+          <a class="top-button" href="/players">Spelers</a>
+      </div>
+    </div>
+    <div class="content">
+        <div class="page-part">
+        <div class="3contain">
+            <h2>Alle spelers</h2>
+        </div>
+
+        <div class="table-container">
+            <table id="playersTable">
+                <thead>
+                  <tr>
+                    <th class="table-fn" rowspan="2">Voornaam</th>
+                    <th class="table-ln" rowspan="2">Achternaam</th>
+                    <th class="table-elo" colspan="2">ELO</th>
+                    <th class="table-jaargroep" rowspan="2">Jaargroep</th>
+                  </tr>
+                  <tr>
+                    <th class="table-elo1" colspan="1" style="top: 2rem">1v1</th>
+                    <th class="table-elo2" colspan="1" style="top: 2rem">2v2</th>
+                  </tr>
+                </thead>
+                <tbody id="playersBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+
+  <div class="page-part">
+    <div class="section-header">
+        <h2>Spelers invoeren</h2>
+    </div>
+
+    <form id="playerForm">
+        <fieldset class="name-fieldset">
+            <legend>Naam</legend>
+            <div class="field interject">
+                <label for="first_name">Voornaam</label>
+                <input type="text" id="first_name" placeholder="Jan" required />
+            </div>
+            <div class="field interject">
+                <label for="interject">Tussenvoegsel</label>
+                <input type="text" id="interject" placeholder="de" />
+            </div>
+            <div class="field name">
+                <label for="last_name">Achternaam</label>
+                <input type="text" id="last_name" placeholder="Modulo" required />
+            </div>
+        </fieldset>
+
+
+        <fieldset class="other-fieldset">
+            <legend>Overig</legend>
+            <datalist id="jaargroepList"></datalist>
+            <div class="field">
+                <label for="jaargroep">Jaargroep</label>
+                <input type="text" id="jaargroep" placeholder="Degelijk" list="jaargroepList"/>
+            </div>
+        </fieldset>
+
+        <button type="submit" id="player_submit">Speler toevoegen</button>
+    </form>
+</div>
+
+
+    </div>
+
+
+
+
+
+</body>
+</html>
