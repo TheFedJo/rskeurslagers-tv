@@ -1,0 +1,713 @@
+/* ── Reset ───────────────────────────────────────────────── */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ── Base ────────────────────────────────────────────────── */
+body {
+    font-family: serif;
+    margin: min(2rem, 1vw);
+    max-height: 100vh;
+    background: var(--color-background-primary);
+    justify-content: center;
+    display: flex;
+
+}
+
+/* ── Root wrapper ────────────────────────────────────────── */
+.root {
+    max-width: 720px;
+    width: 100%;
+}
+
+/* ── Top header ──────────────────────────────────────────── */
+.top-header {
+    overflow: hidden;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.header-title {
+    line-height: 1;
+    color: var(--color-text-primary);
+    font-size: 72px;
+    font-style: italic;
+    font-weight: 500;
+    margin-top: 18px;
+}
+
+.header-subtitle {
+    line-height: 0.5;
+    color: var(--color-text-secondary);
+    font-size: 24px;
+}
+
+/* ── Fields & labels ─────────────────────────────────────── */
+label {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    margin-bottom: 4px;
+}
+
+.field {
+    display: grid;
+    min-width: 120px;
+    margin-bottom: 8px;
+}
+
+/* ── Inputs ──────────────────────────────────────────────── */
+input,
+select {
+    width: 100%;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 6px 8px;
+    border: 0.5px solid var(--color-border-primary);
+    color: var(--color-text-primary);
+    box-sizing: border-box;
+    transition: border-color 0.15s;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--color-border-primary);
+    box-shadow: 0 0 0 2px var(--color-background-info);
+}
+
+/* ── Buttons ─────────────────────────────────────────────── */
+button,
+button[type="submit"] {
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 7px 14px;
+    border: 1px solid var(--color-border-secondary);
+    background: none;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+}
+
+button:hover {
+    background: var(--color-background-secondary);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+button[type="submit"] {
+    margin-top: 8px;
+}
+
+
+/* ── Tabs ────────────────────────────────────────────────── */
+.tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.tab {
+    padding: 8px 16px;
+    border: 3px solid;
+    border-color: var(--color-text-secondary);
+    border-radius: 0;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: color 0.15s;
+    font-size: 24px;
+}
+
+.tab:hover {
+    background: none;
+    border-color: var(--color-text-primary);
+    color: var(--color-text-primary);
+}
+
+.tab.active {
+    border: 5px solid;
+
+}
+
+/* ── Sections (tab panels) ───────────────────────────────── */
+.sec, .tert {
+    display: none;
+}
+
+.sec.active {
+    display: block;
+}
+
+.tert.active {
+    display: inherit;
+}
+
+/* ── Section titles and text ───────────────────────────────────────── */
+h1, .section-title {
+    font-size: 36px;
+    color: var(--color-text-primary);
+    font-style: italic;
+    font-weight: 500;
+    margin-top: 18px;
+    background: repeating-linear-gradient(
+        105deg,
+        var(--color-background-tertiary) 0px 2px,
+        transparent 2px 4px
+    );
+    width: fit-content;
+    height: fit-content;
+}
+
+h2, .section-header {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    margin-top: 12px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--color-background-secondary) 0px 2px,
+        transparent 2px 4px
+    );
+    width: fit-content;
+    height: fit-content;
+}
+
+p, .section-text {
+    font-size: 18px;
+    color: var(--color-text-primary);
+
+}
+
+.footnote {
+    font-size: 12px;
+}
+
+.footnotes {
+    margin-top: 24px;
+}
+
+/* ── Pills ───────────────────────────────────────────────── */
+.pills-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.pill {
+    padding: 4px 10px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 2px solid var(--color-border-secondary);
+    color: var(--color-text-primary);
+    background: none;
+    font-family: inherit;
+    transition: all 0.1s;
+}
+
+.pill:hover {
+    background: var(--color-background-secondary);
+}
+
+.pill.on {
+    background: var(--color-background-success);
+    color: var(--color-text-secondary);
+    text-shadow: 2px 0 1px var(--color-background-primary),
+                -2px 0 1px var(--color-background-primary),
+                 0 2px 1px var(--color-background-primary),
+                0 -2px 1px var(--color-background-primary);
+}
+
+/* ── Card ────────────────────────────────────────────────── */
+.card {
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-primary);
+    padding: 1.25rem;
+}
+
+/* ── Player rows ─────────────────────────────────────────── */
+.player-row, .match-row, .elo-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+}
+
+.elo-row {
+    display: grid;
+    grid-template-columns:
+        40px          /* rank */
+        160px         /* avatar + name block */
+        repeat(auto-fit, minmax(60px, 1fr)); /* elo columns */
+    gap: 8px;
+}
+
+.elo-header {
+    font-weight: 600;
+    opacity: 0.8;
+    border-bottom: 1px solid #ddd;
+}
+
+.elo-badge-row {
+    display: contents; /* important: lets badges align with grid columns */
+}
+
+.ebadge {
+    justify-self: center;
+    min-width: 50px;
+    text-align: center;
+}
+
+.player-row:last-child,
+.match-row:last-child,
+.elo-row:last-child {
+    border-bottom: none;
+}
+
+.avatar {
+    width: 34px;
+    height: 34px;
+    background: var(--color-background-success);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    flex-shrink: 0;
+}
+
+.player-info, .match-info, .elo-info {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.player-name, .match-name, .elo-name {
+
+}
+
+.player-id-text {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+}
+
+.player-rank {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    min-width: 20px;
+}
+
+.player-data, .match-data, .elo-data {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+}
+
+.participants-wrapper {
+    display: flex;
+    gap: 1rem;
+}
+
+.participants {
+    flex: 1;
+}
+
+.win .elo-gain,
+.loss .elo-gain,
+.draw .elo-gain {
+    font-weight: 750;
+    font-size: larger;
+}
+
+.win .elo-gain {
+    color: var(--color-text-success);
+}
+
+.loss .elo-gain {
+    color: var(--color-text-danger);
+}
+
+.draw .elo-gain {
+    color: var(--color-text-warning)
+}
+
+.player-metadata, .match-metadata, .elo-metadata  {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    margin-top: 2px;
+    font-family: var(--font-mono);
+}
+
+/* ── ELO badge ───────────────────────────────────────────── */
+.ebadge {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 10px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 2px
+}
+
+.e-hi  {
+    background: var(--color-text-success);
+    color: var(--color-background-primary);
+}
+
+.e-mid {
+    background: var(--color-text-info);
+    color: var(--color-background-secondary);
+}
+
+.e-lo  {
+    background: var(--color-text-danger);
+    color: var(--color-background-tertiary);
+}
+
+.e-no  {
+    background: var(--color-text-tertiary);
+    color: var(--color-background-tertiary);
+}
+
+
+/* ── Search / dropdown ───────────────────────────────────── */
+.search-wrap {
+    position: relative;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-secondary);
+    border-bottom: 2px solid;
+    z-index: 10;
+    margin: 3px 2px 0 2px;
+    overflow: hidden;
+}
+
+.dd-item {
+    padding: 9px 12px;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+}
+
+.no-items-dropdown {
+    padding: 10px 12px;
+    font-size: 15px;
+    color: var(--color-text-secondary);
+}
+
+.dd-item:last-child { border-bottom: none; }
+.dd-item:hover { background: var(--color-background-secondary); }
+
+.dd-name {
+    font-weight: 500;
+    color: var(--color-text-primary);
+}
+
+.dd-gen {
+    font-size: 11px;
+    color: var(--color-text-secondary);
+    font-family: var(--font-mono);
+}
+
+.tag {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.tag-new    {
+    background: var(--color-background-success);
+    color: var(--color-text-primary);
+    text-shadow: 3px 0 2px var(--color-background-primary),
+                -3px 0 2px var(--color-background-primary),
+                 0 3px 2px var(--color-background-primary),
+                0 -3px 2px var(--color-background-primary);
+}
+.tag-exists {
+    background: var(--color-background-info);
+    color: var(--color-text-primary);
+    text-shadow: 3px 0 2px var(--color-background-tertiary),
+                -3px 0 2px var(--color-background-tertiary),
+                 0 3px 2px var(--color-background-tertiary),
+                0 -3px 2px var(--color-background-tertiary);
+}
+
+/* ── Stats bar ───────────────────────────────────────────── */
+.stats {
+    display: flex;
+    gap: 8px;
+}
+
+.stat-box {
+    text-align: center;
+    padding: 8px 16px;
+}
+
+.stat-value {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+}
+
+/* ── Score inputs ────────────────────────────────────────── */
+.form-fields {
+    display: grid;
+}
+
+.form-fields > .section-header,
+.form-fields > .section-title,
+.form-fields > .section-text {
+    justify-self: center;
+    margin-bottom: 4px;
+}
+
+.score-in {
+    width: 58px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 500;
+    justify-self: center;
+}
+
+.score-row {
+    display: grid;
+    grid-template-columns: 1fr 0 1fr;
+    gap: 12px;
+    align-items: center;
+    justify-self: center;
+}
+
+.score-field {
+    margin: 0;
+    text-align: center;
+    align-self: center;
+}
+
+.score-label {
+    text-align: center;
+}
+
+.score-divider {
+    font-size: 24px;
+    color: var(--color-text-secondary);
+    padding-top: 22px;
+    justify-self: center;
+}
+
+/* ── Team header ─────────────────────────────────────────── */
+.team-header {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--color-text-secondary);
+    justify-self: center;
+}
+
+.team-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.ranked-label {
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 7px 14px;
+    border: 1px solid var(--color-border-secondary);
+    background: none;
+    color: var(--color-text-primary);
+    display: flex;
+    margin-bottom: 0;
+}
+
+input[type="checkbox"] {
+    appearance: none; /* allows custom styling */
+    aspect-ratio: 1;
+    max-height: 18px;
+    margin-right: 9px;
+    border: 1px solid var(--color-border-primary);
+    border-radius: 0;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+    background: var(--color-text-success);
+    border-color: var(--color-border-primary);
+}
+
+input[type="checkbox"]:checked::before {
+    content: "✓";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    color: var(--color-background-primary);
+    font-family: var(--font-serif), serif;
+    font-size: 16px;
+    font-weight: bolder;
+    line-height: 1;
+}
+
+#ranked-hint {
+    display: none;
+    position: absolute;
+    transform: translate(0, 20px);
+    background: var(--color-background-primary);
+    border: var(--color-border-primary) solid 1px;
+    border-radius: 4px;
+    padding: 8px;
+}
+
+#ranked-toggle:hover + #ranked-hint {
+    display: block;
+}
+
+input[type="checkbox"]:not(:checked) {
+    background: var(--color-background-primary);
+    border-color: var(--color-border-primary);
+}
+
+input[type="checkbox"]:disabled {
+    background: var(--color-background-danger);
+    border-color: var(--color-border-primary);
+    cursor: not-allowed;
+}
+
+.match-list-container {
+    position: relative;
+}
+
+#ranked-filter-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(0, -100%);
+}
+
+/* ── Misc layout ─────────────────────────────────────────── */
+.mono {
+    font-family: var(--font-mono);
+}
+
+.empty {
+    text-align: center;
+    padding: 2rem;
+    color: var(--color-text-secondary);
+    font-size: 18px;
+}
+
+.warning-text {
+    font-size: 18px;
+    color: var(--color-text-secondary);
+}
+
+.actions {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 8px;
+}
+
+.filter-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-label {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+}
+
+/* ── Selected member card ────────────────────────────────── */
+.selected-card {
+    display: none;
+    margin-bottom: 1rem;
+}
+
+.selected-card-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.action-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.create-wrap {
+    display: none;
+    margin-bottom: 1.5rem;
+}
+
+.hint {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    margin-left: 10px;
+}
+
+/* ── Primary button variant ──────────────────────────────── */
+.btn-p {
+    background: var(--color-text-success);
+    color: var(--color-background-primary);
+    border-color: var(--color-border-primary);
+}
+
+.btn-p:hover {
+    background: var(--color-background-secondary);
+    color: var(--color-text-primary);
+}
+
+.small-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 500px) {
+    .form-player,
+    .field,
+    .form-score {
+        flex: 1 1 100%;
+    }
+
+    .name-fieldset {
+        flex-wrap: wrap;
+    }
+}

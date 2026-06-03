@@ -1,0 +1,225 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-02 22:43+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\keur\templates\keur\dashboard01.html:9
+#: .\keur\templates\keur\dashboard01.html:15
+msgid "RSKeurslagers-tv"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:16
+msgid "Klim naar de (tafel)voetbaltop!"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:22
+msgid "spelers"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:26
+msgid "wedstrijden"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:32
+msgid "Spelers"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:33
+msgid "Wedstrijden"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:34
+msgid "ELO"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:35
+msgid "Info"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:40
+msgid "Maak speler voor lid"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:43
+msgid "Zoek lid"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:47
+msgid "Type tenminste 2 tekens…"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:66
+msgid "Nickname"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:70
+msgid "Tenminste 4 tekens..."
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:75
+#: .\keur\templates\keur\dashboard01.html:131
+msgid "Maak leeg"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:83
+msgid "Maak speler aan"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:88
+msgid "Actieve spelers"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:90
+msgid "Nog geen spelers."
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:96
+msgid "Wedstrijdtype"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:105
+msgid "Score"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:108
+msgid "Team 1"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:113
+msgid "Team 2"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:118
+msgid "Voeg spelers toe"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:121
+msgid "Speeldatum en -tijd"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:128
+msgid "Sla wedstrijd op"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:135
+msgid "Wedstrijdgeschiedenis"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:137
+msgid "Nog geen wedstrijden."
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:144
+msgid "Type:"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:146
+msgid "Alle"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:147
+msgid "1v1"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:148
+msgid "1v2"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:149
+msgid "2v2"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:150
+msgid "4v4"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:156
+msgid "Nog geen ELO-gegevens — sla eerst een wedstrijd op."
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:164
+#: .\keur\templates\keur\info\usage.html:3
+msgid "Gebruik"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:165
+msgid "Regels"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:166
+msgid "Techniek"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:167
+msgid "Strategie"
+msgstr ""
+
+#: .\keur\templates\keur\info\rules.html:3
+msgid "Goal"
+msgstr ""
+
+#: .\keur\templates\keur\info\rules.html:5
+msgid ""
+"\n"
+"        Het doel van tafelvoetbal is om te winnen. Dit doe je door genoeg "
+"punten te scoren en dat eerder dan de\n"
+"        tegenstander. Punten scoor je als de bal in het doel voor je "
+"aanvallers terechtkomt. Veel succes!\n"
+"    "
+msgstr ""
+
+#: .\keur\templates\keur\info\strategy.html:4
+msgid "Passing versus shooting"
+msgstr ""
+
+#: .\keur\templates\keur\info\strategy.html:6
+msgid ""
+"\n"
+"    \tThe ball ultimately needs to get to the end. ...\n"
+"    "
+msgstr ""
+
+#: .\keur\templates\keur\info\technique.html:3
+msgid "Gericht schieten"
+msgstr ""
+
+#: .\keur\templates\keur\info\technique.html:5
+msgid ""
+"\n"
+"        The ball can be shot not only straightly backwards or forwards. A "
+"few techniques exist to adjust the course of the\n"
+"        ball.\n"
+"    "
+msgstr ""
+
+#: .\keur\templates\keur\info\technique.html:9
+msgid "Hitting with the angle of the foot"
+msgstr ""
+
+#: .\keur\templates\keur\info\technique.html:10
+msgid ""
+"\n"
+"        \tInstead of hitting the ball at a\n"
+"        "
+msgstr ""
+
+#: .\keur\templates\keur\info\usage.html:5
+msgid ""
+"\n"
+"        Op deze website kun je je wedstrijden tafelvoetbal bijhouden.\n"
+"    "
+msgstr ""
