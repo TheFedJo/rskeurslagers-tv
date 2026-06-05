@@ -732,8 +732,8 @@ class EloBoard {
             player.elos.find(e => e.match_type.match_type === matchType);
 
         const eloClass = elo =>
-            elo.elo >= 1600 ? 'e-hi' :
-            elo.elo >= 1400 ? 'e-mid' :
+            elo.elo >= 1400 ? 'e-hi' :
+            elo.elo >= 1000 ? 'e-mid' :
             'e-lo';
 
         const rankedPlayers = players
