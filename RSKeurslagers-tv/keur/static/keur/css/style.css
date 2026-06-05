@@ -69,6 +69,7 @@ select {
     font-size: 14px;
     padding: 6px 8px;
     border: 0.5px solid var(--color-border-primary);
+    background: var(--color-background-secondary);
     color: var(--color-text-primary);
     box-sizing: border-box;
     transition: border-color 0.15s;
@@ -169,7 +170,7 @@ h1, .section-title {
 h2, .section-header {
     font-size: 24px;
     font-weight: 500;
-    color: var(--color-text-secondary);
+    color: var(--color-text-primary);
     margin-top: 12px;
     background: repeating-linear-gradient(
         90deg,
@@ -246,25 +247,24 @@ p, .section-text {
     display: grid;
     grid-template-columns:
         40px          /* rank */
-        160px         /* avatar + name block */
+        40px         /* avatar + name block */
         repeat(auto-fit, minmax(60px, 1fr)); /* elo columns */
     gap: 8px;
 }
 
 .elo-header {
     font-weight: 600;
-    opacity: 0.8;
     border-bottom: 1px solid #ddd;
+}
+
+.elo-rank {
+    color: var(--color-text-primary);
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .elo-badge-row {
     display: contents; /* important: lets badges align with grid columns */
-}
-
-.ebadge {
-    justify-self: center;
-    min-width: 50px;
-    text-align: center;
 }
 
 .player-row:last-child,
@@ -286,12 +286,16 @@ p, .section-text {
     flex-shrink: 0;
 }
 
-.player-info, .match-info, .elo-info {
+.player-info, .match-info {
     flex: 1;
     margin-left: 10px;
 }
+.elo-info {
+    text-align: left;
+}
 
 .player-name, .match-name, .elo-name {
+    color: var(--color-text-primary);
 
 }
 
@@ -319,6 +323,7 @@ p, .section-text {
 
 .participants {
     flex: 1;
+    color: var(--color-text-primary);
 }
 
 .win .elo-gain,
@@ -350,31 +355,44 @@ p, .section-text {
 /* ── ELO badge ───────────────────────────────────────────── */
 .ebadge {
     display: inline-flex;
-    align-items: center;
+    justify-self: center;
+    text-align: center;
+    justify-content: center;
+    min-width: 4rem;
+
     padding: 3px 10px;
+    border: 2px solid var(--color-border-primary);
+    outline: 6px inset var(--color-border-primary);
+    border-radius: 15px;
+
     font-size: 18px;
-    font-weight: 500;
-    margin-left: 2px
+    font-weight: 700;
+
+    color: var(--color-background-primary);
+    /*text-shadow: 1x  0 var(--color-text-primary),*/
+    /*        -1px 0 var(--color-text-primary),*/
+    /*         0 1px var(--color-text-primary),*/
+    /*         0-1px var(--color-text-primary);*/
 }
 
 .e-hi  {
     background: var(--color-text-success);
-    color: var(--color-background-primary);
 }
 
 .e-mid {
     background: var(--color-text-info);
-    color: var(--color-background-secondary);
 }
 
 .e-lo  {
     background: var(--color-text-danger);
-    color: var(--color-background-tertiary);
 }
 
 .e-no  {
     background: var(--color-text-tertiary);
-    color: var(--color-background-tertiary);
+}
+
+.elo-col-header {
+    background: var(--color-text-primary);
 }
 
 
@@ -458,17 +476,23 @@ p, .section-text {
 
 .stat-box {
     text-align: center;
-    padding: 8px 16px;
+    align-content: center;
+    border: 3px solid var(--color-border-secondary);
+    background: var(--color-background-secondary);
+    aspect-ratio: 1;
+    height: 5.5rem;
 }
 
 .stat-value {
-    font-size: 22px;
+    color: var(--color-text-primary);
+    font-size: 32px;
     font-weight: 500;
 }
 
 .stat-label {
-    font-size: 12px;
+    font-size: 16px;
     color: var(--color-text-secondary);
+
 }
 
 /* ── Score inputs ────────────────────────────────────────── */
@@ -489,6 +513,7 @@ p, .section-text {
     font-size: 22px;
     font-weight: 500;
     justify-self: center;
+    background: var(--color-background-secondary);
 }
 
 .score-row {

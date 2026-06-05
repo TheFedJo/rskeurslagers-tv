@@ -754,7 +754,7 @@ class EloBoard {
         // HEADER (grid-aligned)
         const header = `
             <div class="elo-row elo-header">
-                <div class="mono elo-rank">#</div>
+                <div class="elo-rank">#</div>
                 <div class="avatar">${gettext('Speler')}</div>
                 <div class="elo-info"></div>
                 ${st.matchTypes
@@ -798,15 +798,15 @@ class EloBoard {
             rankedPlayers
                 .map((player, index) => `
                     <div class="elo-row">
-                        <div class="mono elo-rank">#${index + 1}</div>
+                        <div class="elo-rank">#${index + 1}</div>
                         <div class="avatar" style="margin-left:8px">
                             ${player.initials ?? '?'}
                         </div>
-                        <div class="elo-info">
+                        
                             <div class="elo-name">
                                 ${player.nickname ?? gettext('Onbekend')}
                             </div>
-                        </div>
+                        
                         ${renderBadges(player)}
                     </div>
                 `)
