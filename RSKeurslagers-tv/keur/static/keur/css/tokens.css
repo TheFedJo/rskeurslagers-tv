@@ -28,7 +28,7 @@
     /* Borders */
     --color-border-tertiary:  rgba(0, 0, 0, 0.25);
     --color-border-secondary: rgba(0, 0, 0, 0.5);
-    --color-border-primary:   rgba(1, 1, 1, 1);
+    --color-border-primary:   rgb(0, 0, 0);
     --color-border-info:      #85b7eb;
     --color-border-success:   #5dcaa5;
     --color-border-warning:   #ef9f27;
