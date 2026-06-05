@@ -67,9 +67,9 @@
         --color-text-primary:   white;
         --color-text-secondary: rgb(192, 192, 192);
         --color-text-tertiary:  rgb(128, 128, 128);
-        --color-text-info:      #85b7eb;
-        --color-text-success:   #5dcaa5;
-        --color-text-warning:   #ef9f27;
+        --color-text-info:      #92c0ee;
+        --color-text-success:   #6ad0ae;
+        --color-text-warning:   #f1a83a;
         --color-text-danger: #ef4d4d;
 
         --color-border-tertiary:  rgba(255, 255, 255, 0.10);
