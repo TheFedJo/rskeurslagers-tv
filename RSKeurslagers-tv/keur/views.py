@@ -35,7 +35,6 @@ class MatchViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         qs = super().get_queryset()
         ranked = self.request.query_params.get('ranked')
-        print(ranked)
         if ranked == 'true':
             qs = qs.filter(ranked=True)
         return qs
