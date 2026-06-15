@@ -193,6 +193,8 @@ p, .section-text {
 
 .footnotes {
     margin-top: 24px;
+    color: var(--color-text-primary);
+    background: var(--color-background-secondary);
 }
 
 /* ── Pills ───────────────────────────────────────────────── */
