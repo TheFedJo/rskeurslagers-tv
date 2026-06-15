@@ -1,6 +1,8 @@
 from django.shortcuts import render
 
 from rest_framework import mixins, generics, viewsets
+
+from keur.elo_service import SCALING_FACTOR, K_FACTOR, DEFAULT_ELO
 from keur.models import MockRSKMember, Player, Match, ELO, MatchType
 from keur.serializers import (
     MockRSKMemberSerializer, PlayerSerializer,
@@ -60,5 +62,9 @@ class MatchTypeViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = MatchTypeSerializer
 
 def index(request):
-    return render(request, 'keur/dashboard01.html')
+    context = {
+        'scaling_factor': SCALING_FACTOR,
+        'k_factor': K_FACTOR,
+        'default_rating': DEFAULT_ELO,
+    }
     return render(request, 'keur/main.html', context)

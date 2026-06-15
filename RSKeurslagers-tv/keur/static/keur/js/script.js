@@ -835,7 +835,7 @@ tabs.assignCallback('matches', () => {
 tabs.assignCallback('elo', () => eloBoard.load());
 
 const info = new Tabs(
-    ['usage', 'rules', 'technique', 'strategy'],
+    ['usage', 'rules', 'technique', 'strategy', 'elo'],
     { active: 'on',     class: 'pill', prefix: 'info-' },
     { active: 'active', class: 'tert', prefix: 'tert-' }
 );
