@@ -187,9 +187,13 @@
                 <button id="info-rules"     class="pill"    onclick="info.go('rules')"      >{% translate 'Regels' %}</button>
                 <button id="info-technique" class="pill"    onclick="info.go('technique')"  >{% translate 'Techniek' %}</button>
                 <button id="info-strategy"  class="pill"    onclick="info.go('strategy')"   >{% translate 'Strategie' %}</button>
+                <button id="info-elo"       class="pill"    onclick="info.go('elo')"        >{% translate 'ELO' %}</button>
             </div>
 
             <div id="info-pages">
+                <div class="tert" id="tert-elo">
+                    {% include 'keur/info/jerusalem.html' %}
+                </div>
                 <div class="tert active" id="tert-usage">
                     {% include 'keur/info/usage.html' %}
                 </div>
@@ -201,6 +205,9 @@
                 </div>
                 <div class="tert" id="tert-strategy">
                     {% include 'keur/info/strategy.html' %}
+                </div>
+                <div class="tert" id="tert-elo">
+                    {% include 'keur/info/elo.html' %}
                 </div>
             </div>
         </div>

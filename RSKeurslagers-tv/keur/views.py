@@ -62,3 +62,4 @@ class MatchTypeViewSet(viewsets.ReadOnlyModelViewSet):
 
 def index(request):
     return render(request, 'keur/dashboard01.html')
+    return render(request, 'keur/main.html', context)
