@@ -14,8 +14,9 @@ logger = logging.getLogger(__name__)
 # Configuration
 # ---------------------------------------------------------------------------
 
-K_FACTOR: float = 128.0          # ELO sensitivity per result
-DEFAULT_ELO: float = 1200.0     # Starting ELO for every new player/type pair
+K_FACTOR: float = 128.0             # ELO sensitivity per result
+DEFAULT_ELO: float = 1200.0         # Starting ELO for every new player/type pair
+SCALING_FACTOR: float = 400.0       # Expresses
 
 
 # ---------------------------------------------------------------------------
@@ -48,7 +49,7 @@ class EloResult:
 
 def _expected_score(rating_a: float, rating_b: float) -> float:
     """Standard ELO expected score for player A against player B."""
-    return 1.0 / (1.0 + 10 ** ((rating_b - rating_a) / 400.0))
+    return 1.0 / (1.0 + 10 ** ((rating_b - rating_a) / SCALING_FACTOR))
 
 
 def _actual_score(team_score: int, opponent_score: int) -> float:
