@@ -1,0 +1,153 @@
+/* ── Score inputs ────────────────────────────────────────── */
+.form-fields {
+    display: grid;
+}
+
+.form-fields > .section-header,
+.form-fields > .section-title,
+.form-fields > .section-text {
+    justify-self: center;
+    margin-bottom: 4px;
+}
+
+.score-in {
+    width: 58px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 500;
+    justify-self: center;
+    background: var(--color-background-secondary);
+}
+
+.score-row {
+    display: grid;
+    grid-template-columns: 1fr 0 1fr;
+    gap: 12px;
+    align-items: center;
+    justify-self: center;
+}
+
+.score-field {
+    margin: 0;
+    text-align: center;
+    align-self: center;
+}
+
+.score-label {
+    text-align: center;
+}
+
+.score-divider {
+    font-size: 24px;
+    color: var(--color-text-secondary);
+    padding-top: 22px;
+    justify-self: center;
+}
+
+
+
+/* ── Team header ─────────────────────────────────────────── */
+.team-header {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--color-text-secondary);
+    justify-self: center;
+}
+
+.team-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.actions {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 8px;
+}
+
+.ranked-label {
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 7px 14px;
+    border: 1px solid var(--color-border-secondary);
+    background: none;
+    color: var(--color-text-primary);
+    display: flex;
+    margin-bottom: 0;
+}
+
+#ranked-hint {
+    display: none;
+    position: absolute;
+    transform: translate(0, 20px);
+    background: var(--color-background-primary);
+    border: var(--color-border-primary) solid 1px;
+    border-radius: 4px;
+    padding: 8px;
+    z-index: 1;
+}
+
+#ranked-toggle:hover + #ranked-hint {
+    display: block;
+}
+
+.match-list-container {
+    position: relative;
+}
+
+#ranked-filter-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(0, -100%);
+}
+
+/* ── Responsive (Tablet) ─────────────────────────────────── */
+@media (max-width: 768px) {
+    /* Team wrap becomes single column */
+    .team-wrap {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 500px) {
+    /* Forms stack vertically */
+    .form-player,
+    .field,
+    .form-score {
+        flex: 1 1 100%;
+    }
+
+    .name-fieldset {
+        flex-wrap: wrap;
+    }
+
+    .team-wrap {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    /* Score inputs smaller */
+    .score-in {
+        width: 48px;
+        font-size: 18px;
+    }
+
+    .score-row {
+        gap: 8px;
+    }
+
+    .actions {
+        gap: 6px;
+    }
+
+    .ranked-label {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+
+}

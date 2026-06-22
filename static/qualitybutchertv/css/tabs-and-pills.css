@@ -1,0 +1,128 @@
+/* ── Tabs ────────────────────────────────────────────────── */
+.tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.tab {
+    padding: 8px 16px;
+    border: 3px solid;
+    border-color: var(--color-text-secondary);
+    border-radius: 0;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: color 0.15s;
+    font-size: 24px;
+}
+
+.tab:hover {
+    background: none;
+    border-color: var(--color-text-primary);
+    color: var(--color-text-primary);
+}
+
+.tab.active {
+    border: 5px solid;
+
+}
+
+/* ── Sections (tab panels) ───────────────────────────────── */
+.sec, .tert {
+    display: none;
+}
+
+.sec.active {
+    display: block;
+}
+
+.tert.active {
+    display: inherit;
+}
+
+/* ── Pills ───────────────────────────────────────────────── */
+.filter-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-label {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+}
+
+.pills-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.pill {
+    padding: 4px 10px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 2px solid var(--color-border-secondary);
+    color: var(--color-text-primary);
+    background: none;
+    font-family: inherit;
+    transition: all 0.1s;
+}
+
+.pill:hover {
+    background: var(--color-background-secondary);
+}
+
+.pill.on {
+    background: var(--color-background-success);
+    color: var(--color-text-secondary);
+    text-shadow: 2px 0 1px var(--color-background-primary),
+                -2px 0 1px var(--color-background-primary),
+                 0 2px 1px var(--color-background-primary),
+                0 -2px 1px var(--color-background-primary);
+}
+
+@media (max-width: 768px) {
+    /* Tabs scroll if needed */
+    .tabs {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+@media (max-width: 500px) {
+    /* Tabs scroll horizontally */
+    .tabs {
+        gap: 2px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .tab {
+        padding: 6px 12px;
+        font-size: 16px;
+        flex-shrink: 1;
+    }
+
+    .filter-row {
+        gap: 8px;
+    }
+
+    .filter-label {
+        font-size: 14px;
+    }
+
+    /* Pills wrap tighter */
+    .pills-row {
+        gap: 4px;
+    }
+
+    .pill {
+        padding: 3px 8px;
+        font-size: 14px;
+    }
+}

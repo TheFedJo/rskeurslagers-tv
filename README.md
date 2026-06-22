@@ -1,1 +1,2 @@
-# rskeurslagers-tv
+### Credits
+Ferdinand wrote most of this module.

@@ -1,0 +1,107 @@
+/* ── Top header ──────────────────────────────────────────── */
+.top-header {
+    overflow: hidden;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.header-title {
+    line-height: 1;
+    color: var(--color-text-primary);
+    font-size: 72px;
+    font-style: italic;
+    font-weight: 500;
+    margin-top: 18px;
+}
+
+.header-subtitle {
+    line-height: 0.5;
+    color: var(--color-text-secondary);
+    font-size: 24px;
+}
+
+/* ── Stats bar ───────────────────────────────────────────── */
+.stats {
+    display: flex;
+    gap: 8px;
+}
+
+.stat-box {
+    text-align: center;
+    align-content: center;
+    border: 3px solid var(--color-border-secondary);
+    background: var(--color-background-secondary);
+    aspect-ratio: 1;
+    height: 5.5rem;
+}
+
+.stat-value {
+    color: var(--color-text-primary);
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.stat-label {
+    font-size: 16px;
+    color: var(--color-text-secondary);
+
+}
+
+@media (max-width: 768px) {
+    /* Header stacks on tablet */
+    .top-header {
+        gap: 1.5rem;
+    }
+
+    .header-title {
+        font-size: 48px;
+        margin-top: 8px;
+    }
+
+    .header-subtitle {
+        font-size: 16px;
+    }
+
+    /* Stats boxes wrap */
+    .stats {
+        justify-content: flex-start;
+    }
+    .stat-box {
+        height: 4.75rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .top-header {
+        gap: 1rem;
+        margin-bottom: 8px;
+    }
+
+    .header-title {
+        font-size: 36px;
+    }
+
+    .header-subtitle {
+        font-size: 12px;
+    }
+
+    /* Stats inline */
+    .stats {
+        gap: 4px;
+    }
+
+    .stat-box {
+        height: 4rem;
+    }
+
+    .stat-value {
+        font-size: 24px;
+    }
+
+    .stat-label {
+        font-size: 11px;
+    }
+
+}
