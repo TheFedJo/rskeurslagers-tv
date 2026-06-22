@@ -1,26 +1,30 @@
 from django.shortcuts import render
+from django.db.models import Q
 
 from rest_framework import mixins, generics, viewsets
 
-from keur.elo_service import SCALING_FACTOR, K_FACTOR, DEFAULT_ELO
-from keur.models import MockRSKMember, Player, Match, ELO, MatchType
-from keur.serializers import (
-    MockRSKMemberSerializer, PlayerSerializer,
+from .elo_service import SCALING_FACTOR, K_FACTOR, DEFAULT_ELO
+from .models import Player, Match, ELO, MatchType
+from .serializers import (
+    MemberSerializer, PlayerSerializer,
     MatchSerializer, EloSerializer, MatchTypeSerializer
 )
 
+from members.models import Member
+
 class MemberListView(generics.ListAPIView):
-    serializer_class = MockRSKMemberSerializer
+    serializer_class = MemberSerializer
 
     def get_queryset(self):
-        qs = MockRSKMember.objects.all()
+        qs = Member.objects.select_related('user')
         search = self.request.query_params.get('search')
         if search:
-            qs =   qs.filter(name__icontains=search)       \
-                 | qs.filter(first_name__icontains=search) \
-                 | qs.filter(last_name__icontains=search)  \
-                 | qs.filter(generation__name__icontains=search)
+            qs =   qs.filter(
+                Q(user__first_name__icontains=search) |
+                Q(user__last_name__icontains=search)
+            )
         return qs
+
 
 class PlayerViewSet(viewsets.ModelViewSet):
     queryset = Player.objects.all()
@@ -57,9 +61,11 @@ class EloListView(mixins.ListModelMixin,
             qs = qs.filter(match_type__match_type=match_type)
         return qs
 
+
 class MatchTypeViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = MatchType.objects.all()
     serializer_class = MatchTypeSerializer
+
 
 def index(request):
     context = {

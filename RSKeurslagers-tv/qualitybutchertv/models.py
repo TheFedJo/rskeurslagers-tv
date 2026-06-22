@@ -4,11 +4,7 @@ from django.core.validators import RegexValidator, MinValueValidator, MaxValueVa
 from django.db import models
 from django.db.models import Q, F
 
-# Regexes
-phone_regex = RegexValidator(
-    regex=r'^\+?1?\d{9,15}$',
-    message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed."
-)
+from members.models import Member
 
 class Generation(models.Model):
     name = models.CharField(max_length=32)
@@ -32,24 +28,9 @@ class Generation(models.Model):
             ),
         ]
 
-
-class MockRSKMember(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    first_name = models.CharField(max_length=48, null=True, blank=True)
-    interject = models.CharField(max_length=16, null=True, blank=True)
-    last_name = models.CharField(max_length=64, null=True, blank=True)
-    name = models.CharField(max_length=128, null=True, blank=True)
-    address = models.CharField(max_length=255, null=True, blank=True)
-    postal_code = models.CharField(max_length=20, null=True, blank=True)
-    residence = models.CharField(max_length=100, null=True, blank=True)
-    phone_number = models.CharField(validators=[phone_regex], max_length=17, null=True, blank=True)
-    birth_date = models.DateField(verbose_name='Geboortedatum', null=True, blank=True)
-    generation = models.ForeignKey(to=Generation, to_field='start_year', on_delete=models.PROTECT)
-
-
 class Player(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    member = models.OneToOneField(MockRSKMember, on_delete=models.CASCADE)
+    member = models.OneToOneField(Member, on_delete=models.CASCADE)
     nickname = models.CharField(max_length=32)
 
 

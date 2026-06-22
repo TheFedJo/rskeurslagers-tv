@@ -1,46 +1,39 @@
 from rest_framework import serializers
 from django.db import transaction
 
-from keur.elo_service import apply_elo_update_after_create
-from keur.models import MockRSKMember, Player, Match, MatchParticipant, ELO, Generation, MatchType
+from .elo_service import apply_elo_update_after_create
+from .models import Player, Match, MatchParticipant, ELO, MatchType
 
+from members.models import Member, Yeargroup
 
-class GenerationSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Generation
-        fields = '__all__'
-
-
-class MockRSKMemberSerializer(serializers.ModelSerializer):
-    generation = GenerationSerializer()
+class MemberSerializer(serializers.ModelSerializer):
+    generation = serializers.SerializerMethodField()
     display_name = serializers.SerializerMethodField()
-    initials = serializers.SerializerMethodField()
 
     def get_display_name(self, m):
-        return ' '.join(filter(None, [m.first_name, m.interject, m.last_name])) or m.name
+        return m.user.get_full_name()
 
-    def get_initials(self, m):
-        return ((m.first_name or '?')[0] + (m.last_name or '?')[0]).upper()
+    def get_generation(self, m):
+        return Yeargroup.objects.get(year=m.member_since)
 
     class Meta:
-        model = MockRSKMember
+        model = Member
         fields = [
-            'id', 'first_name', 'interject', 'last_name', 'name', 'display_name', 'initials',
-            'residence', 'birth_date', 'generation',
+            'id', 'display_name', 'generation',
         ]
 
 
 class PlayerSerializer(serializers.ModelSerializer):
-    member = MockRSKMemberSerializer(read_only=True)
+    member = MemberSerializer(read_only=True)
     generation = serializers.SerializerMethodField()
     member_id = serializers.PrimaryKeyRelatedField(
-        queryset=MockRSKMember.objects.all(),
+        queryset=Member.objects.all(),
         source='member',
         write_only=True
     )
 
     def get_generation(self, obj):
-        return GenerationSerializer(obj.member.generation).data
+        return self.member.get_generation(obj.member)
 
     def validate_member(self, value):
         if Player.objects.filter(member=value).exists():
@@ -64,7 +57,7 @@ class MatchParticipantReadSerializer(serializers.ModelSerializer):
 
     def get_display_name(self, obj):
         m = obj.player.member
-        return ' '.join(filter(None, [m.first_name, m.interject, m.last_name])) or m.name
+        return ' '.join(filter(None, [m.display_name])) or m.name
 
     class Meta:
         model = MatchParticipant

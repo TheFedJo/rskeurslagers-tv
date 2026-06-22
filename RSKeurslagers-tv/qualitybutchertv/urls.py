@@ -1,7 +1,7 @@
 from django.urls import path, include
 from django.views.i18n import JavaScriptCatalog
 from rest_framework.routers import DefaultRouter
-from keur import views
+from . import views
 
 router = DefaultRouter()
 router.register(r'players', views.PlayerViewSet)
