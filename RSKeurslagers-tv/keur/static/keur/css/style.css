@@ -96,17 +96,6 @@
         font-size: 11px;
     }
 
-    .ranked-label {
-        width: 100%;
-        font-size: 16px;
-        padding: 6px 12px;
-    }
-
-    .actions {
-        flex-direction: column;
-        gap: 6px;
-    }
-
     .selected-card-inner {
         flex-direction: column;
         align-items: flex-start;
@@ -120,12 +109,5 @@
     }
 
 
-
-    /* ELO badges smaller */
-    .ebadge {
-        min-width: 3rem;
-        padding: 2px 8px;
-        font-size: 14px;
-    }
 }
 

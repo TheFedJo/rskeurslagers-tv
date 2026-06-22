@@ -173,8 +173,8 @@
     }
 
     .elo-row {
-        grid-template-columns: 40px 1fr;
-        gap: 8px;
+        grid-template-columns: 20px 35px minmax(min-content, 150px) repeat(auto-fit, minmax(20px, 1fr));
+        gap: 4px;
     }
 
     .avatar {
@@ -202,7 +202,7 @@
         font-size: 12px;
         padding: 3px 6px;
     }
-    
+
     .participants {
         font-size: 14px;
     }
