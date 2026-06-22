@@ -44,7 +44,7 @@ class Migration(migrations.Migration):
                 ('timestamp_uploaded', models.DateTimeField()),
                 ('score_team_1', models.SmallIntegerField()),
                 ('score_team_2', models.SmallIntegerField()),
-                ('match_type', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='keur.matchtype', to_field='match_type')),
+                ('match_type', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='qualitybutchertv.matchtype', to_field='match_type')),
             ],
         ),
         migrations.CreateModel(
@@ -60,7 +60,7 @@ class Migration(migrations.Migration):
                 ('residence', models.CharField(blank=True, max_length=100, null=True)),
                 ('phone_number', models.CharField(blank=True, max_length=17, null=True, validators=[django.core.validators.RegexValidator(message="Phone number must be entered in the format: '+999999999'.\nUp to 15 digits allowed.", regex='^\\+?1?\\d{9,15}$')])),
                 ('birth_date', models.DateField(blank=True, null=True, verbose_name='Geboortedatum')),
-                ('generation', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='keur.generation', to_field='start_year')),
+                ('generation', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='qualitybutchertv.generation', to_field='start_year')),
             ],
         ),
         migrations.CreateModel(
@@ -68,7 +68,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True, serialize=False)),
                 ('nickname', models.CharField(max_length=32)),
-                ('member', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='keur.mockrskmember')),
+                ('member', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='qualitybutchertv.mockrskmember')),
             ],
         ),
         migrations.CreateModel(
@@ -77,8 +77,8 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('team', models.SmallIntegerField()),
                 ('elo_gain', models.FloatField(default=0)),
-                ('match', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='keur.match')),
-                ('player', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='keur.player')),
+                ('match', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='qualitybutchertv.match')),
+                ('player', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='qualitybutchertv.player')),
             ],
             options={
                 'constraints': [models.UniqueConstraint(fields=('player', 'match'), name='unique_player_match')],
@@ -89,8 +89,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('elo', models.FloatField(default=1500)),
-                ('match_type', models.ForeignKey(on_delete=django.db.models.deletion.RESTRICT, to='keur.matchtype')),
-                ('player', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='keur.player')),
+                ('match_type', models.ForeignKey(on_delete=django.db.models.deletion.RESTRICT, to='qualitybutchertv.matchtype')),
+                ('player', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='qualitybutchertv.player')),
             ],
             options={
                 'constraints': [models.UniqueConstraint(fields=('player', 'match_type'), name='unique_player_matchtype_elo')],

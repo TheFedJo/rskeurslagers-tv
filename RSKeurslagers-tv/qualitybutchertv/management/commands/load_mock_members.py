@@ -1,10 +1,10 @@
-# keur/management/commands/load_generations.py
+# qualitybutchertv/management/commands/load_mock_members.py
 import csv
 from django.core.management.base import BaseCommand
-from keur.models import Generation
+from keur.models import MockRSKMember, Generation
 
 class Command(BaseCommand):
-    help = 'Load Generation data from a CSV file'
+    help = 'Load MockRSKMember data from a CSV file'
 
     def add_arguments(self, parser):
         parser.add_argument('csv_path', type=str)
@@ -17,9 +17,18 @@ class Command(BaseCommand):
             reader = csv.DictReader(f)
             for index, row in enumerate(reader):
                 # adjust field names to match your CSV headers and model fields
-                _, was_created = Generation.objects.get_or_create(
+
+                # Parse start year from the generation string e.g. '2025-2026' → 2025
+                start_year = int(row['Generatie'].split('-')[0])
+                generation = Generation.objects.get(start_year=start_year)
+
+                _, was_created = MockRSKMember.objects.get_or_create(
                     name=row['Naam'],
-                    start_year=int(row['Startjaar']),
+                    defaults={
+                        'birth_date':  row['Geboortedatum'],
+                        'generation':  generation,
+                        'residence':   row['Woonplaats'],
+                    }
                 )
                 if was_created:
                     created += 1

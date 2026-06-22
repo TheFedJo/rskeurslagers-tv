@@ -1,10 +1,10 @@
-# keur/management/commands/load_generations.py
+# qualitybutchertv/management/commands/load_generations.py
 import csv
 from django.core.management.base import BaseCommand
-from keur.models import MatchType
+from keur.models import Generation
 
 class Command(BaseCommand):
-    help = 'Load MatchType data from a CSV file'
+    help = 'Load Generation data from a CSV file'
 
     def add_arguments(self, parser):
         parser.add_argument('csv_path', type=str)
@@ -17,11 +17,9 @@ class Command(BaseCommand):
             reader = csv.DictReader(f)
             for index, row in enumerate(reader):
                 # adjust field names to match your CSV headers and model fields
-                _, was_created = MatchType.objects.get_or_create(
-                    match_type=row['Wedstrijdtype'],
-                    players_team_1=int(row['Spelers team 1']),
-                    players_team_2=int(row['Spelers team 2']),
-                    elo_eligible=bool(row['Klassement']),
+                _, was_created = Generation.objects.get_or_create(
+                    name=row['Naam'],
+                    start_year=int(row['Startjaar']),
                 )
                 if was_created:
                     created += 1

@@ -67,4 +67,4 @@ def index(request):
         'k_factor': K_FACTOR,
         'default_rating': DEFAULT_ELO,
     }
-    return render(request, 'keur/main.html', context)
+    return render(request, 'qualitybutchertv/main.html', context)

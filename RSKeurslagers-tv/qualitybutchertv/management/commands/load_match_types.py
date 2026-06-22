@@ -1,10 +1,10 @@
-# keur/management/commands/load_mock_members.py
+# qualitybutchertv/management/commands/load_generations.py
 import csv
 from django.core.management.base import BaseCommand
-from keur.models import MockRSKMember, Generation
+from keur.models import MatchType
 
 class Command(BaseCommand):
-    help = 'Load MockRSKMember data from a CSV file'
+    help = 'Load MatchType data from a CSV file'
 
     def add_arguments(self, parser):
         parser.add_argument('csv_path', type=str)
@@ -17,18 +17,11 @@ class Command(BaseCommand):
             reader = csv.DictReader(f)
             for index, row in enumerate(reader):
                 # adjust field names to match your CSV headers and model fields
-
-                # Parse start year from the generation string e.g. '2025-2026' → 2025
-                start_year = int(row['Generatie'].split('-')[0])
-                generation = Generation.objects.get(start_year=start_year)
-
-                _, was_created = MockRSKMember.objects.get_or_create(
-                    name=row['Naam'],
-                    defaults={
-                        'birth_date':  row['Geboortedatum'],
-                        'generation':  generation,
-                        'residence':   row['Woonplaats'],
-                    }
+                _, was_created = MatchType.objects.get_or_create(
+                    match_type=row['Wedstrijdtype'],
+                    players_team_1=int(row['Spelers team 1']),
+                    players_team_2=int(row['Spelers team 2']),
+                    elo_eligible=bool(row['Klassement']),
                 )
                 if was_created:
                     created += 1
