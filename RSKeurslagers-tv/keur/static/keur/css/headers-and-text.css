@@ -1,0 +1,46 @@
+/* ── Section titles and text ───────────────────────────────────────── */
+h1, .section-title {
+    font-size: 36px;
+    color: var(--color-text-primary);
+    font-style: italic;
+    font-weight: 500;
+    margin-top: 18px;
+    background: repeating-linear-gradient(
+        105deg,
+        var(--color-background-tertiary) 0px 2px,
+        transparent 2px 4px
+    );
+    width: fit-content;
+    height: fit-content;
+}
+
+h2, .section-header {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    margin-top: 12px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--color-background-secondary) 0px 2px,
+        transparent 2px 4px
+    );
+    width: fit-content;
+    height: fit-content;
+}
+
+p, .section-text {
+    font-size: 18px;
+    color: var(--color-text-primary);
+
+}
+
+.footnote {
+    font-size: 12px;
+}
+
+.footnotes {
+    margin-top: 24px;
+    color: var(--color-text-primary);
+    background: var(--color-background-secondary);
+}
+
