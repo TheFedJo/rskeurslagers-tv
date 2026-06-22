@@ -658,7 +658,7 @@ class MatchList {
 
     renderParticipants(participants, results) {
         const renderOne = (p) => {
-            const gain = (p.elo_gain > 0 ? '+' : '') + p.elo_gain.toString();
+            const gain = (p.elo_gain > 0 ? '+' : '') + p.elo_gain.toFixed(0);
             return `<div class="participant">
                 <span class="elo-gain">${gain}</span> ${p.display_name}
             </div>`;
