@@ -54,6 +54,7 @@
     flex: 1;
     margin-left: 10px;
 }
+
 .elo-info {
     text-align: left;
 }
@@ -78,6 +79,9 @@
     font-size: 18px;
     font-weight: 500;
     color: var(--color-text-primary);
+}
+.ranked-badge, .unranked-badge {
+    font-style: italic;
 }
 
 .participants-wrapper {

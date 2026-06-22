@@ -632,15 +632,14 @@ class MatchList {
                     : ['draw', 'draw'];
 
             const rankedBadge = m.ranked
-                ? `<span class="ranked-badge" title="${gettext('Klassementswedstrijd')}">🏆</span>`
-                : `<span class="unranked-badge" title="${gettext('Vriendschappelijke wedstrijd')}">—</span>`;
+                ? `<span class="ranked-badge" title="${gettext('Klassementswedstrijd')}">Klassement</span>`
+                : `<span class="unranked-badge" title="${gettext('Vriendschappelijke wedstrijd')}">Vriendschappelijk</span>`;
 
             return `
                 <div class="match-row${m.ranked ? ' match-ranked' : ''}" id="mrow-${m.id}">
                     <div class="match-info">
                         <div class="match-top-row">
-                            ${rankedBadge}
-                            ${m.match_type} — ${m.score_team_1} : ${m.score_team_2}
+                            ${m.match_type} — ${m.score_team_1} : ${m.score_team_2} — ${rankedBadge}
                         </div>
                         ${this.renderParticipants(m.participants_detail ?? [], results)}
                         <div class="match-metadata">${
