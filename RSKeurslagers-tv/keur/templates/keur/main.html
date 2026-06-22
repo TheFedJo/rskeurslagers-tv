@@ -8,6 +8,7 @@
     <link rel="stylesheet" href={% static 'keur/css/top-header.css' %}>
     <link rel="stylesheet" href={% static 'keur/css/tabs-and-pills.css' %}>
     <link rel="stylesheet" href={% static 'keur/css/headers-and-text.css' %}>
+    <link rel="stylesheet" href={% static 'keur/css/member-search.css' %}>
     <link rel="stylesheet" href={% static 'keur/css/style.css' %}>
     <link rel="stylesheet" href={% static 'keur/css/table.css' %}>
     <link rel="stylesheet" href={% static 'keur/css/match-form.css' %}>
@@ -24,12 +25,12 @@
 
             <div class="stats">
                 <div class="stat-box">
-                    <div class="stat-value" id="s-players">0</div>
-                    <div class="stat-label">{% translate "spelers" %}</div>
+                    <div class="stat-value" id="players-statistic">0</div>
+                    <div class="stat-label" id="players-statistic-label">{% translate "spelers" %}</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-value" id="s-matches">0</div>
-                    <div class="stat-label">{% translate "wedstrijden" %}</div>
+                    <div class="stat-value" id="matches-statistic">0</div>
+                    <div class="stat-label" id="matches-statistic-label">{% translate "wedstrijden" %}</div>
                 </div>
             </div>
         </div>

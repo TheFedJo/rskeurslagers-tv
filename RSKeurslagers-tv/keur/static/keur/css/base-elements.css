@@ -126,3 +126,21 @@ input[type="checkbox"]:disabled {
     border-color: var(--color-border-primary);
     cursor: not-allowed;
 }
+
+@media (max-width: 500px) {
+    body {
+        margin: min(1rem, 1vw);
+    }
+
+    .root {
+        max-width: 100%;
+    }
+
+    /* Button sizing */
+    button,
+    button[type="submit"] {
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+
+}

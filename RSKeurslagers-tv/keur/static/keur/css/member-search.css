@@ -1,0 +1,71 @@
+/* ── Search / dropdown ───────────────────────────────────── */
+.search-wrap {
+    position: relative;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-secondary);
+    border-bottom: 2px solid;
+    z-index: 10;
+    margin: 3px 2px 0 2px;
+    overflow: hidden;
+}
+
+.dd-item {
+    padding: 9px 12px;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+}
+
+.no-items-dropdown {
+    padding: 10px 12px;
+    font-size: 15px;
+    color: var(--color-text-secondary);
+}
+
+.dd-item:last-child { border-bottom: none; }
+.dd-item:hover { background: var(--color-background-secondary); }
+
+.dd-name {
+    font-weight: 500;
+    color: var(--color-text-primary);
+}
+
+.dd-gen {
+    font-size: 11px;
+    color: var(--color-text-secondary);
+    font-family: var(--font-mono);
+}
+
+.tag {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.tag-new    {
+    background: var(--color-background-success);
+    color: var(--color-text-primary);
+    text-shadow: 3px 0 2px var(--color-background-primary),
+                -3px 0 2px var(--color-background-primary),
+                 0 3px 2px var(--color-background-primary),
+                0 -3px 2px var(--color-background-primary);
+}
+.tag-exists {
+    background: var(--color-background-info);
+    color: var(--color-text-primary);
+    text-shadow: 3px 0 2px var(--color-background-tertiary),
+                -3px 0 2px var(--color-background-tertiary),
+                 0 3px 2px var(--color-background-tertiary),
+                0 -3px 2px var(--color-background-tertiary);
+}

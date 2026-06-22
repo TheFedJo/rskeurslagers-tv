@@ -154,3 +154,13 @@
 .elo-col-header {
     background: var(--color-text-primary);
 }
+
+@media (max-width: 768px) {
+    /* ELO grid adapts */
+    .elo-row {
+        grid-template-columns:
+            40px
+            40px
+            repeat(auto-fit, minmax(50px, 1fr));
+    }
+}

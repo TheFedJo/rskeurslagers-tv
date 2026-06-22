@@ -223,7 +223,7 @@ class Members {
 class Players {
     constructor() {
         this.listEl  = document.getElementById('player-list');
-        this.countEl = document.getElementById('s-players');
+        this.countEl = document.getElementById('players-statistic');
     }
 
     async load() {
@@ -591,7 +591,8 @@ document.addEventListener('change', (e) => {
 class MatchList {
     constructor() {
         this.listEl     = document.getElementById('match-list');
-        this.countEl    = document.getElementById('s-matches');
+        this.countEl    = document.getElementById('matches-statistic');
+        this.countElLabel    = document.getElementById('matches-statistic-label');
         this.filterBtn  = document.getElementById('ranked-filter-btn');
         this.showRankedOnly = false;
     }
@@ -608,6 +609,7 @@ class MatchList {
             st.matches     = await api('GET', `matches/${params}`);
             this.render();
             this.countEl.textContent = st.matches.length;
+            this.countElLabel.textContent = gettext('wedstrijden') + (this.showRankedOnly ? gettext('\n(klassement)') : '');
         } catch {
             toast(gettext('Wedstrijden laden niet gelukt'), 'err');
         }

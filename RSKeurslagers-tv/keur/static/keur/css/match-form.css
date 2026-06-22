@@ -95,3 +95,12 @@
     right: 0;
     transform: translate(0, -100%);
 }
+
+/* ── Responsive (Tablet) ─────────────────────────────────── */
+@media (max-width: 768px) {
+    /* Team wrap becomes single column */
+    .team-wrap {
+        grid-template-columns: 1fr;
+    }
+
+}

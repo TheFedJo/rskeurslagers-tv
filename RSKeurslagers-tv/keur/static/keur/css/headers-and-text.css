@@ -44,3 +44,19 @@ p, .section-text {
     background: var(--color-background-secondary);
 }
 
+@media (max-width: 500px) {
+    /* Section titles scale down */
+    h1, .section-title {
+        font-size: 24px;
+        margin-top: 12px;
+    }
+
+    h2, .section-header {
+        font-size: 18px;
+        margin-top: 8px;
+    }
+
+    p, .section-text {
+        font-size: 16px;
+    }
+}
