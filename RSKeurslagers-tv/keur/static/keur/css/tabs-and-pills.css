@@ -40,8 +40,6 @@
     display: inherit;
 }
 
-
-
 /* ── Pills ───────────────────────────────────────────────── */
 .pills-row {
     display: flex;
@@ -72,4 +70,37 @@
                 -2px 0 1px var(--color-background-primary),
                  0 2px 1px var(--color-background-primary),
                 0 -2px 1px var(--color-background-primary);
+}
+
+@media (max-width: 768px) {
+    /* Tabs scroll if needed */
+    .tabs {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+@media (max-width: 500px) {
+    /* Tabs scroll horizontally */
+    .tabs {
+        gap: 2px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .tab {
+        padding: 6px 12px;
+        font-size: 16px;
+        flex-shrink: 1;
+    }
+
+    /* Pills wrap tighter */
+    .pills-row {
+        gap: 4px;
+    }
+
+    .pill {
+        padding: 3px 8px;
+        font-size: 14px;
+    }
 }
