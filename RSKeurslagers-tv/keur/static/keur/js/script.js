@@ -336,7 +336,7 @@ class MatchForm {
         if (!typeOk) {
             this._setHint(gettext('Dit speltype telt niet voor klassement.'), 'ineligible');
         } else if (s1 === 0 && s2 === 0) {
-            this._setHint('', '');
+            this._setHint(gettext('Geen score ingevuld'), '');
         } else if (s1 === s2) {
             this._setHint(gettext('Gelijkspel telt niet voor klassement.'), 'ineligible');
         } else {
@@ -354,7 +354,7 @@ class MatchForm {
                     gettext('Verliezer mag maximaal 9 scoren voor klassement.'), 'ineligible'
                 );
             } else {
-                this._setHint(gettext('Wedstrijd telt voor klassement ✓'), 'eligible');
+                this._setHint(gettext('Wedstrijd komt in acht voor klassement ✓'), 'eligible');
             }
         }
     }
