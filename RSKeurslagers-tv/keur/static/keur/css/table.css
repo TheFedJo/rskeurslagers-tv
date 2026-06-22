@@ -169,6 +169,14 @@
     }
 }
 
+@media (max-width:600px) {
+    #ranked-filter-btn {
+        padding: 3px 8px;
+        font-size: 14px;
+    }
+}
+
+
 @media (max-width: 500px) {
 
     /* Player/match rows adjust */
@@ -202,7 +210,6 @@
     }
 
     .match-edit-button {
-        flex: 0.1;
         font-size: 12px;
         padding: 3px 6px;
     }
