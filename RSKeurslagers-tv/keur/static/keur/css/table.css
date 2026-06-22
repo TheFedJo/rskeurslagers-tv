@@ -5,6 +5,7 @@
     justify-content: space-between;
     padding: 10px 0;
     border-bottom: 0.5px solid var(--color-border-tertiary);
+    color: var(--color-text-primary);
 }
 
 .elo-row {
@@ -22,7 +23,6 @@
 }
 
 .elo-rank {
-    color: var(--color-text-primary);
     font-weight: bold;
     font-size: 18px;
 }
@@ -162,5 +162,48 @@
             40px
             40px
             repeat(auto-fit, minmax(50px, 1fr));
+    }
+}
+
+@media (max-width: 500px) {
+
+    /* Player/match rows adjust */
+    .player-row, .match-row {
+        gap: 4px;
+    }
+
+    .elo-row {
+        grid-template-columns: 40px 1fr;
+        gap: 8px;
+    }
+
+    .avatar {
+        width: 28px;
+        height: 28px;
+        font-size: 14px;
+    }
+
+    .player-info, .match-info {
+        margin-left: 8px;
+        width: 100%;
+    }
+
+    .elo-info {
+        width: 100%;
+    }
+
+    .player-data, .match-data, .elo-data {
+        font-size: 16px;
+        margin-top: 4px;
+    }
+
+    .match-edit-button {
+        flex: 0.1;
+        font-size: 12px;
+        padding: 3px 6px;
+    }
+    
+    .participants {
+        font-size: 14px;
     }
 }

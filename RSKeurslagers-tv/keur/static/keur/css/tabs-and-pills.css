@@ -108,6 +108,14 @@
         flex-shrink: 1;
     }
 
+    .filter-row {
+        gap: 8px;
+    }
+
+    .filter-label {
+        font-size: 14px;
+    }
+
     /* Pills wrap tighter */
     .pills-row {
         gap: 4px;

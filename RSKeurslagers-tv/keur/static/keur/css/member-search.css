@@ -69,3 +69,16 @@
                  0 3px 2px var(--color-background-tertiary),
                 0 -3px 2px var(--color-background-tertiary);
 }
+
+@media (max-width: 500px) {
+    /* Dropdown wider */
+    .dropdown {
+        margin: 3px 0;
+    }
+
+    .dd-item {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+}

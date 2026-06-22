@@ -84,79 +84,11 @@
 
 /* ── Responsive (Mobile) ────────────────────────────────── */
 @media (max-width: 500px) {
-    /* Forms stack vertically */
-    .form-player,
-    .field,
-    .form-score {
-        flex: 1 1 100%;
-    }
-
-    .name-fieldset {
-        flex-wrap: wrap;
-    }
-
-    .team-wrap {
-        grid-template-columns: 1fr;
-        gap: 8px;
-    }
-
-    /* Score inputs smaller */
-    .score-in {
-        width: 48px;
-        font-size: 18px;
-    }
-
-    .score-row {
-        gap: 8px;
-    }
 
     /* Card padding */
     .card {
         padding: 1rem;
     }
-
-    /* Player/match rows adjust */
-    .player-row, .match-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-    }
-
-    .elo-row {
-        grid-template-columns: 40px 1fr;
-        gap: 8px;
-    }
-
-    .avatar {
-        width: 28px;
-        height: 28px;
-        font-size: 14px;
-    }
-
-    .player-info, .match-info {
-        margin-left: 8px;
-        width: 100%;
-    }
-
-    .elo-info {
-        width: 100%;
-    }
-
-    .player-data, .match-data, .elo-data {
-        font-size: 16px;
-        margin-top: 4px;
-    }
-
-    /* Dropdown wider */
-    .dropdown {
-        margin: 3px 0;
-    }
-
-    .dd-item {
-        padding: 8px 10px;
-        font-size: 14px;
-    }
-
 
     .small-btn {
         width: auto;
@@ -175,15 +107,6 @@
         gap: 6px;
     }
 
-    .filter-row {
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .filter-label {
-        font-size: 14px;
-    }
-
     .selected-card-inner {
         flex-direction: column;
         align-items: flex-start;
@@ -196,10 +119,7 @@
         gap: 8px;
     }
 
-    /* Prevent iOS zoom on input focus */
-    input, select {
-        font-size: 16px;
-    }
+
 
     /* ELO badges smaller */
     .ebadge {

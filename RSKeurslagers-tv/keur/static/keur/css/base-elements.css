@@ -143,4 +143,8 @@ input[type="checkbox"]:disabled {
         padding: 6px 12px;
     }
 
+    /* Prevent iOS zoom on input focus */
+    input, select {
+        font-size: 16px;
+    }
 }

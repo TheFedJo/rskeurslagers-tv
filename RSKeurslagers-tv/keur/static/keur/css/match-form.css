@@ -104,3 +104,32 @@
     }
 
 }
+
+@media (max-width: 768px) {
+    /* Forms stack vertically */
+    .form-player,
+    .field,
+    .form-score {
+        flex: 1 1 100%;
+    }
+
+    .name-fieldset {
+        flex-wrap: wrap;
+    }
+
+    .team-wrap {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    /* Score inputs smaller */
+    .score-in {
+        width: 48px;
+        font-size: 18px;
+    }
+
+    .score-row {
+        gap: 8px;
+    }
+    
+}
