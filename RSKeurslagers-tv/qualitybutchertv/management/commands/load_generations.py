@@ -1,7 +1,6 @@
-# qualitybutchertv/management/commands/load_generations.py
 import csv
 from django.core.management.base import BaseCommand
-from keur.models import Generation
+from qualitybutchertv.models import Generation
 
 class Command(BaseCommand):
     help = 'Load Generation data from a CSV file'

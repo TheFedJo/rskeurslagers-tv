@@ -1,7 +1,6 @@
-# qualitybutchertv/management/commands/load_generations.py
 import csv
 from django.core.management.base import BaseCommand
-from keur.models import MatchType
+from qualitybutchertv.models import MatchType
 
 class Command(BaseCommand):
     help = 'Load MatchType data from a CSV file'

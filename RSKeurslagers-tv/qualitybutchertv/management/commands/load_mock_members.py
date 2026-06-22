@@ -1,10 +1,9 @@
-# qualitybutchertv/management/commands/load_mock_members.py
 import csv
 from django.core.management.base import BaseCommand
-from keur.models import MockRSKMember, Generation
+from qualitybutchertv.models import Member, Generation
 
 class Command(BaseCommand):
-    help = 'Load MockRSKMember data from a CSV file'
+    help = 'Load Member data from a CSV file'
 
     def add_arguments(self, parser):
         parser.add_argument('csv_path', type=str)
@@ -22,7 +21,7 @@ class Command(BaseCommand):
                 start_year = int(row['Generatie'].split('-')[0])
                 generation = Generation.objects.get(start_year=start_year)
 
-                _, was_created = MockRSKMember.objects.get_or_create(
+                _, was_created = Member.objects.get_or_create(
                     name=row['Naam'],
                     defaults={
                         'birth_date':  row['Geboortedatum'],
