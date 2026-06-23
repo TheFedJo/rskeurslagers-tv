@@ -6,6 +6,11 @@ from .models import Player, Match, MatchParticipant, ELO, MatchType
 
 from members.models import Member, Yeargroup
 
+class GenerationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Yeargroup
+        fields = '__all__'
+
 class MemberSerializer(serializers.ModelSerializer):
     generation = serializers.SerializerMethodField()
     display_name = serializers.SerializerMethodField()
@@ -14,7 +19,8 @@ class MemberSerializer(serializers.ModelSerializer):
         return m.user.get_full_name()
 
     def get_generation(self, m):
-        return Yeargroup.objects.get(year=m.member_since)
+        generation = Yeargroup.objects.get(year=m.member_since)
+        return GenerationSerializer(generation).data
 
     class Meta:
         model = Member
