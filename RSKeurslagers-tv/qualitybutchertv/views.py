@@ -35,7 +35,7 @@ class MatchViewSet(viewsets.ModelViewSet):
     http_method_names = ['get', 'post', 'patch']
     serializer_class = MatchSerializer
     queryset = Match.objects.prefetch_related(
-        'matchparticipant_set__player__member__generation'
+        'matchparticipant_set__player__member'
     ).all()
 
     def get_queryset(self):
@@ -49,7 +49,7 @@ class MatchViewSet(viewsets.ModelViewSet):
 class EloListView(mixins.ListModelMixin,
                   viewsets.GenericViewSet):
     queryset = ELO.objects.select_related(
-        'player__member__generation', 'match_type'
+        'player__member', 'match_type'
     ).order_by('-elo')
     serializer_class = EloSerializer
     http_method_names = ['get']
