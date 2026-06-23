@@ -1,5 +1,5 @@
 /* ── Section titles and text ───────────────────────────────────────── */
-h1, .section-title {
+.section-title {
     font-size: 36px;
     color: var(--color-text-primary);
     font-style: italic;
@@ -14,7 +14,7 @@ h1, .section-title {
     height: fit-content;
 }
 
-h2, .section-header {
+.section-header {
     font-size: 24px;
     font-weight: 500;
     color: var(--color-text-primary);
@@ -28,7 +28,7 @@ h2, .section-header {
     height: fit-content;
 }
 
-p, .section-text {
+.section-text {
     font-size: 18px;
     color: var(--color-text-primary);
 
@@ -46,17 +46,17 @@ p, .section-text {
 
 @media (max-width: 500px) {
     /* Section titles scale down */
-    h1, .section-title {
+    .section-title {
         font-size: 24px;
         margin-top: 12px;
     }
 
-    h2, .section-header {
+    .section-header {
         font-size: 18px;
         margin-top: 8px;
     }
 
-    p, .section-text {
+    .section-text {
         font-size: 16px;
     }
 }
