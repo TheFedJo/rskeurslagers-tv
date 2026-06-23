@@ -9,7 +9,8 @@
 .ground { /* initial page spanning body div */
     font-family: serif;
     padding: min(2rem, 1vw);
-    height: 100vh;
+    min-height: 100vh;
+    height: fit-content;
     background: var(--color-background-secondary);
     justify-content: center;
     display: flex;
