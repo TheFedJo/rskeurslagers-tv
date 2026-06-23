@@ -18,9 +18,11 @@ class Command(BaseCommand):
                 # adjust field names to match your CSV headers and model fields
                 _, was_created = MatchType.objects.get_or_create(
                     match_type=row['Wedstrijdtype'],
-                    players_team_1=int(row['Spelers team 1']),
-                    players_team_2=int(row['Spelers team 2']),
-                    elo_eligible=bool(row['Klassement']),
+                    defaults= {
+                        'players_team_1': int(row['Spelers team 1']),
+                        'players_team_2': int(row['Spelers team 2']),
+                        'elo_eligible': bool(int(row['Klassement'])),
+                    }
                 )
                 if was_created:
                     created += 1
