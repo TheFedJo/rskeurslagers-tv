@@ -1,3 +1,4 @@
+from django.contrib.auth.base_user import AbstractBaseUser
 from rest_framework import serializers
 from django.db import transaction
 
@@ -15,10 +16,12 @@ class MemberSerializer(serializers.ModelSerializer):
     generation = serializers.SerializerMethodField()
     display_name = serializers.SerializerMethodField()
 
-    def get_display_name(self, m):
+    @staticmethod
+    def get_display_name(m):
         return m.user.get_full_name()
 
-    def get_generation(self, m):
+    @staticmethod
+    def get_generation(m):
         generation = Yeargroup.objects.get(year=m.member_since)
         return GenerationSerializer(generation).data
 
@@ -38,13 +41,15 @@ class PlayerSerializer(serializers.ModelSerializer):
         write_only=True
     )
 
-    def get_generation(self, obj):
-        return self.member.get_generation(obj.member)
+    @staticmethod
+    def get_generation(player):
+        return MemberSerializer.get_generation(player.member)
 
-    def validate_member(self, value):
-        if Player.objects.filter(member=value).exists():
+    @staticmethod
+    def validate_member(member):
+        if Player.objects.filter(member=member).exists():
             raise serializers.ValidationError('This member already has a player record.')
-        return value
+        return member
 
     class Meta:
         model = Player
@@ -61,9 +66,9 @@ class MatchParticipantReadSerializer(serializers.ModelSerializer):
     nickname = serializers.CharField(source='player.nickname')
     display_name = serializers.SerializerMethodField()
 
-    def get_display_name(self, obj):
-        m = obj.player.member
-        return ' '.join(filter(None, [m.display_name])) or m.name
+    @staticmethod
+    def get_display_name( obj):
+        return MemberSerializer.get_display_name(obj.player.member)
 
     class Meta:
         model = MatchParticipant
