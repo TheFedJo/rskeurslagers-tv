@@ -1,32 +1,11 @@
 import uuid
 
-from django.core.validators import RegexValidator, MinValueValidator, MaxValueValidator
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.db.models import Q, F
 
 from members.models import Member
 
-class Generation(models.Model):
-    name = models.CharField(max_length=32)
-    start_year = models.IntegerField(unique=True)
-    end_year = models.IntegerField()
-
-    def save(self, *args, **kwargs):
-        if self.end_year is None:
-            self.end_year = self.start_year + 1
-        super().save(*args, **kwargs)
-
-    class Meta:
-        constraints = [
-            models.CheckConstraint(
-                name='generation_lasts_one_year',
-                condition=Q(end_year=F('start_year') + 1)
-            ),
-            models.UniqueConstraint(
-                fields=['end_year'],
-                name='unique_end_year'
-            ),
-        ]
 
 class Player(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
