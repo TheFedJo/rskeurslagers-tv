@@ -11,12 +11,8 @@ const st = {
 };
 
 // ─── Utilities ────────────────────────────────────────────────────────────────
-function fullName(m) {
-    return [m.first_name, m.interject, m.last_name].filter(Boolean).join(' ') || m.name;
-}
-
-function memberInitials(m) {
-    return ((m.first_name || '?')[0] + (m.last_name || '?')[0]).toUpperCase();
+function playerInitials(p) {
+    return (p?.nickname ?? p.member?.display_name ?? '?').substring(0,2).toUpperCase()
 }
 
 function getCookie(name) {
@@ -172,7 +168,7 @@ class Members {
             const encoded = encodeURIComponent(JSON.stringify(m));
             return `<div class="dd-item" data-member="${encoded}">
                 <div>
-                    <div class="dd-name">${fullName(m)}</div>
+                    <div class="dd-name">${m.display_name}</div>
                     <div class="dd-gen">${m.generation?.name ?? ''}</div>
                 </div>
                 ${tag}
@@ -193,13 +189,13 @@ class Members {
         if (!m) return;
         st.selMember = m;
 
-        this.searchBar.value = fullName(m);
+        this.searchBar.value = m.display_name;
         this.dropdown.style.display = 'none';
 
         const isPlayer = st.players.some((p) => p.member?.id === m.id);
-        this.selectedAvatar.textContent = memberInitials(m);
-        this.selectedName.textContent   = fullName(m);
-        this.selectedMeta.textContent   = `${m.generation?.name ?? ''} · ${m.birth_date ?? ''}`;
+        this.selectedAvatar.textContent = m.display_name.substring(0, 2);
+        this.selectedName.textContent   = m.display_name;
+        this.selectedMeta.textContent   = `${m.generation?.name ?? ''} · ${m.generation?.year ?? ''}`;
         this.selectedStatus.innerHTML   = isPlayer
             ? `<span class="tag tag-exists">${gettext('al een speler')}</span>`
             : `<span class="tag tag-new">${gettext('nog geen speler')}</span>`;
@@ -269,7 +265,7 @@ class Players {
             return;
         }
         this.listEl.innerHTML = st.players.map((p) => {
-            const ini   = p.member?.initials ?? memberInitials(p.member ?? {});
+            const ini   = playerInitials(p);
             const dname = p.member?.display_name ?? p.member?.name ?? 'Unknown';
             const gen   = p.member?.generation?.name ?? '';
             return `
@@ -718,7 +714,7 @@ class EloBoard {
     render() {
         const primaryMatchType = st.eloFilter === 'all' ? '2v2' : st.eloFilter;
 
-        if (!st.elo.filter(elo => elo.match_type.match_type === primaryMatchType).length) {
+        if (!st.elo.filter(elo => elo.match_type.match_type === primaryMatchType).length && !(st.eloFilter === 'all')) {
             this.listEl.innerHTML =
                 `<div class="empty">${gettext('Nog geen ELO-gegevens — sla eerst een wedstrijd op.')}</div>`;
             return;
@@ -801,7 +797,7 @@ class EloBoard {
                     <div class="elo-row">
                         <div class="elo-rank">#${index + 1}</div>
                         <div class="avatar" style="margin-left:8px">
-                            ${player.initials ?? '?'}
+                            ${playerInitials(player)}
                         </div>
                         
                             <div class="elo-name">
