@@ -1,6 +1,6 @@
 import csv
 from django.core.management.base import BaseCommand
-from qualitybutchertv.models import Generation
+from members.models import Yeargroup
 
 class Command(BaseCommand):
     help = 'Load Generation data from a CSV file'
@@ -16,9 +16,9 @@ class Command(BaseCommand):
             reader = csv.DictReader(f)
             for index, row in enumerate(reader):
                 # adjust field names to match your CSV headers and model fields
-                _, was_created = Generation.objects.get_or_create(
+                _, was_created = Yeargroup.objects.get_or_create(
                     name=row['Naam'],
-                    start_year=int(row['Startjaar']),
+                    year=int(row['Startjaar']),
                 )
                 if was_created:
                     created += 1
