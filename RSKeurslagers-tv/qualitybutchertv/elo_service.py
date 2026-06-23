@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 # Configuration
 # ---------------------------------------------------------------------------
 
-K_FACTOR: float = 128.0             # ELO sensitivity per result
+K_FACTOR: float = 64.0             # ELO sensitivity per result
 DEFAULT_ELO: float = 1200.0         # Starting ELO for every new player/type pair
 SCALING_FACTOR: float = 400.0       # Expresses
 
