@@ -1,21 +1,26 @@
+{% extends "rskv3/base.html" %}
 {% load static %}
 {% load i18n %}
 
-<!doctype html>
-<head>
-    <link rel="stylesheet" href={% static 'qualitybutchertv/css/tokens.css' %}>
-    <link rel="stylesheet" href={% static 'qualitybutchertv/css/base-elements.css' %}>
-    <link rel="stylesheet" href={% static 'qualitybutchertv/css/top-header.css' %}>
-    <link rel="stylesheet" href={% static 'qualitybutchertv/css/tabs-and-pills.css' %}>
-    <link rel="stylesheet" href={% static 'qualitybutchertv/css/headers-and-text.css' %}>
-    <link rel="stylesheet" href={% static 'qualitybutchertv/css/member-search.css' %}>
-    <link rel="stylesheet" href={% static 'qualitybutchertv/css/misc.css' %}>
-    <link rel="stylesheet" href={% static 'qualitybutchertv/css/table.css' %}>
-    <link rel="stylesheet" href={% static 'qualitybutchertv/css/match-form.css' %}>
+{% block page_title %}{% block title %}RSKeurslagersTV{% endblock %}{% endblock %}
+
+{% block extrastyle %}
+    <link rel="stylesheet" href="{% static 'qualitybutchertv/css/tokens.css' %}">
+    <link rel="stylesheet" href="{% static 'qualitybutchertv/css/base-elements.css' %}">
+    <link rel="stylesheet" href="{% static 'qualitybutchertv/css/top-header.css' %}">
+    <link rel="stylesheet" href="{% static 'qualitybutchertv/css/tabs-and-pills.css' %}">
+    <link rel="stylesheet" href="{% static 'qualitybutchertv/css/headers-and-text.css' %}">
+    <link rel="stylesheet" href="{% static 'qualitybutchertv/css/member-search.css' %}">
+    <link rel="stylesheet" href="{% static 'qualitybutchertv/css/misc.css' %}">
+    <link rel="stylesheet" href="{% static 'qualitybutchertv/css/table.css' %}">
+    <link rel="stylesheet" href="{% static 'qualitybutchertv/css/match-form.css' %}">
+{% endblock %}
+
+{% block extrascript %}
     <script src="{% url 'javascript-catalog' %}"></script>
-    <title>{% translate "RSKeurslagers-tv" %}</title>
-</head>
-<body>
+{% endblock %}
+
+{% block main_content %}
     <div class="root">
         <div class="top-header">
             <div>
@@ -222,4 +227,4 @@
     </div>
 
     <script src={% static 'qualitybutchertv/js/script.js' %}></script>
-</body>
+{% endblock  %}
