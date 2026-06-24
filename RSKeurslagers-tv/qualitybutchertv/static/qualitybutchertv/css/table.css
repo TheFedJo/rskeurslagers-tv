@@ -178,7 +178,6 @@
 
 
 @media (max-width: 500px) {
-
     /* Player/match rows adjust */
     .player-row, .match-row {
         gap: 4px;

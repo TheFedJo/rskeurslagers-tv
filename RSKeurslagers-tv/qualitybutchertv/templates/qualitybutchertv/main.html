@@ -13,11 +13,20 @@
     <link rel="stylesheet" href="{% static 'qualitybutchertv/css/member-search.css' %}">
     <link rel="stylesheet" href="{% static 'qualitybutchertv/css/misc.css' %}">
     <link rel="stylesheet" href="{% static 'qualitybutchertv/css/table.css' %}">
+    <link rel="stylesheet" href="{% static 'qualitybutchertv/css/live-counter.css' %}">
     <link rel="stylesheet" href="{% static 'qualitybutchertv/css/match-form.css' %}">
 {% endblock %}
 
 {% block extrascript %}
     <script src="{% url 'javascript-catalog' %}"></script>
+    <script src="{% static 'qualitybutchertv/js/base.js' %}"></script>
+    <script src="{% static 'qualitybutchertv/js/tabs.js' %}"></script>
+    <script src="{% static 'qualitybutchertv/js/members.js' %}"></script>
+    <script src="{% static 'qualitybutchertv/js/player-list.js' %}"></script>
+    <script src="{% static 'qualitybutchertv/js/live-counter.js' %}"></script>
+    <script src="{% static 'qualitybutchertv/js/match-form.js' %}"></script>
+    <script src="{% static 'qualitybutchertv/js/match-list.js' %}"></script>
+    <script src="{% static 'qualitybutchertv/js/elo-board.js' %}"></script>
 {% endblock %}
 
 {% block main_content %}
@@ -119,17 +128,7 @@
                 <div id="matchform-fields" class="card form-fields">
 
                     <div class="section-header">{% translate "Score" %}</div>
-                    <div class="score-row">
-                        <div class="field score-field">
-                            <label class="score-label">{% translate "Team 1" %}</label>
-                            <input class="score-in" type="number" id="sc1" value="0" min="0" max="99">
-                        </div>
-                        <div class="score-divider">—</div>
-                        <div class="field score-field">
-                            <label class="score-label">{% translate "Team 2" %}</label>
-                            <input class="score-in" type="number" id="sc2" value="0" min="0" max="99">
-                        </div>
-                    </div>
+                    {% include 'qualitybutchertv/snippets/score.html' %}
 
                     <div class="section-header">{% translate "Voeg spelers toe" %}</div>
                     <div id="team-wrap" class="team-wrap"></div>
@@ -227,5 +226,5 @@
 
         </div>
     </div>
-    <script src={% static 'qualitybutchertv/js/script.js' %}></script>
+    <script src={% static 'qualitybutchertv/js/init.js' %}></script>
 {% endblock  %}

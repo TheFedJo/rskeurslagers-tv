@@ -1,0 +1,31 @@
+{% load i18n %}
+<div class="score-row">
+    <div class="field score-field">
+        <label class="score-label">{% translate "Team 1" %}</label>
+        <input class="score-in" type="number" id="sc1" value="0" min="0" max="99">
+    </div>
+
+    <button class="live-score-button btn-p off" id="live-score-button">LIVE</button>
+
+    <div class="field score-field">
+        <label class="score-label">{% translate "Team 2" %}</label>
+        <input class="score-in" type="number" id="sc2" value="0" min="0" max="99">
+    </div>
+
+    <!-- Live counter wrapper with full-width bars and +1 buttons only -->
+    <div class="live-counter-wrapper card hidden">
+        <div class="live-counter-bar team-1" id="counter-team-1"></div>
+        <div class="live-counter-shadow team-1" style="--score: 5;" ></div>
+        <div class="live-counter-shadow team-1" style="--score: 10;" ></div>
+        <div class="live-counter-bar team-2" id="counter-team-2"></div>
+        <div class="live-counter-shadow team-2" style="--score: 5;" ></div>
+        <div class="live-counter-shadow team-2" style="--score: 10;" ></div>
+
+        <button class="live-plus-btn team-1" onclick="matchForm.liveCounter.addPoint(1)">
+            <div class="plus-one">+1</div>
+        </button>
+        <button class="live-plus-btn team-2" onclick="matchForm.liveCounter.addPoint(2)">
+            <div class="plus-one">+1</div>
+        </button>
+    </div>
+</div>

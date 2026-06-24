@@ -1,0 +1,179 @@
+/* ── Score Row ──────────────────────────────────────────── */
+.score-row {
+    display: grid;
+    grid-template-columns: 1fr 0 1fr;
+    gap: 18px;
+    align-items: center;
+    justify-self: center;
+}
+
+.score-field {
+    z-index: 10;
+    margin: 0;
+    text-align: center;
+    align-self: center;
+}
+
+.score-label {
+    text-align: center;
+    visibility: visible;
+}
+
+.score-in {
+    width: 58px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 500;
+    justify-self: center;
+    background: var(--color-background-secondary);
+    visibility: visible;
+}
+
+/* ── Live Score Button ──────────────────────────────────── */
+.live-score-button {
+    font-size: 24px;
+    justify-self: center;
+    padding: 8px 16px;
+    min-width: 80px;
+    transition: all 0.15s;
+    visibility: visible;
+    display: grid;
+    justify-content: center;
+    z-index: 101;
+}
+
+.live-score-button.off {
+    opacity: 0.6;
+}
+
+.live-score-button.on {
+    background: var(--color-text-success);
+    color: var(--color-background-primary);
+    border-color: var(--color-border-primary);
+}
+
+/* ── Live Counter Wrapper (Full Viewport) ───────────────── */
+.live-counter-wrapper {
+    position: fixed;
+    top: 2.5vh;
+    left: 1vw;
+    right: 1vw;
+    height: 95vh;
+    z-index: 4;
+    background: var(--color-background-secondary);
+}
+
+.live-counter-wrapper.hidden {
+    display: none;
+}
+
+/* ── Progress Bars (Left & Right, relative to wrapper) ──── */
+.live-counter-shadow,
+.live-counter-bar {
+    position: absolute;
+    width: 20%;
+    height: calc(var(--score, 0) * 8.3333333vh);
+}
+
+.live-counter-bar {
+    border: 1rem solid var(--color-border-primary);
+    color: var(--color-text-primary);
+    padding: 1vh 1vw;
+    transition: height 0.2s ease-out;
+    display: flex;
+    justify-content: center;
+    font-size: 144px;
+    z-index: 2
+}
+
+.live-counter-shadow {
+    z-index: 1;
+    border: 1rem solid var(--color-border-tertiary);
+    opacity: 1;
+}
+
+.live-counter-bar.team-1,
+.live-counter-shadow.team-1 {
+    top: 1vh;
+    left: 1vw;
+    border-radius: 0 0 var(--border-radius-xl) var(--border-radius-xl);
+}
+
+.live-counter-bar.team-1 {
+    background: var(--color-team1-primary);
+    border-color: var(--color-team1-secondary);
+    border-top-color: var(--color-team1-primary);
+    align-items: flex-start;
+}
+
+.live-counter-bar.team-2,
+.live-counter-shadow.team-2 {
+    bottom: 1vh;
+    right: 1vw;
+    border-radius: var(--border-radius-xl) var(--border-radius-xl) 0 0;
+}
+
+.live-counter-bar.team-2 {
+    background: var(--color-team2-primary);
+    border-color: var(--color-team2-secondary);
+    border-bottom-color: var(--color-team2-primary);
+    align-items: flex-end;
+}
+
+/* ── Plus Buttons (relative to wrapper) ─────────────────── */
+.live-plus-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    pointer-events: auto;
+    padding: 24px 36px;
+    font-size: 96px;
+    font-weight: 600;
+    border: 8px solid var(--color-border-primary);
+    border-radius: var(--border-radius-lg);
+    cursor: pointer;
+    transition: all 0.1s;
+    font-family: inherit;
+    background: var(--color-text-primary);
+    color: var(--color-background-secondary);
+}
+
+.live-plus-btn:hover {
+    background: var(--color-background-primary);
+    color: var(--color-text-primary);
+    border-color: var(--color-text-primary);
+    transform: translateY(-50%) scale(1.05);
+}
+
+.live-plus-btn:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.live-plus-btn.team-1 {
+    left: 25%;
+    border-color: var(--color-team1-primary);
+}
+
+.live-plus-btn.team-2 {
+    right: 25%;
+    border-color: var(--color-team2-primary);
+}
+
+/* ── Responsive (Mobile) ────────────────────────────────── */
+@media (max-width: 500px) {
+    .live-counter-bar {
+        padding: 0.5vh 1vw;
+        font-size: 72px;
+    }
+
+    .live-plus-btn {
+        padding: 12px 18px;
+        font-size: 48px;
+    }
+
+    .live-score-button {
+        padding: 6px 12px;
+        font-size: 24px;
+    }
+}

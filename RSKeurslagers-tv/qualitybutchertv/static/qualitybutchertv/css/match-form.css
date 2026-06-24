@@ -10,42 +10,6 @@
     margin-bottom: 4px;
 }
 
-.score-in {
-    width: 58px;
-    text-align: center;
-    font-size: 22px;
-    font-weight: 500;
-    justify-self: center;
-    background: var(--color-background-secondary);
-}
-
-.score-row {
-    display: grid;
-    grid-template-columns: 1fr 0 1fr;
-    gap: 12px;
-    align-items: center;
-    justify-self: center;
-}
-
-.score-field {
-    margin: 0;
-    text-align: center;
-    align-self: center;
-}
-
-.score-label {
-    text-align: center;
-}
-
-.score-divider {
-    font-size: 24px;
-    color: var(--color-text-secondary);
-    padding-top: 22px;
-    justify-self: center;
-}
-
-
-
 /* ── Team header ─────────────────────────────────────────── */
 .team-header {
     font-size: 15px;
@@ -107,6 +71,10 @@
 
 /* ── Responsive (Tablet) ─────────────────────────────────── */
 @media (max-width: 768px) {
+    .live-counter-wrapper {
+        gap: 10px;
+    }
+
     /* Team wrap becomes single column */
     .team-wrap {
         grid-template-columns: 1fr;
@@ -114,7 +82,9 @@
 
 }
 
+/* ── Responsive (Mobile) ────────────────────────────────── */
 @media (max-width: 500px) {
+
     /* Forms stack vertically */
     .form-player,
     .field,

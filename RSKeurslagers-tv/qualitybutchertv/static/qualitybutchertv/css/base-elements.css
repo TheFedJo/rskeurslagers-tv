@@ -7,13 +7,16 @@
 
 /* ── Root and ground wrapper ────────────────────────────────────────── */
 .ground { /* initial page spanning body div */
+
+    overflow: auto;
+    height: 100vh;
     font-family: serif;
     padding: min(2rem, 1vw);
     min-height: 100vh;
-    height: fit-content;
     background: var(--color-background-secondary);
     justify-content: center;
     display: flex;
+
 }
 
 .root { /* width limited all-containing div */
