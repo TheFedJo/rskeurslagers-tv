@@ -1,0 +1,19 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block page_title %}{% endblock %}</title>
+        {% block extrastyle %} {% endblock %}
+        {% block extrascript %} {% endblock %}
+    </head>
+    <body>
+        {% block main_content %}
+            <a href="{% url 'qualitybutchertv.testing' %}">RSKeurslagers (testing)</a>
+            <a href="{% url 'qualitybutchertv.production' %}">RSKeurslagers</a>
+
+        {%  endblock %}
+    </body>
+</html>

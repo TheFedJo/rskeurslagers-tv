@@ -3,7 +3,7 @@ from django.urls import path, include
 from django.views.generic import TemplateView
 
 class HomePageView(TemplateView):
-    template_name = "rskv3/base.html"
+    template_name = "qualitybutchertv/clean-base.html"
 
 urlpatterns = [
     path('admin/', admin.site.urls),

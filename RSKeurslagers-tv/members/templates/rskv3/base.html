@@ -1,15 +1,132 @@
-{% load static %}
-{% load i18n %}
-
+{% load i18n static %}
 <!DOCTYPE html>
-<html lang="nl">
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block page_title %}{% endblock %}</title>
-        {% block extrastyle %} {% endblock %}
-        {% block extrascript %} {% endblock %}
-    </head>
-    <body>
-        {% block main_content %} <a href="/rskeurslagers-tv">RSKeurslagers</a> {%  endblock %}
-    </body>
+{% get_current_language as LANGUAGE_CODE %}{% get_current_language_bidi as LANGUAGE_BIDI %}
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" dir="{{ LANGUAGE_BIDI|yesno:'rtl,ltr,auto' }}">
+<head>
+    <title>{% block title %}Home{% endblock %} | RSK Enschede</title>
+
+{#    <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}">#}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="De RSK is een toffe christelijke studentenvereniging in Enschede, wat betekent dat God bij ons centraal staat.">
+    <meta name="theme-color" content="#f98715">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://rskenschede.nl/">
+    <link rel="shortlink" href="https://rskenschede.nl/">
+
+{#    <link type="text/css" rel="stylesheet" href="{% static 'css/w3.css' %}">#}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/styles.css' %}">
+{#    <link type="text/css" rel="stylesheet" href="{% static 'css/fontawesome-all.min.css' %}">#}
+{#    #}
+{#    <script type="text/javascript" src="{% static 'js/jquery-3.6.0.min.js' %}"></script>#}
+{#    <script type="text/javascript" src="{% static 'js/sortable.min.js' %}"></script>#}
+{#    <script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>#}
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "RSK Enschede",
+            "url": "https://rskenschede.nl",
+            "address": "Bastille, De Hems 10, 7522 NL Enschede",
+            "sameAs": [
+                "https://facebook.com/verenigingrsk",
+                "https://www.instagram.com/rsk_enschede/",
+                "https://twitter.com/rskenschede"
+            ]
+        }
+    </script>
+
+    {% if is_capacitor %}
+    <!-- RSK App: capacitor plugins -->
+    <script src="https://unpkg.com/@capacitor/core@latest/dist/capacitor.js"></script>
+    <script src="https://unpkg.com/@capacitor/app@latest/dist/plugin.js"></script>
+    <script src="https://unpkg.com/@capacitor/text-zoom@latest/dist/plugin.js"></script>
+    <script src="https://unpkg.com/@capacitor/filesystem@latest/dist/plugin.js"></script>
+    <script src="https://unpkg.com/@capacitor-community/file-opener@latest/dist/plugin.js"></script>
+
+    <script type="text/javascript" src="{% static 'js/app-scripts.js' %}"></script>
+    <link type="text/css" rel="stylesheet" href="{% static 'css/app-styles.css' %}">
+    {% endif %}
+
+    {% block extrastyle %}{% endblock %}
+    {% block extrahead %}{% endblock %}
+    {% block responsive %}{% endblock %}
+</head>
+
+<body class="rsk-background-color{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}"
+  data-admin-utc-offset="{% now "Z" %}">
+
+
+
+{% if is_capacitor %}
+    <header class="rsk-app-header w3-container w3-top w3-padding-small rsk-background-color">
+        <span class="rsk-app-header-title">
+            <span class="rsk-app-maintitle">
+                {% block page_title_app %}{{ page_title|default:"Dashboard" }}{% endblock %}
+            </span>
+            <span class="w3-medium rsk-app-subtitle">
+                {% block subtitle_app %}
+                    {% if subtitle %}
+                        > {{ subtitle }}
+                    {% endif %}
+                {% endblock %}
+            </span>
+        </span>
+    </header>
+{% endif %}
+
+<div class="w3-overlay w3-hide-large" onclick="w3CloseSidenav()" style="cursor:pointer" id="rsk-menu-overlay"></div>
+
+<div id="top" class="w3-main rsk-container">
+    {% if not is_capacitor %}
+    <header class="w3-container w3-padding-8">
+        <div class="rsk-page-header" id="showcase">
+            <h1 class="w3-jumbo">{% block page_title %}{{ page_title|default:"Dashboard" }}{% endblock %}</h1>
+            <h1 class="w3-xxxlarge rsk-subtitle">{% block subtitle %}{% endblock %}</h1>
+            <hr class="rsk-divider w3-round">
+        </div>
+
+        <br>
+    </header>
+    {% else %}
+    <div class="w3-padding-32"></div>
+    {% endif %}
+
+    {% block messages_block %}
+        {% if messages %}
+            <div class="w3-row">
+                {% for message in messages %}
+                    {% with message.tags as tag %}
+                        <div class="w3-panel w3-display-container {% if tag == 'info' %}
+                            w3-blue
+                        {% elif tag == 'success' %}
+                            w3-green
+                        {% else %}
+                            w3-red
+                        {% endif %} w3-round hidden-default" id="alert-{{ tag }}">
+                            <span onclick="$(this).closest('.w3-panel').hide()" class="w3-button w3-round w3-display-topright">×</span>
+                            <h3>
+                                {% if tag == 'info' %}Let op!{% elif tag == 'success' %}Succes!{% else %}Waarschuwing!{% endif %}
+                            </h3>
+                            <p id="alert-{{ tag }}-msg">{{ message }}</p>
+                        </div>
+                    {% endwith %}
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endblock %}
+
+    <div class="w3-container">
+        {% block main_content %}{% endblock %}
+    </div>
+</div>
+
+<div class="rsk-alt-background-color w3-container rsk-footer-container">
+    <p class="build-info"><strong><a {% comment %}href="https://forms.gle/DDEAs29gCLGfwSX88"{% endcomment %} target="_blank">Geef feedback / rapporteer bug</a> - versie: {{ current_commit }}</strong></p>
+    <p class="w3-right">  © RSK Enschede</p>
+</div>
+
+{% block extrascript %}{% endblock %}
+
+</body>
 </html>

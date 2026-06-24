@@ -1,0 +1,443 @@
+@import url('colors.css');
+/* Overwrite default fonts */
+
+@font-face {
+    font-family: 'Gill Sans MT';
+    font-display: swap;
+    font-style: normal;
+    font-weight: 400;
+    unicode-range: U+000-5FF; /* Latin glyphs */
+}
+
+@font-face {
+    font-family: 'Bitter Regular';
+    font-display: swap;
+    font-weight: 400;
+    unicode-range: U+000-5FF; /* Latin glyphs */
+}
+
+blockquote {
+    font-family: 'Gill Sans MT', sans-serif;
+    font-variant: normal;
+    line-height: 30px;
+}
+
+pre {
+    font-size: 14px !important;
+    font-variant: normal;
+    line-height: 19px;
+}
+
+body, p {
+    font-size: 14px;
+    font-family: 'Bitter Regular', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Gill Sans MT', sans-serif;
+}
+
+a {
+    outline: 0;
+}
+
+a.rsk-clean-link {
+    text-decoration: none;
+}
+
+dl > dt {
+    font-weight: bold;
+}
+
+/* Define utility classes */
+.hidden-default {
+    display: none;
+}
+
+.dashboard .module table thead {
+    display: none;
+}
+
+/* Overwrite W3 defaults */
+.w3-dropdown-content {
+    width: 100%;
+    right: 0;
+}
+
+.w3-select {
+    background-color: white !important;
+}
+
+.w3-half img {
+    margin-bottom: -6px;
+    margin-top: 16px;
+    opacity: 0.95;
+    cursor: pointer;
+}
+
+.w3-half img:hover {
+    opacity: 1
+}
+
+.w3-container {
+    overflow-wrap: break-word;
+}
+
+/* Custom RSK style */
+.rsk-page-header {
+    margin-top: 60px;
+}
+
+#rsk-sidenav {
+    z-index: 3;
+    width: 300px;
+    font-weight: bold;
+    height: 100%;
+    overflow: hidden auto;
+}
+
+#rsk-sidenav-logo {
+    overflow-x: hidden;
+    position: absolute;
+    width: 268px;
+    z-index: -99;
+}
+
+@media (min-width:993px) {
+  .rsk-topnav,
+  .rsk-app-header {
+    margin-left: 300px;
+    width: calc(100% - 300px);
+  }
+}
+
+/* Page content container margins*/
+.rsk-container {
+    margin-left: 340px;
+    margin-right: 40px;
+    margin-bottom: 70px;
+}
+
+.rsk-footer-container {
+    margin-left: 300px;
+    position: static;
+    padding: 8px 20px 0 20px;
+}
+
+@media (max-width: 992px) {
+    .rsk-footer-container {
+        margin-left: 0;
+    }
+
+    .rsk-section {
+        padding: 0 !important;
+    }
+}
+
+/* Dashboard column minimum width and equal width distribution - W3.CSS compatible */
+
+/* Make the row a flex container for equal width columns */
+.w3-row-padding {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Target only the dashboard columns specifically */
+.w3-row-padding > .w3-col.sortable,
+.w3-row-padding > .w3-col:has(.sortable) {
+    min-width: 250px;
+    flex: 1 1 0; /* Equal flex-grow, allow wrapping, base size 0 = equal distribution */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Make sortable containers stretch to fill column height */
+.w3-col > .sortable {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* On very small screens, let W3.CSS handle it (s12 = 100% width) */
+@media (max-width: 600px) {
+    .w3-row-padding > .w3-col.sortable,
+    .w3-row-padding > .w3-col:has(.sortable) {
+        min-width: unset; /* Remove min-width on mobile */
+    }
+}
+
+.rsk-footer-container .build-info {
+    color: #757575;
+    display: inline;
+}
+
+
+.w3-input, .rsk-input{
+    background-color: var(--alt-background-color) !important;
+    color: var(--foreground-color) !important;
+}
+.w3-check, .w3-radio {
+    background-color: yellow !important;
+    color: green !important;
+    accent-color: var(--primary-color-text) !important;
+    border-color: blue !important;
+}
+.rsk-colors {
+    color: var(--primary-color-fg) !important;
+    background-color: var(--primary-color-bg) !important;
+}
+
+.rsk-colors-border {
+    border-color: var(--primary-color-bg) !important;
+}
+
+/* color scheme (complementary) */
+.rsk-colors.primary {
+    background-color: var(--primary-color-bg) !important;
+}
+
+.rsk-colors.secondary {
+    background-color: var(--secondary-color-bg) !important;
+}
+
+.rsk-colors.tertiary {
+    background-color: var(--tertiary-color-bg) !important;
+    color: var(--tertiary-color-fg) !important;
+}
+
+.rsk-colors.neutral {
+    background-color: var(--neutral-color-bg) !important;
+}
+
+/* Text colors */
+.rsk-text-colors,
+.rsk-text-colors.primary {
+    color: var(--primary-color-text) !important;
+}
+
+.rsk-text-colors.secondary {
+    color: var(--secondary-color-text) !important;
+}
+
+.rsk-text-colors.tertiary {
+    color: var(--tertiary-color-text) !important;
+}
+
+/* w3-buttons */
+
+.rsk-background-color {
+    color: var(--foreground-color) !important;
+    background: var(--background-color) !important;
+}
+
+.rsk-alt-background-color {
+    color: var(--foreground-color) !important;
+    background: var(--alt-background-color) !important;
+}
+
+.rsk-button-color, .rsk-dropdown-hover-color {
+    color: var(--foreground-color) !important;
+    background: var(--button-bg-color) !important
+}
+
+.rsk-button-color:hover, .rsk-button-color-hover:hover {
+    color: var(--button-hover-color-fg) !important;
+    background-color: var(--button-hover-color) !important;
+}
+
+.rsk-button-color:active {
+    color: var(--foreground-color) !important;
+    background-color: var(--button-bg-color) !important;
+}
+
+.rsk-striped tbody tr:nth-child(even) {
+    background-color: var(--table-alternate-color);
+}
+
+.rsk-hoverable tbody tr:hover, .w3-ul.w3-hoverable li:hover {
+    background-color: var(--table-hover-color) !important;
+}
+
+.rsk-divider {
+    float: left;
+    width: 50px;
+    border: 5px solid var(--primary-color-bg);
+    border-radius: 3px;
+}
+
+.rsk-overflow-container {
+    overflow: auto;
+    width: 100%;
+    max-height: 450px;
+}
+
+.rsk-flex-container {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+dl > dt {
+    font-weight: bold;
+}
+
+.rsk-cursor {
+    cursor: pointer;
+}
+
+
+.rsk-modal-sm {
+    max-width: 600px
+}
+
+/* Orange hover shadow */
+.rsk-hover {
+    overflow: hidden;
+}
+
+.rsk-hover:hover {
+    box-shadow: 0 4px 8px 2px rgba(255, 126, 0, 0.8) !important;
+}
+
+.rsk-hover a {
+    text-decoration: none;
+}
+
+.rsk-hidden-toolbar {
+    display: none;
+}
+
+.badge {
+    position: absolute;
+    background: limegreen;
+    height: 18px;
+    top: 1px;
+    right: 6px;
+    width: 18px;
+    text-align: center;
+    line-height: 16px;
+    font-size: 10px;
+    border-radius: 50%;
+    color: white;
+    border: 1px solid limegreen;
+}
+
+/* Bootstrap table */
+table.overview_table[data-view-link] tr:hover {
+    cursor: pointer;
+}
+
+/* RSK button row */
+.rsk-button-row {
+    display: block;
+    padding: 0.01em;
+}
+
+.rsk-button-row > .w3-button,
+.rsk-button-row > .w3-dropdown-hover {
+    margin: 1px 16px 16px 0;
+    vertical-align: top;
+}
+
+/* Base select box styling */
+.rsk-select2 {
+    background-color: var(--background-color) !important;
+    color: var(--foreground-color) !important;
+    border: 1px solid var(--neutral-color-bg) !important;
+    border-radius: 4px !important;
+    padding: 0.5rem !important;
+    width: 100% !important;
+    font-size: 1rem !important;
+}
+
+/* Multiple selection tags */
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: var(--primary-color-bg) !important;
+    color: var(--primary-color-fg) !important;
+    border: none !important;
+    border-radius: 2px !important;
+    padding: 2px 6px !important;
+    margin: 2px !important;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    color: var(--primary-color-fg) !important;
+    margin-right: 4px !important;
+    cursor: pointer !important;
+}
+
+/* Dropdown menu */
+.select2-container--default .select2-results > .select2-results__options {
+    background-color: var(--background-color) !important;
+    color: var(--foreground-color) !important;
+}
+
+.select2-container--default .select2-results__option {
+    background-color: var(--background-color) !important;
+    color: var(--foreground-color) !important;
+    padding: 4px 8px !important;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: var(--primary-color-bg) !important;
+    color: var(--primary-color-fg) !important;
+}
+
+/* Search input in dropdown */
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    background-color: var(--background-color) !important;
+    color: var(--foreground-color) !important;
+    border: 1px solid var(--neutral-color-bg) !important;
+}
+
+/* Placeholder text */
+.select2-container--default .select2-selection--multiple .select2-selection__placeholder {
+    color: var(--neutral-color-bg) !important;
+}
+
+/* Dark mode overrides */
+@media (prefers-color-scheme: dark) {
+    .rsk-select2,
+    .select2-container--default .select2-selection--multiple,
+    .select2-container--default .select2-results > .select2-results__options,
+    .select2-container--default .select2-search--dropdown .select2-search__field {
+        background-color: var(--background-color) !important;
+        color: var(--foreground-color) !important;
+        border: 1px solid var(--neutral-color-bg) !important;
+    }
+
+    .select2-container--default .select2-results__option--highlighted[aria-selected] {
+        background-color: var(--primary-color-bg) !important;
+        color: var(--primary-color-fg) !important;
+    }
+}
+
+.widget-header {
+  cursor: pointer;
+}
+
+.widget-body {
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 10px;
+}
+
+.widget-body.collapsed {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.drag-handle {
+  display: inline-block;
+  transform: rotate(0deg);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+/* rotate only when we explicitly mark the card expanded */
+.w3-card-4.expanded .drag-handle {
+  transform: rotate(90deg);
+}
+
+#sponsor-widget {
+    margin-top: 1rem
+}

@@ -13,5 +13,6 @@ urlpatterns = [
     path('jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),
     path('api/', include(router.urls)),
     path('api/members/', views.MemberListView.as_view()),
-    path("", views.index, name="index"),
+    path("", views.with_menu, name="qualitybutchertv.production"),
+    path("testing", views.clean, name="qualitybutchertv.testing"),
 ]

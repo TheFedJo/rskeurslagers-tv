@@ -1,4 +1,4 @@
-{% extends "rskv3/base.html" %}
+{% extends base_template|default_if_none:"rskv3/base.html" %}
 {% load static %}
 {% load i18n %}
 

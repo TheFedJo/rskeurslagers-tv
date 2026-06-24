@@ -67,10 +67,20 @@ class MatchTypeViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = MatchTypeSerializer
 
 
-def index(request):
+def clean(request):
     context = {
         'scaling_factor': SCALING_FACTOR,
         'k_factor': K_FACTOR,
         'default_rating': DEFAULT_ELO,
+        'base_template': "qualitybutchertv/clean-base.html",
+    }
+    return render(request, 'qualitybutchertv/main.html', context)
+
+def with_menu(request):
+    context = {
+        'scaling_factor': SCALING_FACTOR,
+        'k_factor': K_FACTOR,
+        'default_rating': DEFAULT_ELO,
+        'base_template': "rskv3/base.html",
     }
     return render(request, 'qualitybutchertv/main.html', context)

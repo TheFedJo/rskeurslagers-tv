@@ -1,0 +1,48 @@
+/*
+ * Define all colors to be used in the theme
+ */
+body {
+    --primary-color-bg: #f98715;
+    --primary-color-fg: white;
+    --secondary-color-bg: #033a72;
+    --secondary-color-fg: white;
+    --tertiary-color-bg: #f9d315;
+    --tertiary-color-fg: black;
+    --neutral-color-bg: #878787;
+    --primary-color-text: var(--primary-color-bg);
+    --secondary-color-text: var(--tertiary-color-bg);
+    --tertiary-color-text: #1587f9;
+    --background-color: white;
+    --alt-background-color: #eeeeee;
+    --foreground-color: black;
+    --button-bg-color: #f1f1f1;
+    --button-hover-color: white;
+    --button-hover-color-fg: black;
+    --table-alternate-color: #f1f1f1;
+    --table-hover-color: #cccccc;
+}
+
+/* Dark mode definitions: */
+@media (prefers-color-scheme: dark) {
+    body.theme-auto {
+        --background-color: #1b1b1b;
+        --alt-background-color: #222222;
+        --foreground-color: #eeeeee;
+        --button-bg-color: #222222;
+        --button-hover-color: #eeeeee;
+        --button-hover-color-fg: #222222;
+        --table-alternate-color: #222222;
+        --table-hover-color: #3a3a3a;
+    }
+}
+
+body.theme-dark {
+    --background-color: #1b1b1b;
+    --alt-background-color: #222222;
+    --foreground-color: #eeeeee;
+    --button-bg-color: #222222;
+    --button-hover-color: #eeeeee;
+    --button-hover-color-fg: #222222;
+    --table-alternate-color: #222222;
+    --table-hover-color: #3a3a3a;
+}
