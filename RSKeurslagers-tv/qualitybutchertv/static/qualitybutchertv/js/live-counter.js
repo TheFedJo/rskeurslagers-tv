@@ -60,8 +60,8 @@ class LiveScoreCounter {
         const s2 = parseInt(this.sc2Input.value) || 0;
         const total = s1 + s2;
 
-        this.bar1.style.setProperty('--score', s1)
-        this.bar2.style.setProperty('--score', s2)
+        this.bar1.style.setProperty('--q-score', s1)
+        this.bar2.style.setProperty('--q-score', s2)
         this.bar1.innerHTML = s1
         this.bar2.innerHTML = s2
     }

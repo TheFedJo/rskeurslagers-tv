@@ -5,32 +5,30 @@
     padding: 0;
 }
 
-/* ── Root and ground wrapper ────────────────────────────────────────── */
-.ground { /* initial page spanning body div */
-
-    overflow: auto;
-    height: 100vh;
-    font-family: serif;
+/* ── Ground (scrollable content area) ───────────────────– */
+.ground {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
     padding: min(2rem, 1vw);
-    min-height: 100vh;
-    background: var(--color-background-secondary);
-    justify-content: center;
     display: flex;
-
+    justify-content: center;
+    font-family: var(--q-font-serif) !important;
 }
 
-.root { /* width limited all-containing div */
+/* ── Root wrapper (width-limited) ───────────────────────– */
+.root {
     max-width: 720px;
     width: 100%;
 }
 
-
-/* ── Fields & labels ─────────────────────────────────────── */
+/* ── Fields & labels ─────────────────────────────────────– */
 label {
     display: block;
     font-size: 15px;
     font-weight: 500;
-    color: var(--color-text-secondary);
+    color: var(--q-color-text-secondary);
     margin-bottom: 4px;
 }
 
@@ -40,16 +38,16 @@ label {
     margin-bottom: 8px;
 }
 
-/* ── Inputs ──────────────────────────────────────────────── */
+/* ── Inputs ──────────────────────────────────────────────– */
 input,
 select {
     width: 100%;
     font-family: inherit;
     font-size: 14px;
     padding: 6px 8px;
-    border: 0.5px solid var(--color-border-primary);
-    background: var(--color-background-secondary);
-    color: var(--color-text-primary);
+    border: 0.5px solid var(--q-color-border-primary);
+    background: var(--q-color-background-secondary);
+    color: var(--q-color-text-primary);
     box-sizing: border-box;
     transition: border-color 0.15s;
 }
@@ -57,26 +55,26 @@ select {
 input:focus,
 select:focus {
     outline: none;
-    border-color: var(--color-border-primary);
-    box-shadow: 0 0 0 2px var(--color-background-info);
+    border-color: var(--q-color-border-primary);
+    box-shadow: 0 0 0 2px var(--q-color-background-info);
 }
 
-/* ── Buttons ─────────────────────────────────────────────── */
+/* ── Buttons ─────────────────────────────────────────────– */
 button,
 button[type="submit"] {
     font-family: inherit;
     font-size: 18px;
     font-weight: 500;
     padding: 7px 14px;
-    border: 1px solid var(--color-border-secondary);
+    border: 1px solid var(--q-color-border-secondary);
     background: none;
-    color: var(--color-text-primary);
+    color: var(--q-color-text-primary);
     cursor: pointer;
     transition: background 0.15s, transform 0.1s;
 }
 
 button:hover {
-    background: var(--color-background-secondary);
+    background: var(--q-color-background-secondary);
 }
 
 button:active {
@@ -87,19 +85,20 @@ button[type="submit"] {
     margin-top: 8px;
 }
 
+/* ── Checkboxes ──────────────────────────────────────────– */
 input[type="checkbox"] {
     appearance: none; /* allows custom styling */
     aspect-ratio: 1;
     max-height: 18px;
     margin-right: 9px;
-    border: 1px solid var(--color-border-primary);
+    border: 1px solid var(--q-color-border-primary);
     border-radius: 0;
     cursor: pointer;
 }
 
 input[type="checkbox"]:checked {
-    background: var(--color-text-success);
-    border-color: var(--color-border-primary);
+    background: var(--q-color-text-success);
+    border-color: var(--q-color-border-primary);
 }
 
 input[type="checkbox"]:checked::before {
@@ -107,28 +106,27 @@ input[type="checkbox"]:checked::before {
     display: flex;
     align-items: center;
     justify-content: center;
-
     width: 100%;
     height: 100%;
-
-    color: var(--color-background-primary);
-    font-family: var(--font-serif), serif;
+    color: var(--q-color-background-primary);
+    font-family: var(--q-font-serif), serif;
     font-size: 16px;
     font-weight: bolder;
     line-height: 1;
 }
 
 input[type="checkbox"]:not(:checked) {
-    background: var(--color-background-primary);
-    border-color: var(--color-border-primary);
+    background: var(--q-color-background-primary);
+    border-color: var(--q-color-border-primary);
 }
 
 input[type="checkbox"]:disabled {
-    background: var(--color-background-danger);
-    border-color: var(--color-border-primary);
+    background: var(--q-color-background-danger);
+    border-color: var(--q-color-border-primary);
     cursor: not-allowed;
 }
 
+/* ── Mobile Responsive ───────────────────────────────────– */
 @media (max-width: 500px) {
     .ground { /* initial body div */
         padding: min(1rem, 1vw);
@@ -137,7 +135,6 @@ input[type="checkbox"]:disabled {
         max-width: 100%;
     }
 
-    /* Button sizing */
     button,
     button[type="submit"] {
         font-size: 16px;

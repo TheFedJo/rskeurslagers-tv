@@ -8,8 +8,8 @@
     top: 100%;
     left: 0;
     right: 0;
-    background: var(--color-background-primary);
-    border: 0.5px solid var(--color-border-secondary);
+    background: var(--q-color-background-primary);
+    border: 0.5px solid var(--q-color-border-secondary);
     border-bottom: 2px solid;
     z-index: 10;
     margin: 3px 2px 0 2px;
@@ -23,27 +23,27 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 0.5px solid var(--color-border-tertiary);
+    border-bottom: 0.5px solid var(--q-color-border-tertiary);
 }
 
 .no-items-dropdown {
     padding: 10px 12px;
     font-size: 15px;
-    color: var(--color-text-secondary);
+    color: var(--q-color-text-secondary);
 }
 
 .dd-item:last-child { border-bottom: none; }
-.dd-item:hover { background: var(--color-background-secondary); }
+.dd-item:hover { background: var(--q-color-background-secondary); }
 
 .dd-name {
     font-weight: 500;
-    color: var(--color-text-primary);
+    color: var(--q-color-text-primary);
 }
 
 .dd-gen {
     font-size: 11px;
-    color: var(--color-text-secondary);
-    font-family: var(--font-mono);
+    color: var(--q-color-text-secondary);
+    font-family: var(--q-font-mono);
 }
 
 .tag {
@@ -54,20 +54,20 @@
 }
 
 .tag-new    {
-    background: var(--color-background-success);
-    color: var(--color-text-primary);
-    text-shadow: 3px 0 2px var(--color-background-primary),
-                -3px 0 2px var(--color-background-primary),
-                 0 3px 2px var(--color-background-primary),
-                0 -3px 2px var(--color-background-primary);
+    background: var(--q-color-background-success);
+    color: var(--q-color-text-primary);
+    text-shadow: 3px 0 2px var(--q-color-background-primary),
+                -3px 0 2px var(--q-color-background-primary),
+                 0 3px 2px var(--q-color-background-primary),
+                0 -3px 2px var(--q-color-background-primary);
 }
 .tag-exists {
-    background: var(--color-background-info);
-    color: var(--color-text-primary);
-    text-shadow: 3px 0 2px var(--color-background-tertiary),
-                -3px 0 2px var(--color-background-tertiary),
-                 0 3px 2px var(--color-background-tertiary),
-                0 -3px 2px var(--color-background-tertiary);
+    background: var(--q-color-background-info);
+    color: var(--q-color-text-primary);
+    text-shadow: 3px 0 2px var(--q-color-background-tertiary),
+                -3px 0 2px var(--q-color-background-tertiary),
+                 0 3px 2px var(--q-color-background-tertiary),
+                0 -3px 2px var(--q-color-background-tertiary);
 }
 
 
@@ -84,7 +84,7 @@
 }
 
 .player-meta {
-    color: var(--color-text-secondary)
+    color: var(--q-color-text-secondary)
 }
 
 .flex-row {
@@ -106,7 +106,7 @@
 
 .hint {
     font-size: 12px;
-    color: var(--color-text-secondary);
+    color: var(--q-color-text-secondary);
     margin-left: 10px;
 }
 

@@ -25,7 +25,7 @@
     font-size: 22px;
     font-weight: 500;
     justify-self: center;
-    background: var(--color-background-secondary);
+    background: var(--q-color-background-secondary);
     visibility: visible;
 }
 
@@ -47,9 +47,9 @@
 }
 
 .live-score-button.on {
-    background: var(--color-text-success);
-    color: var(--color-background-primary);
-    border-color: var(--color-border-primary);
+    background: var(--q-color-text-success);
+    color: var(--q-color-background-primary);
+    border-color: var(--q-color-border-primary);
 }
 
 /* ── Live Counter Wrapper (Full Viewport) ───────────────── */
@@ -60,7 +60,7 @@
     right: 1vw;
     height: 95vh;
     z-index: 4;
-    background: var(--color-background-secondary);
+    background: var(--q-color-background-secondary);
 }
 
 .live-counter-wrapper.hidden {
@@ -72,12 +72,12 @@
 .live-counter-bar {
     position: absolute;
     width: 20%;
-    height: calc(var(--score, 0) * 8.3333333vh);
+    height: calc(var(--q-score, 0) * 8.3333333vh);
 }
 
 .live-counter-bar {
-    border: 1rem solid var(--color-border-primary);
-    color: var(--color-text-primary);
+    border: 1rem solid var(--q-color-border-primary);
+    color: var(--q-color-text-primary);
     padding: 1vh 1vw;
     transition: height 0.2s ease-out;
     display: flex;
@@ -88,7 +88,7 @@
 
 .live-counter-shadow {
     z-index: 1;
-    border: 1rem solid var(--color-border-tertiary);
+    border: 1rem solid var(--q-color-border-tertiary);
     opacity: 1;
 }
 
@@ -96,13 +96,13 @@
 .live-counter-shadow.team-1 {
     top: 1vh;
     left: 1vw;
-    border-radius: 0 0 var(--border-radius-xl) var(--border-radius-xl);
+    border-radius: 0 0 var(--q-border-radius-xl) var(--q-border-radius-xl);
 }
 
 .live-counter-bar.team-1 {
-    background: var(--color-team1-primary);
-    border-color: var(--color-team1-secondary);
-    border-top-color: var(--color-team1-primary);
+    background: var(--q-color-team1-primary);
+    border-color: var(--q-color-team1-secondary);
+    border-top-color: var(--q-color-team1-primary);
     align-items: flex-start;
 }
 
@@ -110,13 +110,13 @@
 .live-counter-shadow.team-2 {
     bottom: 1vh;
     right: 1vw;
-    border-radius: var(--border-radius-xl) var(--border-radius-xl) 0 0;
+    border-radius: var(--q-border-radius-xl) var(--q-border-radius-xl) 0 0;
 }
 
 .live-counter-bar.team-2 {
-    background: var(--color-team2-primary);
-    border-color: var(--color-team2-secondary);
-    border-bottom-color: var(--color-team2-primary);
+    background: var(--q-color-team2-primary);
+    border-color: var(--q-color-team2-secondary);
+    border-bottom-color: var(--q-color-team2-primary);
     align-items: flex-end;
 }
 
@@ -130,19 +130,19 @@
     padding: 24px 36px;
     font-size: 96px;
     font-weight: 600;
-    border: 8px solid var(--color-border-primary);
-    border-radius: var(--border-radius-lg);
+    border: 8px solid var(--q-color-border-primary);
+    border-radius: var(--q-border-radius-lg);
     cursor: pointer;
     transition: all 0.1s;
     font-family: inherit;
-    background: var(--color-text-primary);
-    color: var(--color-background-secondary);
+    background: var(--q-color-text-primary);
+    color: var(--q-color-background-secondary);
 }
 
 .live-plus-btn:hover {
-    background: var(--color-background-primary);
-    color: var(--color-text-primary);
-    border-color: var(--color-text-primary);
+    background: var(--q-color-background-primary);
+    color: var(--q-color-text-primary);
+    border-color: var(--q-color-text-primary);
     transform: translateY(-50%) scale(1.05);
 }
 
@@ -152,12 +152,12 @@
 
 .live-plus-btn.team-1 {
     left: 25%;
-    border-color: var(--color-team1-primary);
+    border-color: var(--q-color-team1-primary);
 }
 
 .live-plus-btn.team-2 {
     right: 25%;
-    border-color: var(--color-team2-primary);
+    border-color: var(--q-color-team2-primary);
 }
 
 /* ── Responsive (Mobile) ────────────────────────────────── */

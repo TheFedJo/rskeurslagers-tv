@@ -1,91 +1,91 @@
 :root {
     /* Backgrounds */
-    --color-background-primary:   #ffffff;
-    --color-background-secondary: #f5f5f5;
-    --color-background-tertiary:  #eeeeee;
-    --color-background-info:      repeating-linear-gradient(
+    --q-color-background-primary:   #ffffff;
+    --q-color-background-secondary: #f5f5f5;
+    --q-color-background-tertiary:  #eeeeee;
+    --q-color-background-info:      repeating-linear-gradient(
             45deg,
             #bbb 0px 2px,
             transparent 2px 4px
     );
-    --color-background-success:   repeating-linear-gradient(
+    --q-color-background-success:   repeating-linear-gradient(
             135deg,
             #dddddd 0px 2px,
             transparent 2px 4px
     );
-    --color-background-warning:   #faeeda;
-    --color-background-danger:    #fcebeb;
+    --q-color-background-warning:   #faeeda;
+    --q-color-background-danger:    #fcebeb;
 
     /* Text */
-    --color-text-primary:   black;
-    --color-text-secondary: rgb(48, 48, 48);
-    --color-text-tertiary:  rgb(96, 96, 96);
-    --color-text-info:      #185fa5;
-    --color-text-success:   #0f6e56;
-    --color-text-warning:   #854f0b;
-    --color-text-danger:    #a32d2d;
+    --q-color-text-primary:   black;
+    --q-color-text-secondary: rgb(48, 48, 48);
+    --q-color-text-tertiary:  rgb(96, 96, 96);
+    --q-color-text-info:      #185fa5;
+    --q-color-text-success:   #0f6e56;
+    --q-color-text-warning:   #854f0b;
+    --q-color-text-danger:    #a32d2d;
 
     /* Borders */
-    --color-border-tertiary:  rgb(192, 192, 192);
-    /*--color-border-tertiary:  rgba(0, 0, 0, 0.25);*/
-    --color-border-secondary: rgb(144, 144, 144);
-    --color-border-primary:   rgb(0, 0, 0);
-    --color-border-info:      #85b7eb;
-    --color-border-success:   #5dcaa5;
-    --color-border-warning:   #ef9f27;
-    --color-border-danger:    #f09595;
+    --q-color-border-tertiary:  rgb(192, 192, 192);
+    /*--q-color-border-tertiary:  rgba(0, 0, 0, 0.25);*/
+    --q-color-border-secondary: rgb(144, 144, 144);
+    --q-color-border-primary:   rgb(0, 0, 0);
+    --q-color-border-info:      #85b7eb;
+    --q-color-border-success:   #5dcaa5;
+    --q-color-border-warning:   #ef9f27;
+    --q-color-border-danger:    #f09595;
 
     /* Typography */
-    --font-sans:  system-ui, -apple-system, sans-serif;
-    --font-serif: Georgia, 'Times New Roman', serif;
-    --font-mono:  'DM Mono', 'Courier New', monospace;
+    --q-font-sans:  system-ui, -apple-system, sans-serif;
+    --q-font-serif: Georgia, 'Times New Roman', serif;
+    --q-font-mono:  'DM Mono', 'Courier New', monospace;
 
     /* Radii */
-    --border-radius-sm:  4px;
-    --border-radius-md:  8px;
-    --border-radius-lg:  12px;
-    --border-radius-xl:  16px;
+    --q-border-radius-sm:  4px;
+    --q-border-radius-md:  8px;
+    --q-border-radius-lg:  12px;
+    --q-border-radius-xl:  16px;
 
     /* Teams */
-    --color-team1-primary: #0000ff;
-    --color-team1-secondary: #8888ff;
-    --color-team1-tertiary: #bbbbff;
-    --color-team2-primary: #ff0000;
-    --color-team2-secondary: #ff8888;
-    --color-team2-tertiary: #ffbbbb;
+    --q-color-team1-primary: #0000ff;
+    --q-color-team1-secondary: #8888ff;
+    --q-color-team1-tertiary: #bbbbff;
+    --q-color-team2-primary: #ff0000;
+    --q-color-team2-secondary: #ff8888;
+    --q-color-team2-tertiary: #ffbbbb;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --color-background-primary:   black;
-        --color-background-secondary: #252523;
-        --color-background-tertiary:  #2e2e2b;
-        --color-background-info:      repeating-linear-gradient(
+        --q-color-background-primary:   black;
+        --q-color-background-secondary: #252523;
+        --q-color-background-tertiary:  #2e2e2b;
+        --q-color-background-info:      repeating-linear-gradient(
             45deg,
             #333 0px 2px,
             transparent 2px 4px
         );
-        --color-background-success:   repeating-linear-gradient(
+        --q-color-background-success:   repeating-linear-gradient(
             135deg,
             #222 0px 2px,
             transparent 2px 4px
         );
-        --color-background-warning:   #633806;
-        --color-background-danger:    #791f1f;
+        --q-color-background-warning:   #633806;
+        --q-color-background-danger:    #791f1f;
 
-        --color-text-primary:   white;
-        --color-text-secondary: rgb(192, 192, 192);
-        --color-text-tertiary:  rgb(128, 128, 128);
-        --color-text-info:      #92c0ee;
-        --color-text-success:   #6ad0ae;
-        --color-text-warning:   #f1a83a;
-        --color-text-danger: #ef4d4d;
+        --q-color-text-primary:   white;
+        --q-color-text-secondary: rgb(192, 192, 192);
+        --q-color-text-tertiary:  rgb(128, 128, 128);
+        --q-color-text-info:      #92c0ee;
+        --q-color-text-success:   #6ad0ae;
+        --q-color-text-warning:   #f1a83a;
+        --q-color-text-danger: #ef4d4d;
 
-        /*--color-border-tertiary:  rgba(255, 255, 255, 0.10);*/
-        /*--color-border-secondary:  rgba(255, 255, 255, 0.22);*/
-        /*--color-border-primary:  rgba(255, 255, 255, 0.35);*/
-        --color-border-tertiary:  rgb(64, 64, 64);
-        --color-border-secondary: rgb(96, 96, 96);
-        --color-border-primary:   rgb(128, 128, 128);
+        /*--q-color-border-tertiary:  rgba(255, 255, 255, 0.10);*/
+        /*--q-color-border-secondary:  rgba(255, 255, 255, 0.22);*/
+        /*--q-color-border-primary:  rgba(255, 255, 255, 0.35);*/
+        --q-color-border-tertiary:  rgb(64, 64, 64);
+        --q-color-border-secondary: rgb(96, 96, 96);
+        --q-color-border-primary:   rgb(128, 128, 128);
     }
 }

@@ -4,8 +4,8 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px 0;
-    border-bottom: 0.5px solid var(--color-border-tertiary);
-    color: var(--color-text-primary);
+    border-bottom: 0.5px solid var(--q-color-border-tertiary);
+    color: var(--q-color-text-primary);
 }
 
 .elo-row {
@@ -40,13 +40,13 @@
 .avatar {
     width: 34px;
     height: 34px;
-    background: var(--color-background-success);
+    background: var(--q-color-background-success);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 18px;
     font-weight: 500;
-    color: var(--color-text-primary);
+    color: var(--q-color-text-primary);
     flex-shrink: 0;
 }
 
@@ -60,25 +60,25 @@
 }
 
 .player-name, .match-name, .elo-name {
-    color: var(--color-text-primary);
+    color: var(--q-color-text-primary);
 
 }
 
 .player-id-text {
     font-size: 12px;
-    color: var(--color-text-secondary);
+    color: var(--q-color-text-secondary);
 }
 
 .player-rank {
     font-size: 12px;
-    color: var(--color-text-secondary);
+    color: var(--q-color-text-secondary);
     min-width: 20px;
 }
 
 .player-data, .match-data, .elo-data {
     font-size: 18px;
     font-weight: 500;
-    color: var(--color-text-primary);
+    color: var(--q-color-text-primary);
 }
 .ranked-badge, .unranked-badge {
     font-style: italic;
@@ -91,7 +91,7 @@
 
 .participants {
     flex: 1;
-    color: var(--color-text-primary);
+    color: var(--q-color-text-primary);
 }
 
 .win .elo-gain,
@@ -102,22 +102,22 @@
 }
 
 .win .elo-gain {
-    color: var(--color-text-success);
+    color: var(--q-color-text-success);
 }
 
 .loss .elo-gain {
-    color: var(--color-text-danger);
+    color: var(--q-color-text-danger);
 }
 
 .draw .elo-gain {
-    color: var(--color-text-warning)
+    color: var(--q-color-text-warning)
 }
 
 .player-metadata, .match-metadata, .elo-metadata  {
     font-size: 12px;
-    color: var(--color-text-secondary);
+    color: var(--q-color-text-secondary);
     margin-top: 2px;
-    font-family: var(--font-mono);
+    font-family: var(--q-font-mono);
 }
 
 /* ── ELO badge ───────────────────────────────────────────── */
@@ -129,34 +129,34 @@
     min-width: 4rem;
 
     padding: 3px 10px;
-    border: 2px solid var(--color-border-primary);
-    outline: 6px inset var(--color-border-primary);
+    border: 2px solid var(--q-color-border-primary);
+    outline: 6px inset var(--q-color-border-primary);
     border-radius: 15px;
 
     font-size: 18px;
     font-weight: 700;
 
-    color: var(--color-background-primary);
+    color: var(--q-color-background-primary);
 }
 
 .e-hi  {
-    background: var(--color-text-success);
+    background: var(--q-color-text-success);
 }
 
 .e-mid {
-    background: var(--color-text-info);
+    background: var(--q-color-text-info);
 }
 
 .e-lo  {
-    background: var(--color-text-danger);
+    background: var(--q-color-text-danger);
 }
 
 .e-no  {
-    background: var(--color-text-tertiary);
+    background: var(--q-color-text-tertiary);
 }
 
 .elo-col-header {
-    background: var(--color-text-primary);
+    background: var(--q-color-text-primary);
 }
 
 @media (max-width: 768px) {

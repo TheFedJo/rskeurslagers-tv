@@ -15,7 +15,7 @@
     font-size: 15px;
     font-weight: 500;
     margin-bottom: 8px;
-    color: var(--color-text-secondary);
+    color: var(--q-color-text-secondary);
     justify-self: center;
 }
 
@@ -36,9 +36,9 @@
     font-size: 18px;
     font-weight: 500;
     padding: 7px 14px;
-    border: 1px solid var(--color-border-secondary);
+    border: 1px solid var(--q-color-border-secondary);
     background: none;
-    color: var(--color-text-primary);
+    color: var(--q-color-text-primary);
     display: flex;
     margin-bottom: 0;
 }
@@ -47,8 +47,8 @@
     display: none;
     position: absolute;
     transform: translate(0, 20px);
-    background: var(--color-background-primary);
-    border: var(--color-border-primary) solid 1px;
+    background: var(--q-color-background-primary);
+    border: var(--q-color-border-primary) solid 1px;
     border-radius: 4px;
     padding: 8px;
     z-index: 1;

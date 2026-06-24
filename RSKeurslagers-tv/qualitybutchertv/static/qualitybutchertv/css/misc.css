@@ -1,35 +1,35 @@
 /* ── Card ────────────────────────────────────────────────── */
 .card {
-    background: var(--color-background-primary);
-    border: 1px solid var(--color-border-primary);
+    background: var(--q-color-background-primary);
+    border: 1px solid var(--q-color-border-primary);
     padding: 1.25rem;
 }
 
 /* ── Misc layout ─────────────────────────────────────────── */
-.mono { font-family: var(--font-mono); }
+.mono { font-family: var(--q-font-mono); }
 
 .empty {
     text-align: center;
     padding: 2rem;
-    color: var(--color-text-secondary);
+    color: var(--q-color-text-secondary);
     font-size: 18px;
 }
 
 .warning-text {
     font-size: 18px;
-    color: var(--color-text-secondary);
+    color: var(--q-color-text-secondary);
 }
 
 /* ── Primary button variant ──────────────────────────────── */
 .btn-p {
-    background: var(--color-text-success);
-    color: var(--color-background-primary);
-    border-color: var(--color-border-primary);
+    background: var(--q-color-text-success);
+    color: var(--q-color-background-primary);
+    border-color: var(--q-color-border-primary);
 }
 
 .btn-p:hover {
-    background: var(--color-background-secondary);
-    color: var(--color-text-primary);
+    background: var(--q-color-background-secondary);
+    color: var(--q-color-text-primary);
 }
 
 .small-btn {

@@ -8,9 +8,9 @@
 .tab {
     padding: 8px 16px;
     border: 3px solid;
-    border-color: var(--color-text-secondary);
+    border-color: var(--q-color-text-secondary);
     border-radius: 0;
-    color: var(--color-text-secondary);
+    color: var(--q-color-text-secondary);
     cursor: pointer;
     transition: color 0.15s;
     font-size: 24px;
@@ -18,8 +18,8 @@
 
 .tab:hover {
     background: none;
-    border-color: var(--color-text-primary);
-    color: var(--color-text-primary);
+    border-color: var(--q-color-text-primary);
+    color: var(--q-color-text-primary);
 }
 
 .tab.active {
@@ -52,7 +52,7 @@
 .filter-label {
     font-size: 18px;
     font-weight: 600;
-    color: var(--color-text-secondary);
+    color: var(--q-color-text-secondary);
 }
 
 .pills-row {
@@ -66,24 +66,24 @@
     font-size: 18px;
     font-weight: 500;
     cursor: pointer;
-    border: 2px solid var(--color-border-secondary);
-    color: var(--color-text-primary);
+    border: 2px solid var(--q-color-border-secondary);
+    color: var(--q-color-text-primary);
     background: none;
     font-family: inherit;
     transition: all 0.1s;
 }
 
 .pill:hover {
-    background: var(--color-background-secondary);
+    background: var(--q-color-background-secondary);
 }
 
 .pill.on {
-    background: var(--color-background-success);
-    color: var(--color-text-secondary);
-    text-shadow: 2px 0 1px var(--color-background-primary),
-                -2px 0 1px var(--color-background-primary),
-                 0 2px 1px var(--color-background-primary),
-                0 -2px 1px var(--color-background-primary);
+    background: var(--q-color-background-success);
+    color: var(--q-color-text-secondary);
+    text-shadow: 2px 0 1px var(--q-color-background-primary),
+                -2px 0 1px var(--q-color-background-primary),
+                 0 2px 1px var(--q-color-background-primary),
+                0 -2px 1px var(--q-color-background-primary);
 }
 
 @media (max-width: 768px) {
