@@ -6,7 +6,8 @@ from typing import Sequence, Optional
 
 from django.db import transaction
 
-from .models import ELO, Match, MatchParticipant, MatchType, Player
+from qualitybutchertv.matchtypes import MATCH_TYPES
+from .models import ELO, Match, MatchParticipant, Player
 
 logger = logging.getLogger(__name__)
 
@@ -100,7 +101,7 @@ def calculate_elo_changes(
 # Database helpers
 # ---------------------------------------------------------------------------
 
-def _get_or_create_elo(player: Player, match_type: MatchType) -> ELO:
+def _get_or_create_elo(player: Player, match_type: str) -> ELO:
     elo_obj, created = ELO.objects.get_or_create(
         player=player,
         match_type=match_type,
@@ -113,7 +114,7 @@ def _get_or_create_elo(player: Player, match_type: MatchType) -> ELO:
 
 def _build_team_snapshot(
     player_ids: Sequence[str],
-    match_type: MatchType,
+    match_type: str,
 ) -> tuple[list[Player], _TeamSnapshot]:
     """
     Fetch Player objects and their current ELO, return both.
@@ -152,7 +153,7 @@ def apply_elo_update(match: Match) -> Optional[EloResult]:
     if not match.ranked:
         logger.debug(f'[ELO] not calculating ELO for match {match.pk}, match type not ranked')
         return None
-    match_type: MatchType = match.match_type
+    match_type: str = match.match_type
 
     participants = (
         MatchParticipant.objects
@@ -164,8 +165,8 @@ def apply_elo_update(match: Match) -> Optional[EloResult]:
     team2_ids = [str(mp.player_id) for mp in participants if mp.team == 2]
 
     # --- Guard: participant counts must match MatchType definition -----------
-    expected_t1 = match_type.players_team_1
-    expected_t2 = match_type.players_team_2
+    expected_t1 = MATCH_TYPES[match_type]["players_team_1"]
+    expected_t2 = MATCH_TYPES[match_type]["players_team_2"]
     if len(team1_ids) != expected_t1 or len(team2_ids) != expected_t2:
         raise ValueError(
             f"Match {match.pk}: expected {expected_t1}v{expected_t2} participants, "
@@ -187,7 +188,7 @@ def apply_elo_update(match: Match) -> Optional[EloResult]:
     logger.info(
         "Match %s (%s) score %s-%s | team1 avg=%.1f team2 avg=%.1f | Δ team1=%.2f Δ team2=%.2f",
         match.pk,
-        match_type.match_type,
+        match_type,
         match.score_team_1,
         match.score_team_2,
         snap1.avg_elo,

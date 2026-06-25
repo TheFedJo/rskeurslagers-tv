@@ -4,10 +4,10 @@ from django.db.models import Q
 from rest_framework import mixins, generics, viewsets
 
 from .elo_service import SCALING_FACTOR, K_FACTOR, DEFAULT_ELO
-from .models import Player, Match, ELO, MatchType
+from .models import Player, Match, ELO
 from .serializers import (
     MemberSerializer, PlayerSerializer,
-    MatchSerializer, EloSerializer, MatchTypeSerializer
+    MatchSerializer, EloSerializer
 )
 
 from members.models import Member
@@ -62,11 +62,6 @@ class EloListView(mixins.ListModelMixin,
         return qs
 
 
-class MatchTypeViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = MatchType.objects.all()
-    serializer_class = MatchTypeSerializer
-
-
 def clean(request):
     context = {
         'scaling_factor': SCALING_FACTOR,
@@ -75,6 +70,7 @@ def clean(request):
         'base_template': "qualitybutchertv/clean-base.html",
     }
     return render(request, 'qualitybutchertv/main.html', context)
+
 
 def with_menu(request):
     context = {

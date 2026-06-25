@@ -3,7 +3,7 @@ from rest_framework import serializers
 from django.db import transaction
 
 from .elo_service import apply_elo_update_after_create
-from .models import Player, Match, MatchParticipant, ELO, MatchType
+from .models import Player, Match, MatchParticipant, ELO
 
 from members.models import Member, Yeargroup
 
@@ -152,15 +152,8 @@ class MatchSerializer(serializers.ModelSerializer):
         ]
 
 
-class MatchTypeSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = MatchType
-        fields = '__all__'
-
-
 class EloSerializer(serializers.ModelSerializer):
     player = PlayerSerializer(read_only=True)
-    match_type = MatchTypeSerializer(read_only=True)
 
     class Meta:
         model = ELO

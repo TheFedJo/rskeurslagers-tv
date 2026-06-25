@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     (async function init() {
         // Load match types first so ranked eligibility checks work immediately
         try {
-            st.matchTypes = await api('GET', 'match-types/');
+            st.matchTypes = await api('GET', 'qualitybutchertv/match-types/');
         } catch {
             console.warn('Could not load match types — ranked eligibility checks will default to false.');
         }

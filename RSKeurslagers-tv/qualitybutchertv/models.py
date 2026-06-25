@@ -5,6 +5,7 @@ from django.db import models
 from django.db.models import Q, F
 
 from members.models import Member
+from qualitybutchertv.matchtypes import get_match_labels, MIN_RANKED_SCORE, MAX_RANKED_SCORE, MATCH_TYPES
 
 
 class Player(models.Model):
@@ -26,42 +27,8 @@ class TeamPlayerCount(models.IntegerChoices):
     FOUR = 4
 
 
-class MatchType(models.Model):
-    match_type = models.CharField(max_length=3, choices=PlayerDistribution, unique=True)
-    players_team_1 = models.SmallIntegerField(choices=TeamPlayerCount)
-    players_team_2 = models.SmallIntegerField(choices=TeamPlayerCount)
-    # Whether this match type can ever produce ranked matches
-    elo_eligible = models.BooleanField(default=False)
-
-    # Max score the winning team can reach for a match to be ranked:
-    # 10 = klinker, 11 = keeper goal, 12 = absolute max
-    MAX_RANKED_SCORE = 12
-    MIN_RANKED_SCORE = 10
-
-    class Meta:
-        constraints = [
-            # Team sizes must match the distribution label
-            models.CheckConstraint(
-                name='matchtype_1v1_sizes',
-                condition=~Q(match_type='1v1') | (Q(players_team_1=1) & Q(players_team_2=1))
-            ),
-            models.CheckConstraint(
-                name='matchtype_1v2_sizes',
-                condition=~Q(match_type='1v2') | (Q(players_team_1=1) & Q(players_team_2=2))
-            ),
-            models.CheckConstraint(
-                name='matchtype_2v2_sizes',
-                condition=~Q(match_type='2v2') | (Q(players_team_1=2) & Q(players_team_2=2))
-            ),
-            models.CheckConstraint(
-                name='matchtype_4v4_sizes',
-                condition=~Q(match_type='4v4') | (Q(players_team_1=4) & Q(players_team_2=4))
-            ),
-        ]
-
-
 class Match(models.Model):
-    match_type = models.ForeignKey(to=MatchType, to_field='match_type', on_delete=models.CASCADE)
+    match_type = models.CharField(max_length=3, choices=get_match_labels())
     timestamp_played = models.DateTimeField()
     timestamp_uploaded = models.DateTimeField()
     score_team_1 = models.SmallIntegerField(validators=[MinValueValidator(0), MaxValueValidator(12)])
@@ -82,7 +49,7 @@ class Match(models.Model):
         lo = min(self.score_team_1, self.score_team_2)
         return (
             self.score_team_1 != self.score_team_2      # no draws
-            and MatchType.MIN_RANKED_SCORE <= hi <= MatchType.MAX_RANKED_SCORE
+            and MIN_RANKED_SCORE <= hi <= MAX_RANKED_SCORE
             and lo <= 9
         )
 
@@ -91,7 +58,7 @@ class Match(models.Model):
         # Can still be overridden manually by setting ranked=True/False before save
         if not self.pk:  # only auto-set on creation
             eligible = (
-                self.match_type.elo_eligible
+                MATCH_TYPES[self.match_type]['elo_eligible']
                 and self.is_score_ranked_eligible()
             )
             self.ranked = eligible
@@ -137,7 +104,7 @@ class Match(models.Model):
 
 class ELO(models.Model):
     player = models.ForeignKey(Player, on_delete=models.CASCADE)
-    match_type = models.ForeignKey(MatchType, on_delete=models.RESTRICT)
+    match_type = models.CharField(max_length=3, choices=get_match_labels())
     elo = models.FloatField(default=1500)
 
     class Meta:
