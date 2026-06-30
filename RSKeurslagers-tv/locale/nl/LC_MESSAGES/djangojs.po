@@ -1,0 +1,204 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-03 23:10+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\keur\static\keur\js\script.js:152
+msgid "Leden zoeken mislukt"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:162
+msgid "Geen leden gevonden"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:170
+msgid "speler"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:171
+msgid "beschikbaar"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:204
+msgid "al een speler"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:205
+msgid "nog geen speler"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:209
+msgid "Dit lid is al als speler toegevoegd."
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:235
+msgid "Spelers laden mislukt"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:241
+msgid "Kies eerst een lid"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:244
+msgid "Lid is al als speler toegevoegd."
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:249
+msgid "Nickname te kort"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:257
+msgid "als speler toegevoegd"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:260
+msgid "Speler aanmaken mislukt"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:268
+msgid "Nog geen spelers."
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:337
+msgid "Dit speltype telt niet voor klassement."
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:341
+msgid "Gelijkspel telt niet voor klassement."
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:346
+msgid "Winnaar moet minimaal 10 scoren voor klassement."
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:350
+msgid "Winnaar mag maximaal 12 scoren voor klassement."
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:354
+msgid "Verliezer mag maximaal 9 scoren voor klassement."
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:357
+msgid "Wedstrijd telt voor klassement ✓"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:382
+msgid "kies speler"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:390
+msgid "Voeg eerst spelers toe."
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:446
+msgid "Opslaan"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:458
+msgid "Wedstrijd opslaan"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:467
+msgid "Voeg alle spelers van team 1 toe"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:472
+msgid "Voeg alle spelers van team 2 toe"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:478
+msgid "Een speler kan niet in beide teams zitten"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:491
+msgid "Score kan niet 0-0 zijn"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:495
+msgid "Maximale score is 12"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:499
+msgid ""
+"Score voldoet niet aan klassementsvoorwaarden (winnaar 10–12, verliezer max "
+"9)"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:503
+msgid "Dit speltype telt niet voor het klassement"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:561
+msgid "Wedstrijd opslaan mislukt"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:568
+msgid "bijgewerkt"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:568
+msgid "opgeslagen"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:570
+msgid "telt voor klassement"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:571
+msgid "telt niet voor klassement"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:576
+msgid "Score was geschikt maar wedstrijd is niet ranked opgeslagen"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:612
+msgid "Wedstrijden laden niet gelukt"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:619
+msgid "Nog geen wedstrijden."
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:633
+msgid "Klassementswedstrijd"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:634
+msgid "Vriendschappelijke wedstrijd"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:651
+msgid "Bewerken"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:713
+msgid "ELO-gegevens laden mislukt"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:722
+msgid "Nog geen ELO-gegevens — sla eerst een wedstrijd op."
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:758
+msgid "Speler"
+msgstr ""
+
+#: .\keur\static\keur\js\script.js:807
+msgid "Onbekend"
+msgstr ""

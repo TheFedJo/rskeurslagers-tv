@@ -1,0 +1,4 @@
+**/__pycache__/*
+.idea
+RSKeurslagers-tv/db.sqlite3
+RSKeurslagers-tv/bare_data/matches.txt

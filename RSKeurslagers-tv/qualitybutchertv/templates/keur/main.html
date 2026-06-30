@@ -1,0 +1,225 @@
+{% load static %}
+{% load i18n %}
+
+<!doctype html>
+<head>
+    <link rel="stylesheet" href={% static 'qualitybutchertv/css/tokens.css' %}>
+    <link rel="stylesheet" href={% static 'qualitybutchertv/css/base-elements.css' %}>
+    <link rel="stylesheet" href={% static 'qualitybutchertv/css/top-header.css' %}>
+    <link rel="stylesheet" href={% static 'qualitybutchertv/css/tabs-and-pills.css' %}>
+    <link rel="stylesheet" href={% static 'qualitybutchertv/css/headers-and-text.css' %}>
+    <link rel="stylesheet" href={% static 'qualitybutchertv/css/member-search.css' %}>
+    <link rel="stylesheet" href={% static 'qualitybutchertv/css/misc.css' %}>
+    <link rel="stylesheet" href={% static 'qualitybutchertv/css/table.css' %}>
+    <link rel="stylesheet" href={% static 'qualitybutchertv/css/match-form.css' %}>
+    <script src="{% url 'javascript-catalog' %}"></script>
+    <title>{% translate "RSKeurslagers-tv" %}</title>
+</head>
+<body>
+    <div class="root">
+        <div class="top-header">
+            <div>
+                <div class="header-title">{% translate "RSKeurslagers-tv" %}</div>
+                <div class="header-subtitle">{% translate "Klim naar de (tafel)voetbaltop!" %}</div>
+            </div>
+
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-value" id="players-statistic">0</div>
+                    <div class="stat-label" id="players-statistic-label">{% translate "spelers" %}</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="matches-statistic">0</div>
+                    <div class="stat-label" id="matches-statistic-label">{% translate "wedstrijden" %}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button id="tab-players" class="tab active" onclick="tabs.go('players')">{% translate "Spelers" %}</button>
+            <button id="tab-matches" class="tab"        onclick="tabs.go('matches')">{% translate "Wedstrijden" %}</button>
+            <button id="tab-elo"     class="tab"        onclick="tabs.go('elo')">{% translate "ELO" %}</button>
+            <button id="tab-info"    class="tab"        onclick="tabs.go('info')">{% translate "Info" %}</button>
+        </div>
+
+        {# PLAYERS tab #}
+        <div class="sec active" id="sec-players">
+            <div class="section-title">{% translate "Maak speler voor lid" %}</div>
+
+            <div class="search-wrap" id="member-search-wrap">
+                <label>{% translate "Zoek lid" %}</label>
+                <input
+                    type="text"
+                    id="member-search"
+                    placeholder="{% translate 'Type tenminste 2 tekens…' %}"
+                    oninput="members.filter()"
+                    autocomplete="off"
+                >
+                <div class="dropdown" id="member-dd" style="display:none"></div>
+            </div>
+
+            <div id="selected-member-card" class="selected-card" style="display:none">
+                <div class="card selected-card-inner">
+                    <div class="flex-row">
+                        <div class="avatar" id="sel-avatar"></div>
+                        <div>
+                            <div class="player-name" id="sel-name"></div>
+                            <div class="player-meta" id="sel-meta"></div>
+                        </div>
+                    </div>
+                    <div class="action-row">
+                        <span id="sel-status-tag"></span>
+                        <div>
+                            <label for="nickname-input">{% translate "Nickname" %}</label>
+                            <input
+                                id="nickname-input"
+                                type="text"
+                                placeholder="{% translate 'Tenminste 4 tekens...' %}"
+                                autocomplete="off"
+                            >
+                        </div>
+                        <button class="btn btn-s small-btn" onclick="members.clearSelection()">
+                            {% translate "Maak leeg" %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="create-btn-wrap" class="create-wrap" style="display:none">
+                <button class="btn btn-p" onclick="players.create()">
+                    {% translate "Maak speler aan" %}
+                </button>
+                <span id="create-hint" class="hint"></span>
+            </div>
+
+            <div class="section-title">{% translate "Actieve spelers" %}</div>
+            <div class="card" id="player-list">
+                <div class="empty">{% translate "Nog geen spelers." %}</div>
+            </div>
+        </div>
+
+        {# MATCHES tab #}
+        <div class="sec" id="sec-matches">
+            <div class="filter-row">
+                <div class="filter-label">{% translate "Wedstrijdtype:" %}</div>
+                <div class="pills-row" id="type-pills">
+                    <button class="pill" onclick="matchForm.setType(this,'1v1')" data-type="1v1">1v1</button>
+                    <button class="pill" onclick="matchForm.setType(this,'1v2')" data-type="1v2">1v2</button>
+                    <button class="pill on" onclick="matchForm.setType(this,'2v2')" data-type="2v2">2v2</button>
+                    <button class="pill" onclick="matchForm.setType(this,'4v4')" data-type="4v4">4v4</button>
+                </div>
+            </div>
+
+            <div id="matchform-fields" class="card form-fields">
+
+                <div class="section-header">{% translate "Score" %}</div>
+                <div class="score-row">
+                    <div class="field score-field">
+                        <label class="score-label">{% translate "Team 1" %}</label>
+                        <input class="score-in" type="number" id="sc1" value="0" min="0" max="99">
+                    </div>
+                    <div class="score-divider">—</div>
+                    <div class="field score-field">
+                        <label class="score-label">{% translate "Team 2" %}</label>
+                        <input class="score-in" type="number" id="sc2" value="0" min="0" max="99">
+                    </div>
+                </div>
+
+                <div class="section-header">{% translate "Voeg spelers toe" %}</div>
+                <div id="team-wrap" class="team-wrap"></div>
+
+                <div class="section-header">{% translate "Speeldatum en -tijd" %}</div>
+                <div id="date-time-wrap">
+                    <input type="datetime-local" id="date-time-played" />
+                </div>
+
+            </div>
+
+            <div id="match-actions" class="actions">
+                <button class="btn btn-p" onclick="matchForm.submit()">
+                    {% translate "Sla wedstrijd op" %}
+                </button>
+
+                <button class="btn btn-s" onclick="matchForm.reset()">
+                    {% translate "Maak leeg" %}
+                </button>
+
+                <div class="divider"></div>
+
+                <label class="ranked-label button" id="ranked-label">
+                    <input type="checkbox" id="ranked-toggle" disabled>
+                    <div id="ranked-hint" class="ranked-hint btn">{% translate 'Niet genoeg informatie' %}</div>
+                    <span>{% translate 'Klassement' %}</span>
+                </label>
+
+            </div>
+
+            <div class="section-title">{% translate "Wedstrijdgeschiedenis" %}</div>
+
+            <div class="match-list-container">
+                <button id="ranked-filter-btn" class="pill" onclick="matchList.toggleRankedFilter(this)">
+                    {% translate 'Alleen klassementswedstrijden' %}
+                </button>
+
+                <div class="card" id="match-list">
+                    <div class="empty">{% translate "Nog geen wedstrijden." %}</div>
+                </div>
+            </div>
+        </div>
+
+        {# ELO tab #}
+        <div class="sec" id="sec-elo">
+            <div class="filter-row">
+                <span class="filter-label">{% translate "Type:" %}</span>
+                <div class="pills-row" id="elo-pills">
+                    <button class="pill on" onclick="eloBoard.setFilter(this,'all')">{% translate "Alle" %}</button>
+                    <button class="pill"    onclick="eloBoard.setFilter(this,'1v1')">{% translate "1v1" %}</button>
+{#                    <button class="pill"    onclick="eloBoard.setFilter(this,'1v2')">{% translate "1v2" %}</button>#}
+                    <button class="pill"    onclick="eloBoard.setFilter(this,'2v2')">{% translate "2v2" %}</button>
+                    <button class="pill"    onclick="eloBoard.setFilter(this,'4v4')">{% translate "4v4" %}</button>
+                </div>
+            </div>
+
+            <div class="card" id="elo-list">
+                <div class="empty">
+                    {% translate "Nog geen ELO-gegevens — sla eerst een wedstrijd op." %}
+                </div>
+            </div>
+        </div>
+
+        {# RULES tab #}
+        <div class="sec" id="sec-info">
+            <div class="pills-row">
+                <button id="info-usage"     class="pill on" onclick="info.go('usage')"      >{% translate 'Gebruik' %}</button>
+                <button id="info-rules"     class="pill"    onclick="info.go('rules')"      >{% translate 'Regels' %}</button>
+                <button id="info-technique" class="pill"    onclick="info.go('technique')"  >{% translate 'Techniek' %}</button>
+                <button id="info-strategy"  class="pill"    onclick="info.go('strategy')"   >{% translate 'Strategie' %}</button>
+                <button id="info-elo"       class="pill"    onclick="info.go('elo')"        >{% translate 'ELO' %}</button>
+            </div>
+
+            <div id="info-pages">
+                <div class="tert" id="tert-jerusalem">
+                    {% include 'qualitybutchertv/info/jerusalem.html' %}
+                </div>
+                <div class="tert active" id="tert-usage">
+                    {% include 'qualitybutchertv/info/usage.html' %}
+                </div>
+                <div class="tert" id="tert-rules">
+                    {% include 'qualitybutchertv/info/rules.html' %}
+                </div>
+                <div class="tert" id="tert-technique">
+                    {% include 'qualitybutchertv/info/technique.html' %}
+                </div>
+                <div class="tert" id="tert-strategy">
+                    {% include 'qualitybutchertv/info/strategy.html' %}
+                </div>
+                <div class="tert" id="tert-elo">
+                    {% include 'qualitybutchertv/info/elo.html' %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src={% static 'qualitybutchertv/js/script.js' %}></script>
+</body>

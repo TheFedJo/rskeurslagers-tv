@@ -1,0 +1,339 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-03 23:09+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\keur\templates\keur\dashboard01.html:9
+#: .\keur\templates\keur\dashboard01.html:15
+msgid "RSKeurslagers-tv"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:16
+msgid "Klim naar de (tafel)voetbaltop!"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:22
+msgid "spelers"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:26
+msgid "wedstrijden"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:32
+msgid "Spelers"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:33
+msgid "Wedstrijden"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:34
+msgid "ELO"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:35
+msgid "Info"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:40
+msgid "Maak speler voor lid"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:43
+msgid "Zoek lid"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:47
+msgid "Type tenminste 2 tekens…"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:66
+msgid "Nickname"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:70
+msgid "Tenminste 4 tekens..."
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:75
+#: .\keur\templates\keur\dashboard01.html:137
+msgid "Maak leeg"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:83
+msgid "Maak speler aan"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:88
+msgid "Actieve spelers"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:90
+msgid "Nog geen spelers."
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:97
+msgid "Wedstrijdtype:"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:108
+msgid "Score"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:111
+msgid "Team 1"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:116
+msgid "Team 2"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:121
+msgid "Voeg spelers toe"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:124
+msgid "Speeldatum en -tijd"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:133
+msgid "Sla wedstrijd op"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:145
+msgid "Klassement"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:150
+msgid "Wedstrijdgeschiedenis"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:154
+msgid "Alleen klassementswedstrijden"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:158
+msgid "Nog geen wedstrijden."
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:166
+msgid "Type:"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:168
+msgid "Alle"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:169
+msgid "1v1"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:170
+msgid "1v2"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:171
+msgid "2v2"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:172
+msgid "4v4"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:178
+msgid "Nog geen ELO-gegevens — sla eerst een wedstrijd op."
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:186
+#: .\keur\templates\keur\info\usage.html:3
+msgid "Gebruik"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:187
+#: .\keur\templates\keur\info\rules.html:3
+msgid "Regels"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:188
+msgid "Techniek"
+msgstr ""
+
+#: .\keur\templates\keur\dashboard01.html:189
+msgid "Strategie"
+msgstr ""
+
+#: .\keur\templates\keur\info\rules.html:4
+msgid ""
+"\n"
+"        De standaardregels voor wedstrijden in het klassement zijn als "
+"volgt:\n"
+msgstr ""
+
+#: .\keur\templates\keur\info\rules.html:8
+msgid "Doelpuntentelling"
+msgstr ""
+
+#: .\keur\templates\keur\info\rules.html:9
+msgid ""
+"\n"
+"    Je wint als je 10 punten of meer hebt gescoord.     Er zijn drie "
+"manieren om te scoren. Voor de meeste doelpunten\n"
+"    wordt 1 punt gerekend. Als de bal het laatst door de keeper van het "
+"tegengestelde doel wordt aangeraakt (alleen de\n"
+"    doelpalen mogen de bal ook geraakt hebben), dan telt de punt voor twee. "
+"Deze doelpunten zijn namelijk lastig te\n"
+"    maken. Mocht de bal terugkaatsen uit het doel, dan is dit een klinker. "
+"Voor een klinker krijg je 3 punten.\n"
+msgstr ""
+
+#: .\keur\templates\keur\info\rules.html:14
+msgid ""
+"\n"
+"    Een doelpunt wordt niet geteld als de bal door geen enkel poppetje wordt "
+"aangeraakt.\n"
+msgstr ""
+
+#: .\keur\templates\keur\info\rules.html:18
+msgid "Draaien"
+msgstr ""
+
+#: .\keur\templates\keur\info\rules.html:19
+msgid ""
+"\n"
+"\tDraaien is het een zwengel geven aan een handvat en het vervolgens "
+"loslaten, waardoor de poppetjes hard ronddraaien.\n"
+"    Dit zorgt voor minder controle over het schot en als meerdere mensen het "
+"gaan doen wordt het spel vrij chaotisch.\n"
+"    Daarom is het verboden om de handvatten van de stangen los te laten in "
+"klassementspel. Een doelpunt dat met deze\n"
+"    methode gescoord wordt telt uiteraard niet.\n"
+msgstr ""
+
+#: .\keur\templates\keur\info\rules.html:26
+msgid "Kruipen"
+msgstr ""
+
+#: .\keur\templates\keur\info\rules.html:27
+msgid ""
+"\n"
+"\tAls het puntenverschil tussen de winnaar en de verliezer 10 punten of meer "
+"bedraagt (10-0, 11-1, 12-0), dan mag de\n"
+"    verliezende partij onder de tafelvoetbaltafel door kruipen. Bij de "
+"gratie van de winnaar kan dit natuurlijk verhoed\n"
+"    worden.\n"
+msgstr ""
+
+#: .\keur\templates\keur\info\rules.html:34
+msgid ""
+"\n"
+"        De regels zijn zoals gangbaar op de Fruytier, met enige "
+"versimpeling, die naar verluidt de sterkste tafelvoetballers\n"
+"        levert. De internationale tafelvoetbalbond verbiedt draaien ook, "
+"maar geeft ook onnodig veel regels voor pauzes en\n"
+"        andere dingen die nou eenmaal vastgelegd moeten worden voor kansloze "
+"try-hards. Vreemder nog is dat ze passen tussen\n"
+"        stangen grotendeels aan banden leggen.\n"
+"    "
+msgstr ""
+
+#: .\keur\templates\keur\info\rules.html:40
+msgid ""
+"\n"
+"        Deze regel is niet van toepassing op tafels waar klinkers veel te "
+"makkelijk kunnen worden gemaakt. (Dan moet\n"
+"        afgesproken worden dat ze één dan wel nul punten opleveren.) De "
+"tafel voor de BK laat het toe, maar het is daar heel\n"
+"        zeldzaam. Een keeperklinker (praktisch onmogelijk) levert 5 punten "
+"op.\n"
+"    "
+msgstr ""
+
+#: .\keur\templates\keur\info\strategy.html:4
+msgid "Passen of schieten?"
+msgstr ""
+
+#: .\keur\templates\keur\info\strategy.html:5
+msgid ""
+"\n"
+"    Als je gecontroleerd de bal van stang naar stang weet te krijgen, dan "
+"zou dit misschien een handige strategie\n"
+"    zijn, gecontroleerd opbouwen als het ware. Versimpeld weergegeven: <br>\n"
+"    P(pass_succes) ^ nodige passes * P(scoor_succes_aanvallers) > "
+"P(scoor_succes_huidige_stang)\n"
+msgstr ""
+
+#: .\keur\templates\keur\info\technique.html:3
+msgid "Gericht schieten"
+msgstr ""
+
+#: .\keur\templates\keur\info\technique.html:4
+msgid ""
+"\n"
+"    De bal kan niet alleen maar recht vooruit worden geschoten. Meerdere "
+"technieken bestaan om onder een hoek te\n"
+"    schieten.\n"
+msgstr ""
+
+#: .\keur\templates\keur\info\technique.html:9
+msgid "Met de hoek van de voet schieten"
+msgstr ""
+
+#: .\keur\templates\keur\info\technique.html:10
+msgid ""
+"\n"
+"        In plaats van de bal met het voorste vlakke stuk te raken, kun je de "
+"hoeken van de voet gebruiken. De\n"
+"        positie van het contact op de bal heeft invloed op de richting.\n"
+msgstr ""
+
+#: .\keur\templates\keur\info\technique.html:15
+msgid "Scheef aanvliegen"
+msgstr ""
+
+#: .\keur\templates\keur\info\technique.html:18
+msgid "Getrapt schieten"
+msgstr ""
+
+#: .\keur\templates\keur\info\technique.html:20
+msgid "Schieten met de aanvallers"
+msgstr ""
+
+#: .\keur\templates\keur\info\technique.html:22
+msgid "Schieten met de middenvelders"
+msgstr ""
+
+#: .\keur\templates\keur\info\technique.html:24
+msgid "Schieten met de verdedigers"
+msgstr ""
+
+#: .\keur\templates\keur\info\technique.html:26
+msgid "Schieten met de keeper"
+msgstr ""
+
+#: .\keur\templates\keur\info\technique.html:28
+msgid "Alle stangen bedienen (1v1)"
+msgstr ""
+
+#: .\keur\templates\keur\info\usage.html:5
+msgid ""
+"\n"
+"        Op deze website kun je je wedstrijden tafelvoetbal bijhouden. Geef "
+"jezelf een nickname, vul wedstrijden in,\n"
+"        houd epische momenten bij en klim naar de tafelvoetbaltop!\n"
+"    "
+msgstr ""
