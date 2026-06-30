@@ -58,7 +58,7 @@ class MatchForm {
                     gettext('Verliezer mag maximaal 9 scoren voor klassement.'), 'ineligible'
                 );
             } else {
-                this._setHint(gettext('Wedstrijd komt in acht voor klassement ✓'), 'eligible');
+                this._setHint(gettext('Wedstrijd komt in aanmerking voor klassement ✓'), 'eligible');
             }
         }
     }
