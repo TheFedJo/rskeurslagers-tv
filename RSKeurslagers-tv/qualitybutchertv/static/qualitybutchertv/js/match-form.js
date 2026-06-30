@@ -118,6 +118,11 @@ class MatchForm {
 
         this.teamWrap.innerHTML = '';
         this.teamWrap.appendChild(buildTeam('Team 1', t1c, 't1p'));
+
+        const div = document.createElement('div');
+        div.classList.add('team-divider');
+        this.teamWrap.appendChild(div)
+
         this.teamWrap.appendChild(buildTeam('Team 2', t2c, 't2p'));
     }
 

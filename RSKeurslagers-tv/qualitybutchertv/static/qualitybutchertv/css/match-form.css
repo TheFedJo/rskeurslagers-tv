@@ -25,6 +25,12 @@
     gap: 12px;
 }
 
+.team-divider {
+    border-top: 1px solid var(--q-color-border-primary);
+    display: none;
+    margin-bottom: 8px;
+}
+
 .actions {
     margin-top: 1.5rem;
     display: flex;
@@ -79,7 +85,9 @@
     .team-wrap {
         grid-template-columns: 1fr;
     }
-
+    .team-divider {
+        display: block;
+    }
 }
 
 /* ── Responsive (Mobile) ────────────────────────────────── */
@@ -119,5 +127,4 @@
         font-size: 16px;
         padding: 6px 12px;
     }
-
 }
