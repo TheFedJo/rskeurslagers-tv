@@ -41,16 +41,10 @@ class MatchList {
                     ? ['loss', 'win']
                     : ['draw', 'draw'];
 
-            const rankedBadge = m.ranked
-                ? `<span class="ranked-badge" title="${gettext('Klassementswedstrijd')}">Klassement</span>`
-                : `<span class="unranked-badge" title="${gettext('Vriendschappelijke wedstrijd')}">Vriendschappelijk</span>`;
-
             return `
                 <div class="match-row${m.ranked ? ' match-ranked' : ''}" id="mrow-${m.id}">
                     <div class="match-info">
-                        <div class="match-top-row">
-                            ${m.match_type} — ${m.score_team_1} : ${m.score_team_2} — ${rankedBadge}
-                        </div>
+                        ${this.renderTopRow(m)}
                         ${this.renderParticipants(m.participants_detail ?? [], results)}
                         <div class="match-metadata">${
                             m.timestamp_played
@@ -65,19 +59,34 @@ class MatchList {
         }).join('');
     }
 
+    renderTopRow(m) {
+        const rankedBadge = m.ranked
+            ? `<span class="ranked-badge" title="${gettext('Klassementswedstrijd')}">Klassement</span>`
+            : `<span class="unranked-badge" title="${gettext('Vriendschappelijke wedstrijd')}">Vriendschappelijk</span>`;
+
+        return `<div className="match-top-row">
+            ${m.match_type} — ${m.score_team_1} : ${m.score_team_2} — ${rankedBadge}
+        </div>`;
+    }
+
     renderParticipants(participants, results) {
-        const renderOne = (p) => {
+        const renderOne = (side, p) => {
             const gain = (p.elo_gain > 0 ? '+' : '') + p.elo_gain.toFixed(0);
-            return `<div class="participant">
-                <span class="elo-gain">${gain}</span> ${p.display_name}
+            return `<div class="participant ${side}" title="${p.display_name}">
+                ${side === "right" ? `<span class="elo-gain">${gain}</span>` : p.nickname}
+                ${side === "left" ? `<span class="elo-gain">${gain}</span>` : p.nickname}
             </div>`;
         };
-        const ps1 = participants.filter((p) => p.team === 1).map(renderOne).join('');
-        const ps2 = participants.filter((p) => p.team === 2).map(renderOne).join('');
+        const ps1 = participants.filter((p) => p.team === 1).map(
+            p => renderOne("left", p)
+        ).join('');
+        const ps2 = participants.filter((p) => p.team === 2).map(
+            p => renderOne("right", p)
+        ).join('');
         return `
             <span class="participants-wrapper">
-                <div class="participants ${results[0]}">${ps1}</div>
-                <div class="participants ${results[1]}">${ps2}</div>
+                <div class="participants left ${results[0]} ">${ps1}</div>
+                <div class="participants right ${results[1]}">${ps2}</div>
             </span>`;
     }
 

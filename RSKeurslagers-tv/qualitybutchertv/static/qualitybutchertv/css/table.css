@@ -94,6 +94,10 @@
     color: var(--q-color-text-primary);
 }
 
+.participants .left {
+    justify-content: right;
+}
+
 .win .elo-gain,
 .loss .elo-gain,
 .draw .elo-gain {
