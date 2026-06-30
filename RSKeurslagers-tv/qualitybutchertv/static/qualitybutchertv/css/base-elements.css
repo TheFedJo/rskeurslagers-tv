@@ -15,6 +15,9 @@
     display: flex;
     justify-content: center;
     font-family: var(--q-font-serif) !important;
+    background: var(--q-color-background-primary);
+    min-height: 100vh;
+    min-width: 100vw;
 }
 
 /* ── Root wrapper (width-limited) ───────────────────────– */
