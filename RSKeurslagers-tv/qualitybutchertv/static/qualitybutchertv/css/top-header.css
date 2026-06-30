@@ -38,12 +38,12 @@
 
 .stat-value {
     color: var(--q-color-text-primary);
-    font-size: 32px;
+    font-size: 42px;
     font-weight: 500;
 }
 
 .stat-label {
-    font-size: 16px;
+    font-size: 14px;
     color: var(--q-color-text-secondary);
 
 }
@@ -69,6 +69,14 @@
     }
     .stat-box {
         height: 4.75rem;
+    }
+
+    .stat-value {
+        font-size: 36px;
+    }
+
+    .stat-label {
+        font-size: 12px;
     }
 }
 
@@ -96,11 +104,11 @@
     }
 
     .stat-value {
-        font-size: 24px;
+        font-size: 30px;
     }
 
     .stat-label {
-        font-size: 11px;
+        font-size: 10px;
     }
 
 }
