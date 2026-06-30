@@ -170,9 +170,13 @@
     color: var(--q-color-text-primary);
     top: calc(50% + 96px);
     bottom: 5%;
-    font-size: 24px;
-    width: 20%;
-    align-self: normal;
+    width: 25%;
+    font-size: 48px;
+    padding: 12px 18px;
+    text-wrap: nowrap;
+    overflow: clip;
+    overflow-clip-margin: 18px;
+    text-overflow: ellipsis;
 }
 
 .live-counter-names.team-1 {
@@ -204,7 +208,9 @@
 
     .live-counter-names {
         top: calc(50% + 72px);
-        font-size: 18px;
+        font-size: 24px;
+        padding: 6px 9px;
+        overflow-clip-margin: 9px;
     }
 
     .live-score-button {
@@ -227,7 +233,9 @@
 
     .live-counter-names {
         top: calc(50% + 48px);
-        font-size: 12px;
+        font-size: 16px;
+        padding: 4px 6px;
+        overflow-clip-margin: 6px;
     }
 
     .live-score-button {
