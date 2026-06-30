@@ -89,6 +89,7 @@ class MatchForm {
     }
 
     renderTeams() {
+        this.liveCounter.clearTeamNames();
         if (!st.players.length) {
             this.teamWrap.innerHTML =
                 `<div class="warning-text">${gettext('Voeg eerst spelers toe.')}</div>`;
@@ -98,8 +99,20 @@ class MatchForm {
         const [t1c, t2c] = teamCounts(st.matchType);
         const buildTeam  = (label, count, prefix) => {
             const col    = document.createElement('div');
-            for (let i = 0; i < count; i++)
-                col.insertAdjacentHTML('beforeend', this.playerSelectHTML(`${prefix}${i}`));
+            for (let i = 0; i < count; i++) {
+                const id = `${prefix}${i}`;
+
+                col.insertAdjacentHTML(
+                    'beforeend',
+                    this.playerSelectHTML(id)
+                );
+
+                const playerSelect = col.querySelector(`#${id}`);
+
+                playerSelect.addEventListener('change', (event) => {
+                    this.liveCounter.updateTeamNames(event.target, id);
+                });
+            }
             return col;
         };
 

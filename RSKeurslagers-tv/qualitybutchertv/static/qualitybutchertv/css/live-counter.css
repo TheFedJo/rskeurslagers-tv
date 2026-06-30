@@ -121,12 +121,18 @@
 }
 
 /* ── Plus Buttons (relative to wrapper) ─────────────────── */
-.live-plus-btn {
+.live-plus-btn,
+.live-counter-names {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     z-index: 2;
     pointer-events: auto;
+    font-family: inherit;
+    margin: 0 48px;
+}
+
+.live-plus-btn {
+    transform: translateY(-50%);
+    top: 50%;
     padding: 24px 36px;
     font-size: 96px;
     font-weight: 600;
@@ -134,7 +140,6 @@
     border-radius: var(--q-border-radius-lg);
     cursor: pointer;
     transition: all 0.1s;
-    font-family: inherit;
     background: var(--q-color-text-primary);
     color: var(--q-color-background-secondary);
 }
@@ -151,13 +156,61 @@
 }
 
 .live-plus-btn.team-1 {
-    left: 25%;
+    right: 50%;
     border-color: var(--q-color-team1-primary);
 }
 
 .live-plus-btn.team-2 {
-    right: 25%;
+    left: 50%;
     border-color: var(--q-color-team2-primary);
+}
+
+/* ── Names (below buttons) ──────────────────────────────── */
+.live-counter-names {
+    color: var(--q-color-text-primary);
+    top: calc(50% + 96px);
+    bottom: 5%;
+    font-size: 24px;
+    width: 20%;
+    align-self: normal;
+}
+
+.live-counter-names.team-1 {
+    right: 50%;
+    text-align: right;
+}
+
+.live-counter-names.team-2 {
+    left: 50%;
+    text-align: left;
+}
+
+/* ── Responsive (Tablet) ────────────────────────────────── */
+@media (max-width: 768px) {
+    .live-counter-bar {
+        padding: 0.5vh 1vw;
+        font-size: 108px;
+    }
+
+    .live-plus-btn {
+        padding: 18px 27px;
+        font-size: 72px;
+    }
+
+    .live-plus-btn,
+    .live-counter-names {
+        margin: 0 12px;
+    }
+
+    .live-counter-names {
+        top: calc(50% + 72px);
+        font-size: 18px;
+    }
+
+    .live-score-button {
+        padding: 7px 14px;
+        font-size: 21px;
+    }
 }
 
 /* ── Responsive (Mobile) ────────────────────────────────── */
@@ -172,8 +225,13 @@
         font-size: 48px;
     }
 
+    .live-counter-names {
+        top: calc(50% + 48px);
+        font-size: 12px;
+    }
+
     .live-score-button {
         padding: 6px 12px;
-        font-size: 24px;
+        font-size: 18px;
     }
 }

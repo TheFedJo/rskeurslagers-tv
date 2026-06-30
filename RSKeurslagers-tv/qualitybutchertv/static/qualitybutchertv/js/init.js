@@ -20,9 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
         { active: 'active', class: 'sec',  prefix: 'sec-' }
     );
 
-    tabs.assignCallback('matches', () => {
-        matchForm.renderTeams();
+    tabs.assignCallback('matches', async () => {
         matchForm.renderTime();
+        await players.load();
+        matchForm.renderTeams();
         matchForm.updateRankedStatus();
     });
     tabs.assignCallback('elo', () => eloBoard.load());

@@ -5,12 +5,15 @@ class LiveScoreCounter {
         this.isActive = false;
 
         this.ground = document.querySelector('.ground');
+        this.root = document.querySelector('.root');
 
         // Get or create elements
         this.wrapper = document.querySelector('.live-counter-wrapper');
         this.button = document.getElementById('live-score-button');
         this.bar1 = document.getElementById('counter-team-1');
         this.bar2 = document.getElementById('counter-team-2');
+        this.team1 = this.wrapper.querySelector('.live-counter-names.team-1')
+        this.team2 = this.wrapper.querySelector('.live-counter-names.team-2');
 
         // Event listeners
         this.button.addEventListener('click', () => this.toggle());
@@ -19,10 +22,11 @@ class LiveScoreCounter {
 
         this.wrapper.addEventListener('mouseenter', () => {
             this.ground.style.overflow = 'hidden';
+            this.root.style.overflow = 'hidden';
         });
 
         this.wrapper.addEventListener('mouseleave', () => {
-            this.ground.style.overflow = '';
+            this.root.style.overflow = '';
         });
     }
 
@@ -64,5 +68,42 @@ class LiveScoreCounter {
         this.bar2.style.setProperty('--q-score', s2)
         this.bar1.innerHTML = s1
         this.bar2.innerHTML = s2
+    }
+
+    clearTeamNames(){
+        for (let team of [1, 2]) {
+            const teamContainer = team === 1 ? this.team1 : team === 2 ? this.team2 : null;
+            for (let player of [0,1,2,3,4]) {
+                let playerDiv = teamContainer.querySelector(`.t${team}p${player}`);
+                if (playerDiv) {
+                    playerDiv.parentNode.removeChild(playerDiv);
+                }
+            }
+        }
+
+    }
+
+    updateTeamNames(input, t0p0) {
+        const id = typeof input === "string" ? input : input.value;
+        const player = st.players.find((value) => value.id === id);
+        const teamNumber = parseInt(t0p0[1], 10);
+        console.log(teamNumber)
+        const teamContainer = teamNumber === 1
+            ? this.team1
+            : teamNumber === 2
+                ? this.team2
+                : null;
+
+        if (!teamContainer) return;
+
+        let playerDiv = teamContainer.querySelector(`.${t0p0}`);
+
+        if (!playerDiv) {
+            playerDiv = document.createElement("div");
+            playerDiv.classList.add(t0p0);
+            teamContainer.appendChild(playerDiv);
+        }
+
+        playerDiv.innerHTML = player === undefined ? "": `<div title="${player.member.display_name}">${player.nickname}</div>`;
     }
 }
