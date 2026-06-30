@@ -25,13 +25,13 @@ class Tabs {
         }
     }
 
-    go(tabName) {
+    async go(tabName) {
         if (!this.tabs.has(tabName)) throw new Error(`Unknown tab: ${tabName}`);
         for (const [name, el] of this.tabs)
             el.classList.toggle(this.tab.active, name === tabName);
         for (const [name, el] of this.sections)
             el.classList.toggle(this.sec.active, name === tabName);
-        this.callbacks.get(tabName)?.();
+        await this.callbacks.get(tabName)?.();
     }
 
     assignCallback(tabName, callback) {

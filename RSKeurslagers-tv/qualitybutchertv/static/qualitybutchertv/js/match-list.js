@@ -93,13 +93,13 @@ class MatchList {
             </span>`;
     }
 
-    edit(id) {
+    async edit(id) {
         const match = st.matches.find((m) => m.id === id);
         if (!match) {
             toast('Match not found', 'error')
             return
         }
-        tabs.go('matches');     // switch to the match tab
+        await tabs.go('matches');     // switch to the match tab
         matchForm.populate(match);
     }
 }
