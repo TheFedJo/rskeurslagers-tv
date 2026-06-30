@@ -80,7 +80,6 @@ class LiveScoreCounter {
                 }
             }
         }
-
     }
 
     updateTeamNames(input, t0p0) {

@@ -35,22 +35,11 @@ class MatchList {
         this.listEl.innerHTML = st.matches.sort((ma, mb) => (
             new Date(mb.timestamp_played) - new Date(ma.timestamp_played)
         )).map((m) => {
-            const results = m.score_team_1 > m.score_team_2
-                ? ['win', 'loss']
-                : m.score_team_2 > m.score_team_1
-                    ? ['loss', 'win']
-                    : ['draw', 'draw'];
-
             return `
                 <div class="match-row${m.ranked ? ' match-ranked' : ''}" id="mrow-${m.id}">
                     <div class="match-info">
                         ${this.renderTopRow(m)}
-                        ${this.renderParticipants(m.participants_detail ?? [], results)}
-                        <div class="match-metadata">${
-                            m.timestamp_played
-                                ? new Date(m.timestamp_played).toLocaleString()
-                                : ''
-                        }</div>
+                        ${this.renderParticipants(m.participants_detail ?? [], m)}
                     </div>
                     <button class="match-edit-button" onclick="matchList.edit(${m.id})">
                         ${gettext('Bewerken')}
@@ -64,28 +53,42 @@ class MatchList {
             ? `<span class="ranked-badge" title="${gettext('Klassementswedstrijd')}">Klassement</span>`
             : `<span class="unranked-badge" title="${gettext('Vriendschappelijke wedstrijd')}">Vriendschappelijk</span>`;
 
-        return `<div className="match-top-row">
-            ${m.match_type} — ${m.score_team_1} : ${m.score_team_2} — ${rankedBadge}
+        return `<div class="match-top-row">
+            ${m.match_type} — ${rankedBadge} <span class="match-metadata">${
+                m.timestamp_played
+                    ? new Date(m.timestamp_played).toLocaleString().slice(0, -3)
+                    : ''
+            }</span>
         </div>`;
     }
 
-    renderParticipants(participants, results) {
-        const renderOne = (side, p) => {
-            const gain = (p.elo_gain > 0 ? '+' : '') + p.elo_gain.toFixed(0);
-            return `<div class="participant ${side}" title="${p.display_name}">
-                ${side === "right" ? `<span class="elo-gain">${gain}</span>` : p.nickname}
-                ${side === "left" ? `<span class="elo-gain">${gain}</span>` : p.nickname}
-            </div>`;
+    renderParticipants(participants, match) {
+        const renderOne = (side, ranked, p) => {
+            if (ranked) {
+                const gain = (p.elo_gain > 0 ? '+' : '') + p.elo_gain.toFixed(0);
+                return `<div class="participant ${side}" title="${p.display_name}">
+                    ${side === "left" ? `<span class="elo-gain">${gain}</span>` : p.nickname}
+                    ${side === "right" ? `<span class="elo-gain">${gain}</span>` : p.nickname}
+                </div>`;
+            } else return `<div class="participant ${side}" title="${p.display_name}">${p.nickname}</div>`
         };
+
         const ps1 = participants.filter((p) => p.team === 1).map(
-            p => renderOne("left", p)
+            p => renderOne("left", match.ranked, p)
         ).join('');
         const ps2 = participants.filter((p) => p.team === 2).map(
-            p => renderOne("right", p)
+            p => renderOne("right", match.ranked, p)
         ).join('');
+
+        const results = match.score_team_1 > match.score_team_2
+                ? ['win', 'loss']
+                : match.score_team_2 > match.score_team_1
+                    ? ['loss', 'win']
+                    : ['draw', 'draw'];
         return `
             <span class="participants-wrapper">
                 <div class="participants left ${results[0]} ">${ps1}</div>
+                <div class="participants-score">${match.score_team_1} : ${match.score_team_2}</div>
                 <div class="participants right ${results[1]}">${ps2}</div>
             </span>`;
     }

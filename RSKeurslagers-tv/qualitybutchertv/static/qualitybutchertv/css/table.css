@@ -95,7 +95,17 @@
 }
 
 .participants .left {
-    justify-content: right;
+    text-align: right;
+}
+
+.participants-score {
+    font-size: x-large;
+    border: 0.5px solid var(--q-color-border-tertiary);
+    padding: 4px 8px;
+}
+
+.participants .right {
+    text-align: left;
 }
 
 .win .elo-gain,
@@ -123,6 +133,22 @@
     margin-top: 2px;
     font-family: var(--q-font-mono);
 }
+
+.match-top-row {
+    display: flex;
+    border-bottom: 1px solid var(--q-color-border-secondary);
+    margin-bottom: 4px;
+}
+
+.match-metadata {
+    margin-left: auto;
+    margin-top: auto;
+}
+
+.match-edit-button {
+    margin-left: 12px;
+}
+
 
 /* ── ELO badge ───────────────────────────────────────────── */
 .ebadge {
