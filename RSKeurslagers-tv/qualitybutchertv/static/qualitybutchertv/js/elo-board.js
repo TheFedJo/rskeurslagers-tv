@@ -119,7 +119,7 @@ class EloBoard {
                             ${playerInitials(player)}
                         </div>
                         
-                            <div class="elo-name">
+                            <div class="elo-name" title="${player.member.display_name}">
                                 ${player.nickname ?? gettext('Onbekend')}
                             </div>
                         
