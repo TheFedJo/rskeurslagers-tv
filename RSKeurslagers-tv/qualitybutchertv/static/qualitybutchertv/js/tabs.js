@@ -41,6 +41,6 @@ class Tabs {
   }
 
   assignCallback(tabName, callback) {
-    this.callbacks.set(tabName, callback);
+    this.callbacks.set(tabName, callback)
   }
 }

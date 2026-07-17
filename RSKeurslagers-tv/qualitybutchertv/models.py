@@ -90,12 +90,12 @@ class Match(models.Model):
                 condition=(
                     ~Q(ranked=True) | (
                         # winner between 10-12
-                        (Q(score_team_1__gte=10) | Q(score_team_2__gte=10)) &
-                        (Q(score_team_1__lte=12) & Q(score_team_2__lte=12)) &
+                        (Q(score_team_1__gte=10) | Q(score_team_2__gte=10))
+                        & (Q(score_team_1__lte=12) & Q(score_team_2__lte=12))
                         # loser at most 9
-                        (Q(score_team_1__lte=9) | Q(score_team_2__lte=9)) &
+                        & (Q(score_team_1__lte=9) | Q(score_team_2__lte=9))
                         # no draws
-                        ~Q(score_team_1=F('score_team_2'))
+                        & ~Q(score_team_1=F('score_team_2'))
                     )
                 )
             ),

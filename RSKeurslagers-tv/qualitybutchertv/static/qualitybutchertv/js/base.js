@@ -1,13 +1,15 @@
+/* exported playerInitials, teamCounts, isScoreRankedEligible, isMatchTypeEloEligible, api, toast */
+
 // ─── State ────────────────────────────────────────────────────────────────────
 const st = {
   players: [],
   matches: [],
   elo: [],
-  matchTypes: [],       // cache of MatchType objects incl. elo_eligible
+  matchTypes: [], // cache of MatchType objects incl. elo_eligible
   selMember: null,
   matchType: '2v2',
   eloFilter: 'all',
-  editingMatchId: null,
+  editingMatchId: null
 }
 
 // ─── Utilities ────────────────────────────────────────────────────────────────
@@ -50,9 +52,9 @@ async function api(method, path, body) {
     method,
     headers: {
       'Content-Type': 'application/json',
-      'X-CSRFToken': getCookie('csrftoken'),
+      'X-CSRFToken': getCookie('csrftoken')
     },
-    body: body ? JSON.stringify(body) : undefined,
+    body: body ? JSON.stringify(body) : undefined
   })
   if (!res.ok) throw await res.json()
   return res.json()
@@ -74,7 +76,7 @@ function toast(msg, type = 'ok') {
       opacity: '0',
       transition: 'opacity .2s',
       pointerEvents: 'none',
-      zIndex: '99',
+      zIndex: '99'
     })
     document.body.appendChild(t)
   }

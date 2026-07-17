@@ -1,3 +1,5 @@
+/* global st */
+
 class LiveScoreCounter {
   constructor(sc1, sc2) {
     this.sc1Input = sc1

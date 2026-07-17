@@ -1,3 +1,5 @@
+/* global api, toast, gettext, st */
+
 class Members {
   constructor() {
     this.searchTimer = null
@@ -98,6 +100,6 @@ class Members {
     this.nicknameInput.value = ''
     this.selectedCard.style.display = 'none'
     this.createBtnWrap.style.display = 'none'
-    this.createHint.textContent = '';
+    this.createHint.textContent = ''
   }
 }

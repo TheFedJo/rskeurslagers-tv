@@ -1,3 +1,5 @@
+/* global Members, Players, MatchForm, MatchList, EloBoard, Tabs, st, matchTypes, toast */
+
 let members
 let players
 let matchForm

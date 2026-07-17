@@ -1,17 +1,13 @@
-from django.urls import path, include
+from django.urls import path
 from django.views.i18n import JavaScriptCatalog
-from rest_framework.routers import DefaultRouter
 from . import views
-
-router = DefaultRouter()
-router.register(r'players', views.PlayerViewSet)
-router.register(r'matches', views.MatchViewSet)
-router.register(r'elo', views.EloListView)
 
 urlpatterns = [
     path('jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),
-    path('api/', include(router.urls)),
-    path('api/members/', views.MemberListView.as_view()),
+    path('api/members/', views.member_list),
+    path('api/players/', views.player_list),
+    path('api/matches/', views.match_list),
+    path('api/elo/', views.elo_list),
     path("", views.with_menu, name="qualitybutchertv.production"),
     path("testing", views.clean, name="qualitybutchertv.testing"),
 ]

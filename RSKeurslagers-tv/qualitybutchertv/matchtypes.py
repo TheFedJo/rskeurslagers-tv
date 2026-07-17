@@ -28,5 +28,6 @@ MATCH_TYPES = {
 MAX_RANKED_SCORE = 12
 MIN_RANKED_SCORE = 10
 
+
 def get_match_labels():
     return [(key, value["label"]) for key, value in MATCH_TYPES.items()]

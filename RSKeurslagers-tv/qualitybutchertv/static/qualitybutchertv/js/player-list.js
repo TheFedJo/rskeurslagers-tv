@@ -1,3 +1,5 @@
+/* global st, api, toast, gettext, members, playerInitials */
+
 class Players {
   constructor() {
     this.listEl = document.getElementById('player-list')
@@ -43,8 +45,8 @@ class Players {
       this.countEl.textContent = st.players.length.toString()
       toast(`${player.member?.display_name ?? nickname} ${gettext('als speler toegevoegd')}`)
     } catch (err) {
-      const msg = err?.member?.[0] ?? err?.non_field_errors?.[0]
-        ?? gettext('Speler aanmaken mislukt')
+      const msg = err?.member?.[0] ?? err?.non_field_errors?.[0] ??
+        gettext('Speler aanmaken mislukt')
       toast(msg, 'err')
       members.createHint.textContent = msg
     }

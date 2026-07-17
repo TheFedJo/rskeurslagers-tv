@@ -1,3 +1,6 @@
+/* global st, api, toast, gettext, playerInitials */
+/* exported EloBoard */
+
 class EloBoard {
   constructor() {
     this.listEl = document.getElementById('elo-list')

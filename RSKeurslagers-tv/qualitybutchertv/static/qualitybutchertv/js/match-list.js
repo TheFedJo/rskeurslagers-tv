@@ -1,3 +1,5 @@
+/* global st, api, gettext, toast, tabs, matchForm */
+
 class MatchList {
   constructor() {
     this.listEl = document.getElementById('match-list')
@@ -101,7 +103,7 @@ class MatchList {
       toast('Match not found', 'error')
       return
     }
-    await tabs.go('matches')     // switch to the match tab
-    matchForm.populate(match);
+    await tabs.go('matches') // switch to the match tab
+    matchForm.populate(match)
   }
 }

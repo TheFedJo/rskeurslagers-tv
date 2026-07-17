@@ -1,3 +1,5 @@
+/* global LiveScoreCounter, isScoreRankedEligible, isMatchTypeEloEligible, st, gettext, teamCounts, toast, api, matchList, eloBoard */
+
 class MatchForm {
   constructor() {
     this.liveButton = document.getElementById('live-score-button')
@@ -43,7 +45,7 @@ class MatchForm {
     } else if (s1 === s2) {
       this._setHint(gettext('Gelijkspel telt niet voor klassement.'), 'ineligible')
     } else {
-      const hi = Math.max(s1, s2), lo = Math.min(s1, s2)
+      const hi = Math.max(s1, s2); const lo = Math.min(s1, s2)
       if (hi < 10) {
         this._setHint(
           gettext('Winnaar moet minimaal 10 scoren voor klassement.'), 'ineligible'
@@ -201,7 +203,7 @@ class MatchForm {
 
   collectParticipants() {
     const [t1c, t2c] = teamCounts(st.matchType)
-    const t1 = [], t2 = []
+    const t1 = []; const t2 = []
 
     for (let i = 0; i < t1c; i++) {
       const v = document.getElementById(`t1p${i}`)?.value
@@ -236,7 +238,7 @@ class MatchForm {
         player: id,
         team: 2,
         elo_gain: 0
-      })),
+      }))
     ]
   }
 
@@ -281,7 +283,7 @@ class MatchForm {
       score_team_2: s2,
       timestamp_played: timestamp,
       ranked,
-      participants,
+      participants
     }
 
     try {
@@ -295,7 +297,7 @@ class MatchForm {
       } else {
         savedMatch = await api('POST', 'matches/', {
           ...payload,
-          timestamp_uploaded: new Date().toISOString(),
+          timestamp_uploaded: new Date().toISOString()
         })
         st.matches.push(savedMatch)
         matchList.countEl.textContent = st.matches.length
