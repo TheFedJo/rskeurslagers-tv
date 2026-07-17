@@ -6,7 +6,9 @@
 }
 
 /* ── Misc layout ─────────────────────────────────────────── */
-.mono { font-family: var(--q-font-mono); }
+.mono {
+    font-family: var(--q-font-mono);
+}
 
 .empty {
     text-align: center;

@@ -1,14 +1,16 @@
+import json
 from django.shortcuts import render
 from django.db.models import Q
 
 from rest_framework import mixins, generics, viewsets
 
 from .elo_service import SCALING_FACTOR, K_FACTOR, DEFAULT_ELO
-from .models import Player, Match, ELO, MatchType
+from .models import Player, Match, ELO
 from .serializers import (
     MemberSerializer, PlayerSerializer,
-    MatchSerializer, EloSerializer, MatchTypeSerializer
+    MatchSerializer, EloSerializer
 )
+from .matchtypes import MATCH_TYPES
 
 from members.models import Member
 
@@ -62,19 +64,16 @@ class EloListView(mixins.ListModelMixin,
         return qs
 
 
-class MatchTypeViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = MatchType.objects.all()
-    serializer_class = MatchTypeSerializer
-
-
 def clean(request):
     context = {
         'scaling_factor': SCALING_FACTOR,
         'k_factor': K_FACTOR,
         'default_rating': DEFAULT_ELO,
         'base_template': "qualitybutchertv/clean-base.html",
+        'match_types': json.dumps(MATCH_TYPES)
     }
     return render(request, 'qualitybutchertv/main.html', context)
+
 
 def with_menu(request):
     context = {
@@ -82,5 +81,6 @@ def with_menu(request):
         'k_factor': K_FACTOR,
         'default_rating': DEFAULT_ELO,
         'base_template': "rskv3/base.html",
+        'match_types': json.dumps(MATCH_TYPES)
     }
     return render(request, 'qualitybutchertv/main.html', context)

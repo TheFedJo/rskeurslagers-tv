@@ -7,7 +7,6 @@ router = DefaultRouter()
 router.register(r'players', views.PlayerViewSet)
 router.register(r'matches', views.MatchViewSet)
 router.register(r'elo', views.EloListView)
-router.register(r'match-types', views.MatchTypeViewSet)
 
 urlpatterns = [
     path('jsi18n/', JavaScriptCatalog.as_view(), name='javascript-catalog'),

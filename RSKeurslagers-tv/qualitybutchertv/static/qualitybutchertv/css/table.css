@@ -80,6 +80,7 @@
     font-weight: 500;
     color: var(--q-color-text-primary);
 }
+
 .ranked-badge, .unranked-badge {
     font-style: italic;
 }
@@ -127,7 +128,7 @@
     color: var(--q-color-text-warning)
 }
 
-.player-metadata, .match-metadata, .elo-metadata  {
+.player-metadata, .match-metadata, .elo-metadata {
     font-size: 12px;
     color: var(--q-color-text-secondary);
     margin-top: 2px;
@@ -169,7 +170,7 @@
     color: var(--q-color-background-primary);
 }
 
-.e-hi  {
+.e-hi {
     background: var(--q-color-text-success);
 }
 
@@ -177,11 +178,11 @@
     background: var(--q-color-text-info);
 }
 
-.e-lo  {
+.e-lo {
     background: var(--q-color-text-danger);
 }
 
-.e-no  {
+.e-no {
     background: var(--q-color-text-tertiary);
 }
 
@@ -199,7 +200,7 @@
     }
 }
 
-@media (max-width:600px) {
+@media (max-width: 600px) {
     #ranked-filter-btn {
         padding: 3px 8px;
         font-size: 14px;

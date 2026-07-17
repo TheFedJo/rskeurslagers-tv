@@ -134,6 +134,7 @@ input[type="checkbox"]:disabled {
     .ground { /* initial body div */
         padding: min(1rem, 1vw);
     }
+
     .root { /* width limited all-containing div */
         max-width: 100%;
     }

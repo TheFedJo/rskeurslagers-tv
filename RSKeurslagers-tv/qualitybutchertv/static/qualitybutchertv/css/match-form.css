@@ -85,6 +85,7 @@
     .team-wrap {
         grid-template-columns: 1fr;
     }
+
     .team-divider {
         display: block;
     }

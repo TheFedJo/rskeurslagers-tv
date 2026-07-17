@@ -32,8 +32,13 @@
     color: var(--q-color-text-secondary);
 }
 
-.dd-item:last-child { border-bottom: none; }
-.dd-item:hover { background: var(--q-color-background-secondary); }
+.dd-item:last-child {
+    border-bottom: none;
+}
+
+.dd-item:hover {
+    background: var(--q-color-background-secondary);
+}
 
 .dd-name {
     font-weight: 500;
@@ -53,21 +58,22 @@
     font-weight: 500;
 }
 
-.tag-new    {
+.tag-new {
     background: var(--q-color-background-success);
     color: var(--q-color-text-primary);
     text-shadow: 3px 0 2px var(--q-color-background-primary),
-                -3px 0 2px var(--q-color-background-primary),
-                 0 3px 2px var(--q-color-background-primary),
-                0 -3px 2px var(--q-color-background-primary);
+    -3px 0 2px var(--q-color-background-primary),
+    0 3px 2px var(--q-color-background-primary),
+    0 -3px 2px var(--q-color-background-primary);
 }
+
 .tag-exists {
     background: var(--q-color-background-info);
     color: var(--q-color-text-primary);
     text-shadow: 3px 0 2px var(--q-color-background-tertiary),
-                -3px 0 2px var(--q-color-background-tertiary),
-                 0 3px 2px var(--q-color-background-tertiary),
-                0 -3px 2px var(--q-color-background-tertiary);
+    -3px 0 2px var(--q-color-background-tertiary),
+    0 3px 2px var(--q-color-background-tertiary),
+    0 -3px 2px var(--q-color-background-tertiary);
 }
 
 

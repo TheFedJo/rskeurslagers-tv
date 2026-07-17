@@ -81,9 +81,9 @@
     background: var(--q-color-background-success);
     color: var(--q-color-text-secondary);
     text-shadow: 2px 0 1px var(--q-color-background-primary),
-                -2px 0 1px var(--q-color-background-primary),
-                 0 2px 1px var(--q-color-background-primary),
-                0 -2px 1px var(--q-color-background-primary);
+    -2px 0 1px var(--q-color-background-primary),
+    0 2px 1px var(--q-color-background-primary),
+    0 -2px 1px var(--q-color-background-primary);
 }
 
 @media (max-width: 768px) {
